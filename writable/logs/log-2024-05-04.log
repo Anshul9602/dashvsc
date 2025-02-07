@@ -1,0 +1,33 @@
+CRITICAL - 2024-05-04 14:58:04 --> Undefined variable $json_user
+in APPPATH/Views/user_list.php on line 256.
+ 1 APPPATH/Views/user_list.php(256): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(224): include('/home/webuser/web/dashboard.masterofjobs.in/public_html/app/Views/user_list.php')
+ 3 SYSTEMPATH/View/View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1180): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/Home.php(114): view()
+ 6 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Home->user_list()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-04 14:58:42 --> Undefined variable $json_user
+in APPPATH/Views/user_list.php on line 256.
+ 1 APPPATH/Views/user_list.php(256): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(224): include('/home/webuser/web/dashboard.masterofjobs.in/public_html/app/Views/user_list.php')
+ 3 SYSTEMPATH/View/View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1180): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/Home.php(114): view()
+ 6 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Home->user_list()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-05-04 14:58:58 --> Undefined variable $json_user
+in APPPATH/Views/user_list.php on line 256.
+ 1 APPPATH/Views/user_list.php(256): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(224): include('/home/webuser/web/dashboard.masterofjobs.in/public_html/app/Views/user_list.php')
+ 3 SYSTEMPATH/View/View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1180): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/Home.php(114): view()
+ 6 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Home->user_list()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()

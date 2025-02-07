@@ -1,0 +1,1137 @@
+CRITICAL - 2024-09-04 12:44:54 --> Error: Class "Locale" not found
+in SYSTEMPATH\CodeIgniter.php on line 218.
+ 1 ROOTPATH\spark(88): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2024-09-04 12:44:54 --> ErrorException: Uncaught Error: Class "Locale" not found in C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\I18n\TimeTrait.php:74
+Stack trace:
+#0 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\I18n\TimeTrait.php(115): CodeIgniter\I18n\Time->__construct(NULL, NULL, NULL)
+#1 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\HTTP\ResponseTrait.php(468): CodeIgniter\I18n\Time::now()
+#2 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\HTTP\ResponseTrait.php(446): CodeIgniter\HTTP\Response->sendHeaders()
+#3 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Debug\ExceptionHandler.php(81): CodeIgniter\HTTP\Response->send()
+#4 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Debug\Exceptions.php(157): CodeIgniter\Debug\ExceptionHandler->handle(Object(Error), Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), 500, 1)
+#5 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(Error))
+#6 {main}
+  thrown
+【Previous Exception】
+Error
+Class "Locale" not found
+#0 C:\xampp\htdocs\mojd\spark(88): CodeIgniter\CodeIgniter->initialize()
+#1 {main}
+in SYSTEMPATH\I18n\TimeTrait.php on line 74.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+INFO - 2024-09-04 10:45:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 10:45:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 10:45:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 10:45:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 10:45:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 10:45:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 10:45:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 10:45:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 10:46:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 10:46:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 10:46:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 10:46:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 10:46:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 10:46:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 10:51:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 10:51:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 10:52:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 10:52:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 10:52:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 10:52:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 10:52:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 10:52:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 10:54:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 10:54:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 10:54:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 10:59:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-09-04 10:59:28 --> mysqli_sql_exception: Table 'moj_d.users' doesn't exist in C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `users`....', 0)
+#1 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `users`....')
+#2 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `users`....')
+#3 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `users`....', Array, false)
+#4 C:\xampp\htdocs\mojd\app\Models\CandidatesModel.php(171): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\mojd\app\Controllers\Admin\Candidates\Candidates.php(48): App\Models\CandidatesModel->getAllUserData()
+#6 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\CodeIgniter.php(943): App\Controllers\Admin\Candidates\Candidates->listAllCandidates('7ec19b08321a86a...')
+#7 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Candidates\Candidates))
+#8 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\mojd\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+CRITICAL - 2024-09-04 10:59:28 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'moj_d.users' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `users`.*, `user_profiles`.*
+FROM `users`
+JOIN `user_profiles` ON `user_profiles`.`user_id` = `users`.`id`', [], false)
+ 2 APPPATH\Models\CandidatesModel.php(171): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Admin\Candidates\Candidates.php(48): App\Models\CandidatesModel->getAllUserData()
+ 4 SYSTEMPATH\CodeIgniter.php(943): App\Controllers\Admin\Candidates\Candidates->listAllCandidates('7ec19b08321a86aad05587f30f931e35')
+ 5 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Candidates\Candidates))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojd\\public\\index.php')
+CRITICAL - 2024-09-04 10:59:28 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'moj_d.users' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `users`.*, `user_profiles`.*
+FROM `users`
+JOIN `user_profiles` ON `user_profiles`.`user_id` = `users`.`id`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `users`.*, `user_profiles`.*
+FROM `users`
+JOIN `user_profiles` ON `user_profiles`.`user_id` = `users`.`id`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `users`.*, `user_profiles`.*
+FROM `users`
+JOIN `user_profiles` ON `user_profiles`.`user_id` = `users`.`id`', [], false)
+ 4 APPPATH\Models\CandidatesModel.php(171): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Admin\Candidates\Candidates.php(48): App\Models\CandidatesModel->getAllUserData()
+ 6 SYSTEMPATH\CodeIgniter.php(943): App\Controllers\Admin\Candidates\Candidates->listAllCandidates('7ec19b08321a86aad05587f30f931e35')
+ 7 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Candidates\Candidates))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojd\\public\\index.php')
+CRITICAL - 2024-09-04 10:59:28 --> [Caused by] mysqli_sql_exception: Table 'moj_d.users' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `users`.*, `user_profiles`.*
+FROM `users`
+JOIN `user_profiles` ON `user_profiles`.`user_id` = `users`.`id`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `users`.*, `user_profiles`.*
+FROM `users`
+JOIN `user_profiles` ON `user_profiles`.`user_id` = `users`.`id`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `users`.*, `user_profiles`.*
+FROM `users`
+JOIN `user_profiles` ON `user_profiles`.`user_id` = `users`.`id`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `users`.*, `user_profiles`.*
+FROM `users`
+JOIN `user_profiles` ON `user_profiles`.`user_id` = `users`.`id`', [], false)
+ 5 APPPATH\Models\CandidatesModel.php(171): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Admin\Candidates\Candidates.php(48): App\Models\CandidatesModel->getAllUserData()
+ 7 SYSTEMPATH\CodeIgniter.php(943): App\Controllers\Admin\Candidates\Candidates->listAllCandidates('7ec19b08321a86aad05587f30f931e35')
+ 8 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Candidates\Candidates))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojd\\public\\index.php')
+INFO - 2024-09-04 10:59:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 10:59:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-09-04 10:59:35 --> mysqli_sql_exception: Table 'moj_d.users' doesn't exist in C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `users`....', 0)
+#1 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `users`....')
+#2 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `users`....')
+#3 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `users`....', Array, false)
+#4 C:\xampp\htdocs\mojd\app\Models\CandidatesModel.php(171): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\mojd\app\Controllers\Admin\Candidates\Candidates.php(48): App\Models\CandidatesModel->getAllUserData()
+#6 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\CodeIgniter.php(943): App\Controllers\Admin\Candidates\Candidates->listAllCandidates('7ec19b08321a86a...')
+#7 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Candidates\Candidates))
+#8 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\mojd\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+CRITICAL - 2024-09-04 10:59:35 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'moj_d.users' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `users`.*, `user_profiles`.*
+FROM `users`
+JOIN `user_profiles` ON `user_profiles`.`user_id` = `users`.`id`', [], false)
+ 2 APPPATH\Models\CandidatesModel.php(171): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Admin\Candidates\Candidates.php(48): App\Models\CandidatesModel->getAllUserData()
+ 4 SYSTEMPATH\CodeIgniter.php(943): App\Controllers\Admin\Candidates\Candidates->listAllCandidates('7ec19b08321a86aad05587f30f931e35')
+ 5 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Candidates\Candidates))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojd\\public\\index.php')
+CRITICAL - 2024-09-04 10:59:35 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'moj_d.users' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `users`.*, `user_profiles`.*
+FROM `users`
+JOIN `user_profiles` ON `user_profiles`.`user_id` = `users`.`id`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `users`.*, `user_profiles`.*
+FROM `users`
+JOIN `user_profiles` ON `user_profiles`.`user_id` = `users`.`id`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `users`.*, `user_profiles`.*
+FROM `users`
+JOIN `user_profiles` ON `user_profiles`.`user_id` = `users`.`id`', [], false)
+ 4 APPPATH\Models\CandidatesModel.php(171): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Admin\Candidates\Candidates.php(48): App\Models\CandidatesModel->getAllUserData()
+ 6 SYSTEMPATH\CodeIgniter.php(943): App\Controllers\Admin\Candidates\Candidates->listAllCandidates('7ec19b08321a86aad05587f30f931e35')
+ 7 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Candidates\Candidates))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojd\\public\\index.php')
+CRITICAL - 2024-09-04 10:59:35 --> [Caused by] mysqli_sql_exception: Table 'moj_d.users' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `users`.*, `user_profiles`.*
+FROM `users`
+JOIN `user_profiles` ON `user_profiles`.`user_id` = `users`.`id`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `users`.*, `user_profiles`.*
+FROM `users`
+JOIN `user_profiles` ON `user_profiles`.`user_id` = `users`.`id`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `users`.*, `user_profiles`.*
+FROM `users`
+JOIN `user_profiles` ON `user_profiles`.`user_id` = `users`.`id`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `users`.*, `user_profiles`.*
+FROM `users`
+JOIN `user_profiles` ON `user_profiles`.`user_id` = `users`.`id`', [], false)
+ 5 APPPATH\Models\CandidatesModel.php(171): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Admin\Candidates\Candidates.php(48): App\Models\CandidatesModel->getAllUserData()
+ 7 SYSTEMPATH\CodeIgniter.php(943): App\Controllers\Admin\Candidates\Candidates->listAllCandidates('7ec19b08321a86aad05587f30f931e35')
+ 8 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Candidates\Candidates))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojd\\public\\index.php')
+INFO - 2024-09-04 10:59:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 10:59:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-09-04 10:59:42 --> mysqli_sql_exception: Table 'moj_d.admin' doesn't exist in C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Model.php(271): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\BaseModel.php(679): CodeIgniter\Model->doFirst()
+#6 C:\xampp\htdocs\mojd\app\Controllers\Admin\Auth.php(27): CodeIgniter\BaseModel->first()
+#7 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\CodeIgniter.php(943): App\Controllers\Admin\Auth->attemptLogin()
+#8 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Auth))
+#9 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\mojd\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs...')
+#12 {main}
+CRITICAL - 2024-09-04 10:59:42 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'moj_d.admin' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `admin`
+WHERE `email` = :email:
+ LIMIT 1', [...], false)
+ 2 SYSTEMPATH\Model.php(271): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(679): CodeIgniter\Model->doFirst()
+ 4 APPPATH\Controllers\Admin\Auth.php(27): CodeIgniter\BaseModel->first()
+ 5 SYSTEMPATH\CodeIgniter.php(943): App\Controllers\Admin\Auth->attemptLogin()
+ 6 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Auth))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojd\\public\\index.php')
+CRITICAL - 2024-09-04 10:59:42 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'moj_d.admin' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `admin`
+WHERE `email` = \'admin@gmail.com\'
+ LIMIT 1')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `admin`
+WHERE `email` = \'admin@gmail.com\'
+ LIMIT 1')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `admin`
+WHERE `email` = :email:
+ LIMIT 1', [...], false)
+ 4 SYSTEMPATH\Model.php(271): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(679): CodeIgniter\Model->doFirst()
+ 6 APPPATH\Controllers\Admin\Auth.php(27): CodeIgniter\BaseModel->first()
+ 7 SYSTEMPATH\CodeIgniter.php(943): App\Controllers\Admin\Auth->attemptLogin()
+ 8 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Auth))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojd\\public\\index.php')
+CRITICAL - 2024-09-04 10:59:42 --> [Caused by] mysqli_sql_exception: Table 'moj_d.admin' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *
+FROM `admin`
+WHERE `email` = \'admin@gmail.com\'
+ LIMIT 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `admin`
+WHERE `email` = \'admin@gmail.com\'
+ LIMIT 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `admin`
+WHERE `email` = \'admin@gmail.com\'
+ LIMIT 1')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `admin`
+WHERE `email` = :email:
+ LIMIT 1', [...], false)
+ 5 SYSTEMPATH\Model.php(271): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(679): CodeIgniter\Model->doFirst()
+ 7 APPPATH\Controllers\Admin\Auth.php(27): CodeIgniter\BaseModel->first()
+ 8 SYSTEMPATH\CodeIgniter.php(943): App\Controllers\Admin\Auth->attemptLogin()
+ 9 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Auth))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojd\\public\\index.php')
+CRITICAL - 2024-09-04 11:00:36 --> ErrorException: Undefined array key "pass"
+in APPPATH\Controllers\Admin\Auth.php on line 29.
+ 1 APPPATH\Controllers\Admin\Auth.php(29): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "pass"', 'C:\\xampp\\htdocs\\mojd\\app\\Controllers\\Admin\\Auth.php', 29)
+ 2 SYSTEMPATH\CodeIgniter.php(943): App\Controllers\Admin\Auth->attemptLogin()
+ 3 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Auth))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojd\\public\\index.php')
+INFO - 2024-09-04 11:01:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 11:01:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 11:01:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 11:01:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 11:02:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 11:02:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 11:02:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 11:02:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 11:03:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 11:03:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 11:03:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-09-04 11:03:08 --> mysqli_sql_exception: Table 'moj_d.users' doesn't exist in C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `users`....', 0)
+#1 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `users`....')
+#2 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `users`....')
+#3 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `users`....', Array, false)
+#4 C:\xampp\htdocs\mojd\app\Models\CandidatesModel.php(171): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\mojd\app\Controllers\Admin\Candidates\Candidates.php(48): App\Models\CandidatesModel->getAllUserData()
+#6 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\CodeIgniter.php(943): App\Controllers\Admin\Candidates\Candidates->listAllCandidates('21bea33e6e73440...')
+#7 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Candidates\Candidates))
+#8 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\mojd\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+CRITICAL - 2024-09-04 11:03:08 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'moj_d.users' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `users`.*, `user_profiles`.*
+FROM `users`
+JOIN `user_profiles` ON `user_profiles`.`user_id` = `users`.`id`', [], false)
+ 2 APPPATH\Models\CandidatesModel.php(171): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Admin\Candidates\Candidates.php(48): App\Models\CandidatesModel->getAllUserData()
+ 4 SYSTEMPATH\CodeIgniter.php(943): App\Controllers\Admin\Candidates\Candidates->listAllCandidates('21bea33e6e734408e446378cb9e42666')
+ 5 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Candidates\Candidates))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojd\\public\\index.php')
+CRITICAL - 2024-09-04 11:03:08 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'moj_d.users' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `users`.*, `user_profiles`.*
+FROM `users`
+JOIN `user_profiles` ON `user_profiles`.`user_id` = `users`.`id`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `users`.*, `user_profiles`.*
+FROM `users`
+JOIN `user_profiles` ON `user_profiles`.`user_id` = `users`.`id`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `users`.*, `user_profiles`.*
+FROM `users`
+JOIN `user_profiles` ON `user_profiles`.`user_id` = `users`.`id`', [], false)
+ 4 APPPATH\Models\CandidatesModel.php(171): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Admin\Candidates\Candidates.php(48): App\Models\CandidatesModel->getAllUserData()
+ 6 SYSTEMPATH\CodeIgniter.php(943): App\Controllers\Admin\Candidates\Candidates->listAllCandidates('21bea33e6e734408e446378cb9e42666')
+ 7 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Candidates\Candidates))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojd\\public\\index.php')
+CRITICAL - 2024-09-04 11:03:08 --> [Caused by] mysqli_sql_exception: Table 'moj_d.users' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `users`.*, `user_profiles`.*
+FROM `users`
+JOIN `user_profiles` ON `user_profiles`.`user_id` = `users`.`id`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `users`.*, `user_profiles`.*
+FROM `users`
+JOIN `user_profiles` ON `user_profiles`.`user_id` = `users`.`id`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `users`.*, `user_profiles`.*
+FROM `users`
+JOIN `user_profiles` ON `user_profiles`.`user_id` = `users`.`id`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `users`.*, `user_profiles`.*
+FROM `users`
+JOIN `user_profiles` ON `user_profiles`.`user_id` = `users`.`id`', [], false)
+ 5 APPPATH\Models\CandidatesModel.php(171): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Admin\Candidates\Candidates.php(48): App\Models\CandidatesModel->getAllUserData()
+ 7 SYSTEMPATH\CodeIgniter.php(943): App\Controllers\Admin\Candidates\Candidates->listAllCandidates('21bea33e6e734408e446378cb9e42666')
+ 8 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Candidates\Candidates))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojd\\public\\index.php')
+INFO - 2024-09-04 11:05:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-09-04 11:05:11 --> mysqli_sql_exception: Table 'moj_d.user_profiles' doesn't exist in C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `users`....', 0)
+#1 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `users`....')
+#2 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `users`....')
+#3 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `users`....', Array, false)
+#4 C:\xampp\htdocs\mojd\app\Models\CandidatesModel.php(171): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\mojd\app\Controllers\Admin\Candidates\Candidates.php(48): App\Models\CandidatesModel->getAllUserData()
+#6 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\CodeIgniter.php(943): App\Controllers\Admin\Candidates\Candidates->listAllCandidates('21bea33e6e73440...')
+#7 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Candidates\Candidates))
+#8 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\mojd\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+CRITICAL - 2024-09-04 11:05:11 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'moj_d.user_profiles' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `users`.*, `user_profiles`.*
+FROM `users`
+JOIN `user_profiles` ON `user_profiles`.`user_id` = `users`.`id`', [], false)
+ 2 APPPATH\Models\CandidatesModel.php(171): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Admin\Candidates\Candidates.php(48): App\Models\CandidatesModel->getAllUserData()
+ 4 SYSTEMPATH\CodeIgniter.php(943): App\Controllers\Admin\Candidates\Candidates->listAllCandidates('21bea33e6e734408e446378cb9e42666')
+ 5 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Candidates\Candidates))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojd\\public\\index.php')
+CRITICAL - 2024-09-04 11:05:11 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'moj_d.user_profiles' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `users`.*, `user_profiles`.*
+FROM `users`
+JOIN `user_profiles` ON `user_profiles`.`user_id` = `users`.`id`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `users`.*, `user_profiles`.*
+FROM `users`
+JOIN `user_profiles` ON `user_profiles`.`user_id` = `users`.`id`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `users`.*, `user_profiles`.*
+FROM `users`
+JOIN `user_profiles` ON `user_profiles`.`user_id` = `users`.`id`', [], false)
+ 4 APPPATH\Models\CandidatesModel.php(171): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Admin\Candidates\Candidates.php(48): App\Models\CandidatesModel->getAllUserData()
+ 6 SYSTEMPATH\CodeIgniter.php(943): App\Controllers\Admin\Candidates\Candidates->listAllCandidates('21bea33e6e734408e446378cb9e42666')
+ 7 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Candidates\Candidates))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojd\\public\\index.php')
+CRITICAL - 2024-09-04 11:05:11 --> [Caused by] mysqli_sql_exception: Table 'moj_d.user_profiles' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `users`.*, `user_profiles`.*
+FROM `users`
+JOIN `user_profiles` ON `user_profiles`.`user_id` = `users`.`id`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `users`.*, `user_profiles`.*
+FROM `users`
+JOIN `user_profiles` ON `user_profiles`.`user_id` = `users`.`id`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `users`.*, `user_profiles`.*
+FROM `users`
+JOIN `user_profiles` ON `user_profiles`.`user_id` = `users`.`id`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `users`.*, `user_profiles`.*
+FROM `users`
+JOIN `user_profiles` ON `user_profiles`.`user_id` = `users`.`id`', [], false)
+ 5 APPPATH\Models\CandidatesModel.php(171): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Admin\Candidates\Candidates.php(48): App\Models\CandidatesModel->getAllUserData()
+ 7 SYSTEMPATH\CodeIgniter.php(943): App\Controllers\Admin\Candidates\Candidates->listAllCandidates('21bea33e6e734408e446378cb9e42666')
+ 8 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Candidates\Candidates))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojd\\public\\index.php')
+INFO - 2024-09-04 11:06:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-09-04 11:06:06 --> mysqli_sql_exception: Table 'moj_d.user_profile_images' doesn't exist in C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Model.php(271): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\BaseModel.php(679): CodeIgniter\Model->doFirst()
+#6 C:\xampp\htdocs\mojd\app\Models\ProfileModel.php(70): CodeIgniter\BaseModel->first()
+#7 C:\xampp\htdocs\mojd\app\Controllers\Admin\Candidates\Candidates.php(57): App\Models\ProfileModel->findByUId('121')
+#8 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\CodeIgniter.php(943): App\Controllers\Admin\Candidates\Candidates->listAllCandidates('21bea33e6e73440...')
+#9 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Candidates\Candidates))
+#10 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\mojd\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs...')
+#13 {main}
+CRITICAL - 2024-09-04 11:06:06 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'moj_d.user_profile_images' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `user_profile_images`
+WHERE `user_id` = :user_id:
+ LIMIT 1', [...], false)
+ 2 SYSTEMPATH\Model.php(271): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(679): CodeIgniter\Model->doFirst()
+ 4 APPPATH\Models\ProfileModel.php(70): CodeIgniter\BaseModel->first()
+ 5 APPPATH\Controllers\Admin\Candidates\Candidates.php(57): App\Models\ProfileModel->findByUId('121')
+ 6 SYSTEMPATH\CodeIgniter.php(943): App\Controllers\Admin\Candidates\Candidates->listAllCandidates('21bea33e6e734408e446378cb9e42666')
+ 7 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Candidates\Candidates))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojd\\public\\index.php')
+CRITICAL - 2024-09-04 11:06:06 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'moj_d.user_profile_images' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `user_profile_images`
+WHERE `user_id` = \'121\'
+ LIMIT 1')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `user_profile_images`
+WHERE `user_id` = \'121\'
+ LIMIT 1')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `user_profile_images`
+WHERE `user_id` = :user_id:
+ LIMIT 1', [...], false)
+ 4 SYSTEMPATH\Model.php(271): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(679): CodeIgniter\Model->doFirst()
+ 6 APPPATH\Models\ProfileModel.php(70): CodeIgniter\BaseModel->first()
+ 7 APPPATH\Controllers\Admin\Candidates\Candidates.php(57): App\Models\ProfileModel->findByUId('121')
+ 8 SYSTEMPATH\CodeIgniter.php(943): App\Controllers\Admin\Candidates\Candidates->listAllCandidates('21bea33e6e734408e446378cb9e42666')
+ 9 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Candidates\Candidates))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojd\\public\\index.php')
+CRITICAL - 2024-09-04 11:06:06 --> [Caused by] mysqli_sql_exception: Table 'moj_d.user_profile_images' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *
+FROM `user_profile_images`
+WHERE `user_id` = \'121\'
+ LIMIT 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `user_profile_images`
+WHERE `user_id` = \'121\'
+ LIMIT 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `user_profile_images`
+WHERE `user_id` = \'121\'
+ LIMIT 1')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `user_profile_images`
+WHERE `user_id` = :user_id:
+ LIMIT 1', [...], false)
+ 5 SYSTEMPATH\Model.php(271): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(679): CodeIgniter\Model->doFirst()
+ 7 APPPATH\Models\ProfileModel.php(70): CodeIgniter\BaseModel->first()
+ 8 APPPATH\Controllers\Admin\Candidates\Candidates.php(57): App\Models\ProfileModel->findByUId('121')
+ 9 SYSTEMPATH\CodeIgniter.php(943): App\Controllers\Admin\Candidates\Candidates->listAllCandidates('21bea33e6e734408e446378cb9e42666')
+10 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Candidates\Candidates))
+11 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojd\\public\\index.php')
+INFO - 2024-09-04 11:06:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 11:06:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-09-04 11:06:38 --> mysqli_sql_exception: Table 'moj_d.working_experiences' doesn't exist in C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `working...', 0)
+#1 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `working...')
+#2 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `working...')
+#3 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `working...', Array, false)
+#4 C:\xampp\htdocs\mojd\app\Models\CandidatesModel.php(99): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\mojd\app\Controllers\Admin\Candidates\Candidates.php(296): App\Models\CandidatesModel->getby_id_data('121')
+#6 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\CodeIgniter.php(943): App\Controllers\Admin\Candidates\Candidates->listCandidate_getByid('121')
+#7 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Candidates\Candidates))
+#8 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\mojd\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+CRITICAL - 2024-09-04 11:06:38 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'moj_d.working_experiences' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `working_experiences`.*
+FROM `working_experiences`
+WHERE `working_experiences`.`user_id` = :working_experiences.user_id:', [...], false)
+ 2 APPPATH\Models\CandidatesModel.php(99): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Admin\Candidates\Candidates.php(296): App\Models\CandidatesModel->getby_id_data('121')
+ 4 SYSTEMPATH\CodeIgniter.php(943): App\Controllers\Admin\Candidates\Candidates->listCandidate_getByid('121')
+ 5 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Candidates\Candidates))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojd\\public\\index.php')
+CRITICAL - 2024-09-04 11:06:38 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'moj_d.working_experiences' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `working_experiences`.*
+FROM `working_experiences`
+WHERE `working_experiences`.`user_id` = \'121\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `working_experiences`.*
+FROM `working_experiences`
+WHERE `working_experiences`.`user_id` = \'121\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `working_experiences`.*
+FROM `working_experiences`
+WHERE `working_experiences`.`user_id` = :working_experiences.user_id:', [...], false)
+ 4 APPPATH\Models\CandidatesModel.php(99): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Admin\Candidates\Candidates.php(296): App\Models\CandidatesModel->getby_id_data('121')
+ 6 SYSTEMPATH\CodeIgniter.php(943): App\Controllers\Admin\Candidates\Candidates->listCandidate_getByid('121')
+ 7 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Candidates\Candidates))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojd\\public\\index.php')
+CRITICAL - 2024-09-04 11:06:38 --> [Caused by] mysqli_sql_exception: Table 'moj_d.working_experiences' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `working_experiences`.*
+FROM `working_experiences`
+WHERE `working_experiences`.`user_id` = \'121\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `working_experiences`.*
+FROM `working_experiences`
+WHERE `working_experiences`.`user_id` = \'121\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `working_experiences`.*
+FROM `working_experiences`
+WHERE `working_experiences`.`user_id` = \'121\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `working_experiences`.*
+FROM `working_experiences`
+WHERE `working_experiences`.`user_id` = :working_experiences.user_id:', [...], false)
+ 5 APPPATH\Models\CandidatesModel.php(99): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Admin\Candidates\Candidates.php(296): App\Models\CandidatesModel->getby_id_data('121')
+ 7 SYSTEMPATH\CodeIgniter.php(943): App\Controllers\Admin\Candidates\Candidates->listCandidate_getByid('121')
+ 8 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Candidates\Candidates))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojd\\public\\index.php')
+INFO - 2024-09-04 11:06:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-09-04 11:06:41 --> mysqli_sql_exception: Table 'moj_d.working_experiences' doesn't exist in C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `working...', 0)
+#1 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `working...')
+#2 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `working...')
+#3 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `working...', Array, false)
+#4 C:\xampp\htdocs\mojd\app\Models\CandidatesModel.php(99): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\mojd\app\Controllers\Admin\Candidates\Candidates.php(296): App\Models\CandidatesModel->getby_id_data('121')
+#6 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\CodeIgniter.php(943): App\Controllers\Admin\Candidates\Candidates->listCandidate_getByid('121')
+#7 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Candidates\Candidates))
+#8 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\mojd\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+CRITICAL - 2024-09-04 11:06:41 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'moj_d.working_experiences' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `working_experiences`.*
+FROM `working_experiences`
+WHERE `working_experiences`.`user_id` = :working_experiences.user_id:', [...], false)
+ 2 APPPATH\Models\CandidatesModel.php(99): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Admin\Candidates\Candidates.php(296): App\Models\CandidatesModel->getby_id_data('121')
+ 4 SYSTEMPATH\CodeIgniter.php(943): App\Controllers\Admin\Candidates\Candidates->listCandidate_getByid('121')
+ 5 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Candidates\Candidates))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojd\\public\\index.php')
+CRITICAL - 2024-09-04 11:06:41 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'moj_d.working_experiences' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `working_experiences`.*
+FROM `working_experiences`
+WHERE `working_experiences`.`user_id` = \'121\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `working_experiences`.*
+FROM `working_experiences`
+WHERE `working_experiences`.`user_id` = \'121\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `working_experiences`.*
+FROM `working_experiences`
+WHERE `working_experiences`.`user_id` = :working_experiences.user_id:', [...], false)
+ 4 APPPATH\Models\CandidatesModel.php(99): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Admin\Candidates\Candidates.php(296): App\Models\CandidatesModel->getby_id_data('121')
+ 6 SYSTEMPATH\CodeIgniter.php(943): App\Controllers\Admin\Candidates\Candidates->listCandidate_getByid('121')
+ 7 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Candidates\Candidates))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojd\\public\\index.php')
+CRITICAL - 2024-09-04 11:06:41 --> [Caused by] mysqli_sql_exception: Table 'moj_d.working_experiences' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `working_experiences`.*
+FROM `working_experiences`
+WHERE `working_experiences`.`user_id` = \'121\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `working_experiences`.*
+FROM `working_experiences`
+WHERE `working_experiences`.`user_id` = \'121\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `working_experiences`.*
+FROM `working_experiences`
+WHERE `working_experiences`.`user_id` = \'121\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `working_experiences`.*
+FROM `working_experiences`
+WHERE `working_experiences`.`user_id` = :working_experiences.user_id:', [...], false)
+ 5 APPPATH\Models\CandidatesModel.php(99): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Admin\Candidates\Candidates.php(296): App\Models\CandidatesModel->getby_id_data('121')
+ 7 SYSTEMPATH\CodeIgniter.php(943): App\Controllers\Admin\Candidates\Candidates->listCandidate_getByid('121')
+ 8 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Candidates\Candidates))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojd\\public\\index.php')
+INFO - 2024-09-04 11:06:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 11:06:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-09-04 11:06:49 --> mysqli_sql_exception: Table 'moj_d.working_experiences' doesn't exist in C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `working...', 0)
+#1 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `working...')
+#2 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `working...')
+#3 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `working...', Array, false)
+#4 C:\xampp\htdocs\mojd\app\Models\CandidatesModel.php(99): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\mojd\app\Controllers\Admin\Candidates\Candidates.php(296): App\Models\CandidatesModel->getby_id_data('139')
+#6 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\CodeIgniter.php(943): App\Controllers\Admin\Candidates\Candidates->listCandidate_getByid('139')
+#7 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Candidates\Candidates))
+#8 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\mojd\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+CRITICAL - 2024-09-04 11:06:49 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'moj_d.working_experiences' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `working_experiences`.*
+FROM `working_experiences`
+WHERE `working_experiences`.`user_id` = :working_experiences.user_id:', [...], false)
+ 2 APPPATH\Models\CandidatesModel.php(99): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Admin\Candidates\Candidates.php(296): App\Models\CandidatesModel->getby_id_data('139')
+ 4 SYSTEMPATH\CodeIgniter.php(943): App\Controllers\Admin\Candidates\Candidates->listCandidate_getByid('139')
+ 5 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Candidates\Candidates))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojd\\public\\index.php')
+CRITICAL - 2024-09-04 11:06:49 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'moj_d.working_experiences' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `working_experiences`.*
+FROM `working_experiences`
+WHERE `working_experiences`.`user_id` = \'139\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `working_experiences`.*
+FROM `working_experiences`
+WHERE `working_experiences`.`user_id` = \'139\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `working_experiences`.*
+FROM `working_experiences`
+WHERE `working_experiences`.`user_id` = :working_experiences.user_id:', [...], false)
+ 4 APPPATH\Models\CandidatesModel.php(99): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Admin\Candidates\Candidates.php(296): App\Models\CandidatesModel->getby_id_data('139')
+ 6 SYSTEMPATH\CodeIgniter.php(943): App\Controllers\Admin\Candidates\Candidates->listCandidate_getByid('139')
+ 7 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Candidates\Candidates))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojd\\public\\index.php')
+CRITICAL - 2024-09-04 11:06:49 --> [Caused by] mysqli_sql_exception: Table 'moj_d.working_experiences' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `working_experiences`.*
+FROM `working_experiences`
+WHERE `working_experiences`.`user_id` = \'139\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `working_experiences`.*
+FROM `working_experiences`
+WHERE `working_experiences`.`user_id` = \'139\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `working_experiences`.*
+FROM `working_experiences`
+WHERE `working_experiences`.`user_id` = \'139\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `working_experiences`.*
+FROM `working_experiences`
+WHERE `working_experiences`.`user_id` = :working_experiences.user_id:', [...], false)
+ 5 APPPATH\Models\CandidatesModel.php(99): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Admin\Candidates\Candidates.php(296): App\Models\CandidatesModel->getby_id_data('139')
+ 7 SYSTEMPATH\CodeIgniter.php(943): App\Controllers\Admin\Candidates\Candidates->listCandidate_getByid('139')
+ 8 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Candidates\Candidates))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojd\\public\\index.php')
+INFO - 2024-09-04 11:06:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-09-04 11:06:52 --> mysqli_sql_exception: Table 'moj_d.working_experiences' doesn't exist in C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `working...', 0)
+#1 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `working...')
+#2 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `working...')
+#3 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `working...', Array, false)
+#4 C:\xampp\htdocs\mojd\app\Models\CandidatesModel.php(99): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\mojd\app\Controllers\Admin\Candidates\Candidates.php(296): App\Models\CandidatesModel->getby_id_data('169')
+#6 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\CodeIgniter.php(943): App\Controllers\Admin\Candidates\Candidates->listCandidate_getByid('169')
+#7 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Candidates\Candidates))
+#8 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\mojd\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+CRITICAL - 2024-09-04 11:06:52 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'moj_d.working_experiences' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `working_experiences`.*
+FROM `working_experiences`
+WHERE `working_experiences`.`user_id` = :working_experiences.user_id:', [...], false)
+ 2 APPPATH\Models\CandidatesModel.php(99): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Admin\Candidates\Candidates.php(296): App\Models\CandidatesModel->getby_id_data('169')
+ 4 SYSTEMPATH\CodeIgniter.php(943): App\Controllers\Admin\Candidates\Candidates->listCandidate_getByid('169')
+ 5 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Candidates\Candidates))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojd\\public\\index.php')
+CRITICAL - 2024-09-04 11:06:52 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'moj_d.working_experiences' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `working_experiences`.*
+FROM `working_experiences`
+WHERE `working_experiences`.`user_id` = \'169\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `working_experiences`.*
+FROM `working_experiences`
+WHERE `working_experiences`.`user_id` = \'169\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `working_experiences`.*
+FROM `working_experiences`
+WHERE `working_experiences`.`user_id` = :working_experiences.user_id:', [...], false)
+ 4 APPPATH\Models\CandidatesModel.php(99): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Admin\Candidates\Candidates.php(296): App\Models\CandidatesModel->getby_id_data('169')
+ 6 SYSTEMPATH\CodeIgniter.php(943): App\Controllers\Admin\Candidates\Candidates->listCandidate_getByid('169')
+ 7 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Candidates\Candidates))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojd\\public\\index.php')
+CRITICAL - 2024-09-04 11:06:52 --> [Caused by] mysqli_sql_exception: Table 'moj_d.working_experiences' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `working_experiences`.*
+FROM `working_experiences`
+WHERE `working_experiences`.`user_id` = \'169\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `working_experiences`.*
+FROM `working_experiences`
+WHERE `working_experiences`.`user_id` = \'169\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `working_experiences`.*
+FROM `working_experiences`
+WHERE `working_experiences`.`user_id` = \'169\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `working_experiences`.*
+FROM `working_experiences`
+WHERE `working_experiences`.`user_id` = :working_experiences.user_id:', [...], false)
+ 5 APPPATH\Models\CandidatesModel.php(99): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Admin\Candidates\Candidates.php(296): App\Models\CandidatesModel->getby_id_data('169')
+ 7 SYSTEMPATH\CodeIgniter.php(943): App\Controllers\Admin\Candidates\Candidates->listCandidate_getByid('169')
+ 8 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Candidates\Candidates))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojd\\public\\index.php')
+INFO - 2024-09-04 11:07:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-09-04 11:07:01 --> mysqli_sql_exception: Table 'moj_d.working_experiences' doesn't exist in C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `working...', 0)
+#1 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `working...')
+#2 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `working...')
+#3 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `working...', Array, false)
+#4 C:\xampp\htdocs\mojd\app\Models\CandidatesModel.php(99): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\mojd\app\Controllers\Admin\Candidates\Candidates.php(296): App\Models\CandidatesModel->getby_id_data('169')
+#6 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\CodeIgniter.php(943): App\Controllers\Admin\Candidates\Candidates->listCandidate_getByid('169')
+#7 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Candidates\Candidates))
+#8 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\mojd\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+CRITICAL - 2024-09-04 11:07:01 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'moj_d.working_experiences' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `working_experiences`.*
+FROM `working_experiences`
+WHERE `working_experiences`.`user_id` = :working_experiences.user_id:', [...], false)
+ 2 APPPATH\Models\CandidatesModel.php(99): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Admin\Candidates\Candidates.php(296): App\Models\CandidatesModel->getby_id_data('169')
+ 4 SYSTEMPATH\CodeIgniter.php(943): App\Controllers\Admin\Candidates\Candidates->listCandidate_getByid('169')
+ 5 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Candidates\Candidates))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojd\\public\\index.php')
+CRITICAL - 2024-09-04 11:07:01 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'moj_d.working_experiences' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `working_experiences`.*
+FROM `working_experiences`
+WHERE `working_experiences`.`user_id` = \'169\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `working_experiences`.*
+FROM `working_experiences`
+WHERE `working_experiences`.`user_id` = \'169\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `working_experiences`.*
+FROM `working_experiences`
+WHERE `working_experiences`.`user_id` = :working_experiences.user_id:', [...], false)
+ 4 APPPATH\Models\CandidatesModel.php(99): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Admin\Candidates\Candidates.php(296): App\Models\CandidatesModel->getby_id_data('169')
+ 6 SYSTEMPATH\CodeIgniter.php(943): App\Controllers\Admin\Candidates\Candidates->listCandidate_getByid('169')
+ 7 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Candidates\Candidates))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojd\\public\\index.php')
+CRITICAL - 2024-09-04 11:07:01 --> [Caused by] mysqli_sql_exception: Table 'moj_d.working_experiences' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `working_experiences`.*
+FROM `working_experiences`
+WHERE `working_experiences`.`user_id` = \'169\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `working_experiences`.*
+FROM `working_experiences`
+WHERE `working_experiences`.`user_id` = \'169\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `working_experiences`.*
+FROM `working_experiences`
+WHERE `working_experiences`.`user_id` = \'169\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `working_experiences`.*
+FROM `working_experiences`
+WHERE `working_experiences`.`user_id` = :working_experiences.user_id:', [...], false)
+ 5 APPPATH\Models\CandidatesModel.php(99): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Admin\Candidates\Candidates.php(296): App\Models\CandidatesModel->getby_id_data('169')
+ 7 SYSTEMPATH\CodeIgniter.php(943): App\Controllers\Admin\Candidates\Candidates->listCandidate_getByid('169')
+ 8 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Candidates\Candidates))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojd\\public\\index.php')
+INFO - 2024-09-04 11:08:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 11:08:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 11:08:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 11:08:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 11:08:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 11:08:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 11:08:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 11:08:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 11:09:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-09-04 11:09:34 --> mysqli_sql_exception: Table 'moj_d.working_experiences' doesn't exist in C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `working...', 0)
+#1 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `working...')
+#2 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `working...')
+#3 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `working...', Array, false)
+#4 C:\xampp\htdocs\mojd\app\Models\CandidatesModel.php(99): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\mojd\app\Controllers\Admin\Candidates\Candidates.php(296): App\Models\CandidatesModel->getby_id_data('121')
+#6 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\CodeIgniter.php(943): App\Controllers\Admin\Candidates\Candidates->listCandidate_getByid('121')
+#7 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Candidates\Candidates))
+#8 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\mojd\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+CRITICAL - 2024-09-04 11:09:34 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'moj_d.working_experiences' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `working_experiences`.*
+FROM `working_experiences`
+WHERE `working_experiences`.`user_id` = :working_experiences.user_id:', [...], false)
+ 2 APPPATH\Models\CandidatesModel.php(99): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Admin\Candidates\Candidates.php(296): App\Models\CandidatesModel->getby_id_data('121')
+ 4 SYSTEMPATH\CodeIgniter.php(943): App\Controllers\Admin\Candidates\Candidates->listCandidate_getByid('121')
+ 5 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Candidates\Candidates))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojd\\public\\index.php')
+CRITICAL - 2024-09-04 11:09:34 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'moj_d.working_experiences' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `working_experiences`.*
+FROM `working_experiences`
+WHERE `working_experiences`.`user_id` = \'121\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `working_experiences`.*
+FROM `working_experiences`
+WHERE `working_experiences`.`user_id` = \'121\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `working_experiences`.*
+FROM `working_experiences`
+WHERE `working_experiences`.`user_id` = :working_experiences.user_id:', [...], false)
+ 4 APPPATH\Models\CandidatesModel.php(99): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Admin\Candidates\Candidates.php(296): App\Models\CandidatesModel->getby_id_data('121')
+ 6 SYSTEMPATH\CodeIgniter.php(943): App\Controllers\Admin\Candidates\Candidates->listCandidate_getByid('121')
+ 7 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Candidates\Candidates))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojd\\public\\index.php')
+CRITICAL - 2024-09-04 11:09:34 --> [Caused by] mysqli_sql_exception: Table 'moj_d.working_experiences' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `working_experiences`.*
+FROM `working_experiences`
+WHERE `working_experiences`.`user_id` = \'121\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `working_experiences`.*
+FROM `working_experiences`
+WHERE `working_experiences`.`user_id` = \'121\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `working_experiences`.*
+FROM `working_experiences`
+WHERE `working_experiences`.`user_id` = \'121\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `working_experiences`.*
+FROM `working_experiences`
+WHERE `working_experiences`.`user_id` = :working_experiences.user_id:', [...], false)
+ 5 APPPATH\Models\CandidatesModel.php(99): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Admin\Candidates\Candidates.php(296): App\Models\CandidatesModel->getby_id_data('121')
+ 7 SYSTEMPATH\CodeIgniter.php(943): App\Controllers\Admin\Candidates\Candidates->listCandidate_getByid('121')
+ 8 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Candidates\Candidates))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojd\\public\\index.php')
+INFO - 2024-09-04 11:09:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-09-04 11:09:43 --> mysqli_sql_exception: Table 'moj_d.working_experiences' doesn't exist in C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `working...', 0)
+#1 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `working...')
+#2 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `working...')
+#3 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `working...', Array, false)
+#4 C:\xampp\htdocs\mojd\app\Models\CandidatesModel.php(99): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\mojd\app\Controllers\Admin\Candidates\Candidates.php(296): App\Models\CandidatesModel->getby_id_data('121')
+#6 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\CodeIgniter.php(943): App\Controllers\Admin\Candidates\Candidates->listCandidate_getByid('121')
+#7 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Candidates\Candidates))
+#8 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\mojd\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\mojd\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+CRITICAL - 2024-09-04 11:09:43 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'moj_d.working_experiences' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `working_experiences`.*
+FROM `working_experiences`
+WHERE `working_experiences`.`user_id` = :working_experiences.user_id:', [...], false)
+ 2 APPPATH\Models\CandidatesModel.php(99): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Admin\Candidates\Candidates.php(296): App\Models\CandidatesModel->getby_id_data('121')
+ 4 SYSTEMPATH\CodeIgniter.php(943): App\Controllers\Admin\Candidates\Candidates->listCandidate_getByid('121')
+ 5 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Candidates\Candidates))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojd\\public\\index.php')
+CRITICAL - 2024-09-04 11:09:43 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'moj_d.working_experiences' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `working_experiences`.*
+FROM `working_experiences`
+WHERE `working_experiences`.`user_id` = \'121\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `working_experiences`.*
+FROM `working_experiences`
+WHERE `working_experiences`.`user_id` = \'121\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `working_experiences`.*
+FROM `working_experiences`
+WHERE `working_experiences`.`user_id` = :working_experiences.user_id:', [...], false)
+ 4 APPPATH\Models\CandidatesModel.php(99): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Admin\Candidates\Candidates.php(296): App\Models\CandidatesModel->getby_id_data('121')
+ 6 SYSTEMPATH\CodeIgniter.php(943): App\Controllers\Admin\Candidates\Candidates->listCandidate_getByid('121')
+ 7 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Candidates\Candidates))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojd\\public\\index.php')
+CRITICAL - 2024-09-04 11:09:43 --> [Caused by] mysqli_sql_exception: Table 'moj_d.working_experiences' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `working_experiences`.*
+FROM `working_experiences`
+WHERE `working_experiences`.`user_id` = \'121\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `working_experiences`.*
+FROM `working_experiences`
+WHERE `working_experiences`.`user_id` = \'121\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `working_experiences`.*
+FROM `working_experiences`
+WHERE `working_experiences`.`user_id` = \'121\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `working_experiences`.*
+FROM `working_experiences`
+WHERE `working_experiences`.`user_id` = :working_experiences.user_id:', [...], false)
+ 5 APPPATH\Models\CandidatesModel.php(99): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Admin\Candidates\Candidates.php(296): App\Models\CandidatesModel->getby_id_data('121')
+ 7 SYSTEMPATH\CodeIgniter.php(943): App\Controllers\Admin\Candidates\Candidates->listCandidate_getByid('121')
+ 8 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Candidates\Candidates))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojd\\public\\index.php')
+INFO - 2024-09-04 11:13:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 11:13:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 11:14:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 11:14:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 11:36:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 11:36:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 11:36:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 11:36:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-04 11:36:27 --> ErrorException: Undefined variable $users
+in APPPATH\Views\admin\candidates\list_candidates.php on line 86.
+ 1 APPPATH\Views\admin\candidates\list_candidates.php(86): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $users', 'C:\\xampp\\htdocs\\mojd\\app\\Views\\admin\\candidates\\list_candidates.php', 86)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\mojd\\app\\Views\\admin\\candidates\\list_candidates.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('admin/candidates/list_candidates', [], true)
+ 5 APPPATH\Controllers\Admin\Candidates\Candidates.php(87): view('admin/candidates/list_candidates', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(943): App\Controllers\Admin\Candidates\Candidates->listAllCandidates('c0b86b334b8f62a9dee01b1ec24c1a81')
+ 7 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Candidates\Candidates))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojd\\public\\index.php')
+INFO - 2024-09-04 11:39:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-04 11:39:32 --> ErrorException: Undefined variable $users
+in APPPATH\Views\admin\candidates\list_candidates.php on line 86.
+ 1 APPPATH\Views\admin\candidates\list_candidates.php(86): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $users', 'C:\\xampp\\htdocs\\mojd\\app\\Views\\admin\\candidates\\list_candidates.php', 86)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\mojd\\app\\Views\\admin\\candidates\\list_candidates.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('admin/candidates/list_candidates', [], true)
+ 5 APPPATH\Controllers\Admin\Candidates\Candidates.php(87): view('admin/candidates/list_candidates', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(943): App\Controllers\Admin\Candidates\Candidates->listAllCandidates('c0b86b334b8f62a9dee01b1ec24c1a81')
+ 7 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Candidates\Candidates))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojd\\public\\index.php')
+INFO - 2024-09-04 11:39:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-04 11:39:35 --> ErrorException: Undefined variable $users
+in APPPATH\Views\admin\candidates\list_candidates.php on line 86.
+ 1 APPPATH\Views\admin\candidates\list_candidates.php(86): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $users', 'C:\\xampp\\htdocs\\mojd\\app\\Views\\admin\\candidates\\list_candidates.php', 86)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\mojd\\app\\Views\\admin\\candidates\\list_candidates.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('admin/candidates/list_candidates', [], true)
+ 5 APPPATH\Controllers\Admin\Candidates\Candidates.php(87): view('admin/candidates/list_candidates', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(943): App\Controllers\Admin\Candidates\Candidates->listAllCandidates('c0b86b334b8f62a9dee01b1ec24c1a81')
+ 7 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Candidates\Candidates))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojd\\public\\index.php')
+INFO - 2024-09-04 11:39:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 11:39:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-04 11:39:40 --> ErrorException: Undefined variable $users
+in APPPATH\Views\admin\candidates\list_candidates.php on line 86.
+ 1 APPPATH\Views\admin\candidates\list_candidates.php(86): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $users', 'C:\\xampp\\htdocs\\mojd\\app\\Views\\admin\\candidates\\list_candidates.php', 86)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\mojd\\app\\Views\\admin\\candidates\\list_candidates.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('admin/candidates/list_candidates', [], true)
+ 5 APPPATH\Controllers\Admin\Candidates\Candidates.php(87): view('admin/candidates/list_candidates', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(943): App\Controllers\Admin\Candidates\Candidates->listAllCandidates('c0b86b334b8f62a9dee01b1ec24c1a81')
+ 7 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Candidates\Candidates))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojd\\public\\index.php')
+INFO - 2024-09-04 11:40:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-04 11:40:30 --> ErrorException: Undefined variable $users
+in APPPATH\Views\admin\candidates\list_candidates.php on line 84.
+ 1 APPPATH\Views\admin\candidates\list_candidates.php(84): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $users', 'C:\\xampp\\htdocs\\mojd\\app\\Views\\admin\\candidates\\list_candidates.php', 84)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\mojd\\app\\Views\\admin\\candidates\\list_candidates.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('admin/candidates/list_candidates', [], true)
+ 5 APPPATH\Controllers\Admin\Candidates\Candidates.php(87): view('admin/candidates/list_candidates', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(943): App\Controllers\Admin\Candidates\Candidates->listAllCandidates('c0b86b334b8f62a9dee01b1ec24c1a81')
+ 7 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Candidates\Candidates))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojd\\public\\index.php')
+INFO - 2024-09-04 11:55:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-04 11:55:40 --> ErrorException: Undefined variable $users
+in APPPATH\Views\admin\candidates\list_candidates.php on line 82.
+ 1 APPPATH\Views\admin\candidates\list_candidates.php(82): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $users', 'C:\\xampp\\htdocs\\mojd\\app\\Views\\admin\\candidates\\list_candidates.php', 82)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\mojd\\app\\Views\\admin\\candidates\\list_candidates.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('admin/candidates/list_candidates', [], true)
+ 5 APPPATH\Controllers\Admin\Candidates\Candidates.php(87): view('admin/candidates/list_candidates', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(943): App\Controllers\Admin\Candidates\Candidates->listAllCandidates('c0b86b334b8f62a9dee01b1ec24c1a81')
+ 7 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Candidates\Candidates))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojd\\public\\index.php')
+INFO - 2024-09-04 12:05:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-04 12:05:12 --> ErrorException: Undefined variable $users
+in APPPATH\Views\admin\candidates\list_candidates.php on line 82.
+ 1 APPPATH\Views\admin\candidates\list_candidates.php(82): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $users', 'C:\\xampp\\htdocs\\mojd\\app\\Views\\admin\\candidates\\list_candidates.php', 82)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\mojd\\app\\Views\\admin\\candidates\\list_candidates.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('admin/candidates/list_candidates', [], true)
+ 5 APPPATH\Controllers\Admin\Candidates\Candidates.php(87): view('admin/candidates/list_candidates', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(943): App\Controllers\Admin\Candidates\Candidates->listAllCandidates('c0b86b334b8f62a9dee01b1ec24c1a81')
+ 7 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Candidates\Candidates))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojd\\public\\index.php')
+INFO - 2024-09-04 12:06:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-04 12:06:12 --> ErrorException: Attempt to read property "id" on string
+in APPPATH\Views\admin\candidates\list_candidates.php on line 93.
+ 1 APPPATH\Views\admin\candidates\list_candidates.php(93): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "id" on string', 'C:\\xampp\\htdocs\\mojd\\app\\Views\\admin\\candidates\\list_candidates.php', 93)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\mojd\\app\\Views\\admin\\candidates\\list_candidates.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('admin/candidates/list_candidates', [], true)
+ 5 APPPATH\Controllers\Admin\Candidates\Candidates.php(89): view('admin/candidates/list_candidates', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(943): App\Controllers\Admin\Candidates\Candidates->listAllCandidates('c0b86b334b8f62a9dee01b1ec24c1a81')
+ 7 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Candidates\Candidates))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojd\\public\\index.php')
+INFO - 2024-09-04 12:06:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-04 12:06:42 --> ErrorException: Attempt to read property "id" on string
+in APPPATH\Views\admin\candidates\list_candidates.php on line 93.
+ 1 APPPATH\Views\admin\candidates\list_candidates.php(93): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "id" on string', 'C:\\xampp\\htdocs\\mojd\\app\\Views\\admin\\candidates\\list_candidates.php', 93)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\mojd\\app\\Views\\admin\\candidates\\list_candidates.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('admin/candidates/list_candidates', [], true)
+ 5 APPPATH\Controllers\Admin\Candidates\Candidates.php(89): view('admin/candidates/list_candidates', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(943): App\Controllers\Admin\Candidates\Candidates->listAllCandidates('c0b86b334b8f62a9dee01b1ec24c1a81')
+ 7 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Candidates\Candidates))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojd\\public\\index.php')
+INFO - 2024-09-04 12:07:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-04 12:07:14 --> ErrorException: Attempt to read property "id" on null
+in APPPATH\Views\admin\candidates\list_candidates.php on line 93.
+ 1 APPPATH\Views\admin\candidates\list_candidates.php(93): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "id" on null', 'C:\\xampp\\htdocs\\mojd\\app\\Views\\admin\\candidates\\list_candidates.php', 93)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\mojd\\app\\Views\\admin\\candidates\\list_candidates.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('admin/candidates/list_candidates', [], true)
+ 5 APPPATH\Controllers\Admin\Candidates\Candidates.php(89): view('admin/candidates/list_candidates', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(943): App\Controllers\Admin\Candidates\Candidates->listAllCandidates('c0b86b334b8f62a9dee01b1ec24c1a81')
+ 7 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Candidates\Candidates))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojd\\public\\index.php')
+INFO - 2024-09-04 12:08:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-04 12:08:56 --> ErrorException: Attempt to read property "id" on null
+in APPPATH\Views\admin\candidates\list_candidates.php on line 92.
+ 1 APPPATH\Views\admin\candidates\list_candidates.php(92): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "id" on null', 'C:\\xampp\\htdocs\\mojd\\app\\Views\\admin\\candidates\\list_candidates.php', 92)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\mojd\\app\\Views\\admin\\candidates\\list_candidates.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('admin/candidates/list_candidates', [], true)
+ 5 APPPATH\Controllers\Admin\Candidates\Candidates.php(89): view('admin/candidates/list_candidates', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(943): App\Controllers\Admin\Candidates\Candidates->listAllCandidates('c0b86b334b8f62a9dee01b1ec24c1a81')
+ 7 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Candidates\Candidates))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojd\\public\\index.php')
+INFO - 2024-09-04 12:09:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-04 12:09:30 --> ErrorException: Attempt to read property "id" on null
+in APPPATH\Views\admin\candidates\list_candidates.php on line 96.
+ 1 APPPATH\Views\admin\candidates\list_candidates.php(96): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "id" on null', 'C:\\xampp\\htdocs\\mojd\\app\\Views\\admin\\candidates\\list_candidates.php', 96)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\mojd\\app\\Views\\admin\\candidates\\list_candidates.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('admin/candidates/list_candidates', [], true)
+ 5 APPPATH\Controllers\Admin\Candidates\Candidates.php(89): view('admin/candidates/list_candidates', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(943): App\Controllers\Admin\Candidates\Candidates->listAllCandidates('c0b86b334b8f62a9dee01b1ec24c1a81')
+ 7 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Candidates\Candidates))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\mojd\\public\\index.php')
+INFO - 2024-09-04 12:11:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 12:12:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 12:12:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 12:12:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 12:13:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 12:13:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 12:14:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 12:14:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 12:14:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 12:15:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 12:15:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-04 12:18:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

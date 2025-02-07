@@ -1,0 +1,203 @@
+INFO - 2024-12-24 08:58:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-12-24 09:01:07 --> Error connecting to the database: mysqli_sql_exception: Unknown database 'webuser_moj' in /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:185
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(185): mysqli->real_connect('127.0.0.1', 'root', '', 'webuser_moj', 3306, '', 0)
+#1 /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/vendor/codeigniter4/framework/system/Database/BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/vendor/codeigniter4/framework/system/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#3 /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/vendor/codeigniter4/framework/system/Model.php(271): CodeIgniter\Database\BaseBuilder->get()
+#5 /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/vendor/codeigniter4/framework/system/BaseModel.php(679): CodeIgniter\Model->doFirst()
+#6 /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/app/Controllers/Admin/Auth.php(27): CodeIgniter\BaseModel->first()
+#7 /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/vendor/codeigniter4/framework/system/CodeIgniter.php(943): App\Controllers\Admin\Auth->attemptLogin()
+#8 /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/vendor/codeigniter4/framework/system/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Auth))
+#9 /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/vendor/codeigniter4/framework/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/public/index.php(79): CodeIgniter\CodeIgniter->run()
+#11 /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(47): require_once('/Applications/X...')
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Unknown database 'webuser_moj' in /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:229
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/vendor/codeigniter4/framework/system/Database/BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/vendor/codeigniter4/framework/system/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#2 /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/vendor/codeigniter4/framework/system/Model.php(271): CodeIgniter\Database\BaseBuilder->get()
+#4 /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/vendor/codeigniter4/framework/system/BaseModel.php(679): CodeIgniter\Model->doFirst()
+#5 /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/app/Controllers/Admin/Auth.php(27): CodeIgniter\BaseModel->first()
+#6 /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/vendor/codeigniter4/framework/system/CodeIgniter.php(943): App\Controllers\Admin\Auth->attemptLogin()
+#7 /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/vendor/codeigniter4/framework/system/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Auth))
+#8 /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/vendor/codeigniter4/framework/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/public/index.php(79): CodeIgniter\CodeIgniter->run()
+#10 /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(47): require_once('/Applications/X...')
+#11 {main}
+CRITICAL - 2024-12-24 09:01:07 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'webuser_moj'
+in SYSTEMPATH/Database/BaseConnection.php on line 428.
+ 1 SYSTEMPATH/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `admin`
+WHERE `email` = :email:
+ LIMIT 1', [...], false)
+ 3 SYSTEMPATH/Model.php(271): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(679): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Controllers/Admin/Auth.php(27): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Admin\Auth->attemptLogin()
+ 7 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Auth))
+ 8 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Applications/XAMPP/xamppfiles/htdocs/ND_ERP/public/index.php')
+ERROR - 2024-12-24 09:01:41 --> Error connecting to the database: mysqli_sql_exception: No such file or directory in /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:185
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(185): mysqli->real_connect('localhost', 'root', '', 'nderp', 3306, '', 0)
+#1 /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/vendor/codeigniter4/framework/system/Database/BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/vendor/codeigniter4/framework/system/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#3 /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/vendor/codeigniter4/framework/system/Model.php(271): CodeIgniter\Database\BaseBuilder->get()
+#5 /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/vendor/codeigniter4/framework/system/BaseModel.php(679): CodeIgniter\Model->doFirst()
+#6 /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/app/Controllers/Admin/Auth.php(27): CodeIgniter\BaseModel->first()
+#7 /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/vendor/codeigniter4/framework/system/CodeIgniter.php(943): App\Controllers\Admin\Auth->attemptLogin()
+#8 /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/vendor/codeigniter4/framework/system/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Auth))
+#9 /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/vendor/codeigniter4/framework/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/public/index.php(79): CodeIgniter\CodeIgniter->run()
+#11 /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(47): require_once('/Applications/X...')
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No such file or directory in /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:229
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/vendor/codeigniter4/framework/system/Database/BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/vendor/codeigniter4/framework/system/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#2 /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/vendor/codeigniter4/framework/system/Model.php(271): CodeIgniter\Database\BaseBuilder->get()
+#4 /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/vendor/codeigniter4/framework/system/BaseModel.php(679): CodeIgniter\Model->doFirst()
+#5 /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/app/Controllers/Admin/Auth.php(27): CodeIgniter\BaseModel->first()
+#6 /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/vendor/codeigniter4/framework/system/CodeIgniter.php(943): App\Controllers\Admin\Auth->attemptLogin()
+#7 /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/vendor/codeigniter4/framework/system/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Auth))
+#8 /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/vendor/codeigniter4/framework/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/public/index.php(79): CodeIgniter\CodeIgniter->run()
+#10 /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(47): require_once('/Applications/X...')
+#11 {main}
+CRITICAL - 2024-12-24 09:01:41 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: No such file or directory
+in SYSTEMPATH/Database/BaseConnection.php on line 428.
+ 1 SYSTEMPATH/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `admin`
+WHERE `email` = :email:
+ LIMIT 1', [...], false)
+ 3 SYSTEMPATH/Model.php(271): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(679): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Controllers/Admin/Auth.php(27): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Admin\Auth->attemptLogin()
+ 7 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Auth))
+ 8 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Applications/XAMPP/xamppfiles/htdocs/ND_ERP/public/index.php')
+INFO - 2024-12-24 09:02:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-24 09:02:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-24 09:02:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-24 09:55:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-24 09:56:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-24 09:58:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-24 10:07:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-24 10:07:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-24 10:07:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-24 10:07:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-24 10:08:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-24 10:08:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-24 10:11:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-24 10:12:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-24 10:12:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-24 10:16:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-24 10:17:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-24 10:17:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-24 10:17:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-12-24 10:17:19 --> ArgumentCountError: Too few arguments to function App\Controllers\GoogleSheetController::createSheet(), 0 passed in /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/vendor/codeigniter4/framework/system/CodeIgniter.php on line 943 and exactly 1 expected
+in APPPATH/Controllers/GoogleSheetController.php on line 10.
+ 1 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\GoogleSheetController->createSheet()
+ 2 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\GoogleSheetController))
+ 3 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Applications/XAMPP/xamppfiles/htdocs/ND_ERP/public/index.php')
+INFO - 2024-12-24 10:18:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-12-24 10:18:21 --> mysqli_sql_exception: Table 'nderp.form_submissions' doesn't exist in /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:306
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(306): mysqli->query('UPDATE `form_su...', 0)
+#1 /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/vendor/codeigniter4/framework/system/Database/BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `form_su...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/vendor/codeigniter4/framework/system/Database/BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `form_su...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(2474): CodeIgniter\Database\BaseConnection->query('UPDATE `form_su...', Array, false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/app/Controllers/GoogleSheetController.php(34): CodeIgniter\Database\BaseBuilder->update(Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/vendor/codeigniter4/framework/system/CodeIgniter.php(943): App\Controllers\GoogleSheetController->createSheet()
+#6 /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/vendor/codeigniter4/framework/system/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\GoogleSheetController))
+#7 /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/vendor/codeigniter4/framework/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/public/index.php(79): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(47): require_once('/Applications/X...')
+#10 {main}
+CRITICAL - 2024-12-24 10:18:21 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'nderp.form_submissions' doesn't exist
+in SYSTEMPATH/Database/BaseConnection.php on line 647.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(2474): CodeIgniter\Database\BaseConnection->query('UPDATE `form_submissions` SET `google_sheet_id` = :google_sheet_id:, `google_sheet_url` = :google_sheet_url:
+WHERE `id` = :id:', [...], false)
+ 2 APPPATH/Controllers/GoogleSheetController.php(34): CodeIgniter\Database\BaseBuilder->update([...])
+ 3 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\GoogleSheetController->createSheet()
+ 4 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\GoogleSheetController))
+ 5 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Applications/XAMPP/xamppfiles/htdocs/ND_ERP/public/index.php')
+CRITICAL - 2024-12-24 10:18:21 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'nderp.form_submissions' doesn't exist
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 311.
+ 1 SYSTEMPATH/Database/BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `form_submissions` SET `google_sheet_id` = \'1PcVqypWAesE1P_M7Wpz5d1S0Mq3TdkFnwfuF5iQamk8\', `google_sheet_url` = \'https://docs.google.com/spreadsheets/d/1PcVqypWAesE1P_M7Wpz5d1S0Mq3TdkFnwfuF5iQamk8/edit\'
+WHERE `id` = 100')
+ 2 SYSTEMPATH/Database/BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `form_submissions` SET `google_sheet_id` = \'1PcVqypWAesE1P_M7Wpz5d1S0Mq3TdkFnwfuF5iQamk8\', `google_sheet_url` = \'https://docs.google.com/spreadsheets/d/1PcVqypWAesE1P_M7Wpz5d1S0Mq3TdkFnwfuF5iQamk8/edit\'
+WHERE `id` = 100')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(2474): CodeIgniter\Database\BaseConnection->query('UPDATE `form_submissions` SET `google_sheet_id` = :google_sheet_id:, `google_sheet_url` = :google_sheet_url:
+WHERE `id` = :id:', [...], false)
+ 4 APPPATH/Controllers/GoogleSheetController.php(34): CodeIgniter\Database\BaseBuilder->update([...])
+ 5 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\GoogleSheetController->createSheet()
+ 6 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\GoogleSheetController))
+ 7 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Applications/XAMPP/xamppfiles/htdocs/ND_ERP/public/index.php')
+CRITICAL - 2024-12-24 10:18:21 --> [Caused by] mysqli_sql_exception: Table 'nderp.form_submissions' doesn't exist
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 306.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(306): mysqli->query('UPDATE `form_submissions` SET `google_sheet_id` = \'1PcVqypWAesE1P_M7Wpz5d1S0Mq3TdkFnwfuF5iQamk8\', `google_sheet_url` = \'https://docs.google.com/spreadsheets/d/1PcVqypWAesE1P_M7Wpz5d1S0Mq3TdkFnwfuF5iQamk8/edit\'
+WHERE `id` = 100', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `form_submissions` SET `google_sheet_id` = \'1PcVqypWAesE1P_M7Wpz5d1S0Mq3TdkFnwfuF5iQamk8\', `google_sheet_url` = \'https://docs.google.com/spreadsheets/d/1PcVqypWAesE1P_M7Wpz5d1S0Mq3TdkFnwfuF5iQamk8/edit\'
+WHERE `id` = 100')
+ 3 SYSTEMPATH/Database/BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `form_submissions` SET `google_sheet_id` = \'1PcVqypWAesE1P_M7Wpz5d1S0Mq3TdkFnwfuF5iQamk8\', `google_sheet_url` = \'https://docs.google.com/spreadsheets/d/1PcVqypWAesE1P_M7Wpz5d1S0Mq3TdkFnwfuF5iQamk8/edit\'
+WHERE `id` = 100')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(2474): CodeIgniter\Database\BaseConnection->query('UPDATE `form_submissions` SET `google_sheet_id` = :google_sheet_id:, `google_sheet_url` = :google_sheet_url:
+WHERE `id` = :id:', [...], false)
+ 5 APPPATH/Controllers/GoogleSheetController.php(34): CodeIgniter\Database\BaseBuilder->update([...])
+ 6 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\GoogleSheetController->createSheet()
+ 7 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\GoogleSheetController))
+ 8 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Applications/XAMPP/xamppfiles/htdocs/ND_ERP/public/index.php')
+INFO - 2024-12-24 10:18:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-24 10:20:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-12-24 10:20:54 --> ErrorException: Trait "App\Controllers\Google\Service\Drive" not found
+in APPPATH/Controllers/GoogleSheetController.php on line 8.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+INFO - 2024-12-24 10:21:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-12-24 10:21:46 --> ArgumentCountError: Too few arguments to function App\Controllers\GoogleSheetController::createSheet(), 0 passed in /Applications/XAMPP/xamppfiles/htdocs/ND_ERP/vendor/codeigniter4/framework/system/CodeIgniter.php on line 943 and exactly 1 expected
+in APPPATH/Controllers/GoogleSheetController.php on line 14.
+ 1 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\GoogleSheetController->createSheet()
+ 2 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\GoogleSheetController))
+ 3 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Applications/XAMPP/xamppfiles/htdocs/ND_ERP/public/index.php')
+INFO - 2024-12-24 10:21:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-24 10:24:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-24 10:24:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-24 10:32:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-24 10:32:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-24 10:32:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-24 10:34:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-24 10:34:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-24 10:35:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-24 10:38:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-24 10:38:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-24 10:38:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-24 10:40:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-24 10:46:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-24 10:48:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-24 10:48:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-24 10:49:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

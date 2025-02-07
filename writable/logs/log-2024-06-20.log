@@ -1,0 +1,20 @@
+INFO - 2024-06-20 11:54:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-20 11:54:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-20 11:54:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-20 11:54:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-20 11:55:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-20 11:55:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-06-20 11:55:26 --> ErrorException: Undefined index: state_name
+in APPPATH/Views/admin/settings/list_all_cities.php on line 94.
+ 1 APPPATH/Views/admin/settings/list_all_cities.php(94): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index: state_name', '/Applications/XAMPP/xamppfiles/htdocs/MOJ/moj_admin/app/Views/admin/settings/list_all_cities.php', 94, [...])
+ 2 SYSTEMPATH/View/View.php(228): include('/Applications/XAMPP/xamppfiles/htdocs/MOJ/moj_admin/app/Views/admin/settings/list_all_cities.php')
+ 3 SYSTEMPATH/View/View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1178): CodeIgniter\View\View->render('admin/settings/list_all_cities', [], true)
+ 5 APPPATH/Controllers/Admin/Settings.php(215): view('admin/settings/list_all_cities', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Admin\Settings->listAllCities('b484cf4f6caf9c9e3052783d66720887')
+ 7 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Settings))
+ 8 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Applications/XAMPP/xamppfiles/htdocs/MOJ/moj_admin/public/index.php')
+INFO - 2024-06-20 11:55:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-20 11:55:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

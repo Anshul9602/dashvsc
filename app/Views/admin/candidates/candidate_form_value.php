@@ -1,0 +1,135 @@
+<?= $this->include('admin/common/header') ?>
+<div class="content-body">
+<div class="container-fluid">
+   <div class="row page-titles mx-0">
+      <div class="col-sm-6 p-md-0">
+         <div class="welcome-text">
+            <h4>Add New Admin</h4>
+         </div>
+      </div>
+      <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+         
+         <button type="button" class="btn btn-rounded btn-primary open-add-form"id="save_btn2">
+         <span class="btn-icon-left text-primary">
+         <i class="fa fa-plus"></i>
+         </span>Save
+         </button>
+      
+      </div>
+   </div>
+   <div class="row page-titles mx-0">
+      <div class="col-12 mx-0 mtm-10">
+         
+            <form  action="<?php echo base_url('admin/candidates/candidates_form/' . $token); ?>" method="post" enctype="multipart/form-data" >
+              
+               <div class="custom-tab-1">
+                  <ul class="nav nav-tabs">
+                     <li class="nav-item">
+                        <a class="nav-link active" data-bs-toggle="tab" href="#home1"><i class="la la-home me-2"></i> Personal</a>
+                     </li>
+                    
+                  </ul>
+                  <div class="tab-content">
+                     <div class="tab-pane fade show active" id="home1" role="tabpanel">
+                        <div class="pt-4 row">
+                           <div class="col-6">
+                              <div class="form-group">
+                                 <label for="first_name">First Name</label>
+                                 <input type="text" name="name" id="name" class="form-control" value="<?php echo $role['name']; ?>" required>
+                              </div>
+                           </div>
+                         
+                           <div class="col-6">
+                              <div class="form-group">
+                                 <label for="phone_number">Phone Number</label>
+                                 <input type="text" name="mobile_number" id="mobile_number" value="<?php echo $role['mobile_number']; ?>"class="form-control" required>
+                              </div>
+                           </div>
+                           <div class="col-6">
+                              <div class="form-group">
+                                 <label for="email">Email</label>
+                                 <input type="email" name="email" id="email" value="<?php echo $role['email']; ?>"class="form-control">
+                              </div>
+                           </div>
+                           <div class="col-6">
+                              <div class="form-group">
+                                 <label for="last_name">Password</label>
+                                 <input type="text" name="pass" id="pass" value=""class="form-control">
+                              </div>
+                           </div>
+                          
+                           <div class="col-6">
+                              <div class="form-group">
+                                 <label for="gender">Gender</label>
+                                 <select name="gender" id="gender" class="form-control">
+    <option value="male" <?= ($role['gender'] === 'male') ? 'selected' : '' ?>>Male</option>
+    <option value="female" <?= ($role['gender'] === 'female') ? 'selected' : '' ?>>Female</option>
+    <option value="other" <?= ($role['gender'] === 'other') ? 'selected' : '' ?>>Other</option>
+</select>
+                              </div>
+                           </div>
+                           <div class="col-6">
+                              <div class="form-group">
+                                 <label for="gender">Role</label>
+                                 <select name="role" id="role" class="form-control">
+    <?php if ($roles !== null && !empty($roles)): ?>
+        <?php foreach ($roles as $index => $user): ?>
+            <option value="<?= $user->name ?>" 
+                <?= ($role['role'] === $user->name) ? 'selected' : '' ?>>
+                <?= $user->name ?>
+            </option>
+        <?php endforeach; ?>
+    <?php else: ?>
+        <option value="Admin" <?= ($role['role'] === 'Admin') ? 'selected' : '' ?>>Admin</option>
+    <?php endif; ?>
+</select>
+                              </div>
+                           </div>
+                           
+                           <button type="submit" value="submit" class="btn d-none" id="s_btnn2">submit</button>
+                          
+                        </div>
+                     </div>
+                   
+                  </div>
+                 
+               </div>
+            </form>
+           
+      
+      </div>
+   </div>
+</div>
+            </div>
+<?= $this->include('admin/common/footer') ?>
+
+<script>
+
+document.getElementById('save_btn2').addEventListener('click', function() {
+        // Trigger a click on the second button
+        document.getElementById('s_btnn2').click();
+    });
+   document.addEventListener("DOMContentLoaded", function() {
+    // Remove the 'active' class from the 'des-menu' item
+    const desMenu = document.getElementById("des-menu");
+    const des = document.getElementById("dashboard");
+    if (desMenu) {
+        desMenu.classList.remove("active");
+    }
+    if (des) {
+        des.classList.remove("show");
+        des.classList.remove("active");
+    }
+
+    // Add the 'active' class to the 'cat-menu' item
+    const catMenu = document.getElementById("user-menu");
+    const cat = document.getElementById("apps");
+    if (catMenu) {
+        catMenu.classList.add("active");
+    }
+    if (cat) {
+        cat.classList.add("show");
+        cat.classList.add("active");
+    }
+});
+</script>

@@ -1,0 +1,18 @@
+CRITICAL - 2024-04-27 07:17:48 --> Call to a member function get() on null
+in APPPATH/Controllers/Job.php on line 22.
+ 1 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Job->job_list()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 4 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-04-27 07:17:55 --> Call to a member function get() on null
+in APPPATH/Controllers/Job.php on line 22.
+ 1 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Job->job_list()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 4 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-04-27 07:18:42 --> Call to a member function get() on null
+in APPPATH/Controllers/Job.php on line 22.
+ 1 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Job->job_list()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 4 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()

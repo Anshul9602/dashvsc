@@ -1,0 +1,9 @@
+.chatbox .contacts li>div {
+    background: #fff;
+    padding: 15px;
+}
+
+.chatbox .contacts_body {
+    background-color: #f1f1f1;
+}
+
