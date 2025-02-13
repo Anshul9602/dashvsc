@@ -1,13 +1,13 @@
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 <?= $this->include('admin/common/header') ?>
 
 
 <div class="content-body">
     <style>
-          .role-f {
-        display: none !important;
-    }
+        .role-f {
+            display: none !important;
+        }
+
         /* The switch - the box around the slider */
         .switch {
             position: relative;
@@ -78,7 +78,7 @@
                     <h4>Sheets</h4>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0)">Sheets</a></li>
-                       
+
                     </ol>
                 </div>
             </div>
@@ -94,8 +94,8 @@
                     <li class="fa fa-trash"></li>
                 </button>
                 &nbsp;
-              
-                
+
+
 
             </div>
         </div>
@@ -114,7 +114,7 @@
                                                 <label class="custom-control-label" for="checkAll"></label>
                                             </div>
                                         </th>
-                                       
+
                                         <th>Name</th>
                                         <th>Branch</th>
                                         <th>Type Of <br>Assignment</th>
@@ -129,61 +129,61 @@
                                         <th>Working Environment</th>
                                         <th>Completion Certificate Received</th>
 
-                                        
+
                                         <th>Status</th>
                                         <th> Date added</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                <?php if ($users !== null && !empty($users)): ?>
-                                    <?php foreach ($users as $index => $user): ?>
-                                    <tr>
-                                        <td>
-                                            <div class="custom-control custom-checkbox checkbox-success check-lg mr-3">
-                                                <input type="checkbox" class="custom-control-input" id="checkAll" required="">
-                                                <label class="custom-control-label" for="checkAll"></label>
-                                            </div>
-                                        </td>
-                                       
-                                        <td><?= $user->name ?></td>
-                                        <td><?= $user->branch ?></td>
-                                        <td><?= $user->assignment ?></td>
-                                        <td><?= $user->audit ?></td>
-                                        <td><?= $user->fee ?></td>
-                                        <td><?= $user->submit_date ?></td>
-                                        <td><?= $user->report_submit_date ?></td>
-                                        <td><?= $user->bill_date ?></td>
-                                        <td><?= $user->invoice_no ?></td>
-                                        <td><?= $user->recovery_status ?></td>
-                                        <td><?= $user->security_deposit ?></td>
-                                        <td><?= $user->working ?></td>
-                                        <td><?= $user->completion ?></td>
+                                    <?php if ($users !== null && !empty($users)): ?>
+                                        <?php foreach ($users as $index => $user): ?>
+                                            <tr>
+                                                <td>
+                                                    <div class="custom-control custom-checkbox checkbox-success check-lg mr-3">
+                                                        <input type="checkbox" class="custom-control-input" id="checkAll" required="">
+                                                        <label class="custom-control-label" for="checkAll"></label>
+                                                    </div>
+                                                </td>
 
-                                        
-                                        <td>
-                                        <label class="switch">
+                                                <td><?= $user->name ?></td>
+                                                <td><?= $user->branch ?></td>
+                                                <td><?= $user->assignment ?></td>
+                                                <td><?= $user->audit ?></td>
+                                                <td><?= $user->fee ?></td>
+                                                <td><?= $user->submit_date ?></td>
+                                                <td><?= $user->report_submit_date ?></td>
+                                                <td><?= $user->bill_date ?></td>
+                                                <td><?= $user->invoice_no ?></td>
+                                                <td><?= $user->recovery_status ?></td>
+                                                <td><?= $user->security_deposit ?></td>
+                                                <td><?= $user->working ?></td>
+                                                <td><?= $user->completion ?></td>
+
+
+                                                <td>
+                                                    <label class="switch">
                                                         <input type="checkbox" data-id="<?= $user->id ?>"
                                                             id="switch<?= $user->id ?>" <?= $user->status == '1' ? 'checked' : '' ?> class="status_update" value="<?= $user->status ?>">
                                                         <span class="slider round"></span>
                                                     </label>
-                                        </td>
-                                        <td><a href="javascript:void(0);"><strong><?= $user->created_at ?></a></strong></td>
-                                        <td>
-                                        <div class="d-flex">
-                                                        <a href="<?php echo base_url('admin/cat/category_form_value/'. $user->id ); ?>" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
-                                                        <a href="javascript:void(0);" 
-   class="btn btn-danger shadow btn-xs sharp" 
-   data-bs-toggle="modal" 
-   data-bs-target="#deleteModal5" 
-   data-url="<?php echo base_url('admin/cat/category_delete/' . $user->id); ?>">
-   <i class="fa fa-trash"></i>
-</a>
-                                        </td>
-                                    </tr>
-                                    <?php endforeach; ?>
+                                                </td>
+                                                <td><a href="javascript:void(0);"><strong><?= $user->created_at ?></a></strong></td>
+                                                <td>
+                                                    <div class="d-flex">
+                                                        <a href="<?php echo base_url('admin/cat/category_form_value/' . $user->id); ?>" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
+                                                        <a href="javascript:void(0);"
+                                                            class="btn btn-danger shadow btn-xs sharp"
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#deleteModal5"
+                                                            data-url="<?php echo base_url('admin/cat/category_delete/' . $user->id); ?>">
+                                                            <i class="fa fa-trash"></i>
+                                                        </a>
+                                                </td>
+                                            </tr>
+                                        <?php endforeach; ?>
                                     <?php else: ?>
-                                        <?php endif; ?>
+                                    <?php endif; ?>
                                 </tbody>
                             </table>
                         </div>
@@ -214,7 +214,7 @@
 </div>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
-     $('.status_update').click(function() {
+    $('.status_update').click(function() {
         var deptId = $(this).data('id'); // Get the data-id attribute of the clicked checkbox
         // var status = $(this).value('data'); // Get the data-id attribute of the clicked checkbox
 
@@ -230,7 +230,7 @@
             }
         });
     });
-     document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function() {
         // Ensure the script runs after the DOM is fully loaded
         document.querySelectorAll('[data-bs-target="#deleteModal5"]').forEach(button => {
             button.addEventListener('click', function() {

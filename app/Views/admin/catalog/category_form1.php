@@ -104,6 +104,7 @@
         </div>
     </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
       document.getElementById('save_btn33').addEventListener('click', function() {
       // Trigger a click on the second button
@@ -112,10 +113,7 @@
       document.getElementById('s_btnn5').click();
    });
     // Attach a click event to the first button
-    document.getElementById('save_btn').addEventListener('click', function() {
-        // Trigger a click on the second button
-        document.getElementById('s_btnn').click();
-    });
+   
     document.addEventListener("DOMContentLoaded", function() {
         // Remove the 'active' class from the 'des-menu' item
         const desMenu = document.getElementById("des-menu");

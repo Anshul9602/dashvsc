@@ -133,8 +133,8 @@
             des.classList.remove("active");
         }
 
-        // Add the 'active' class to the 'cat-menu' item
-        const catMenu = document.getElementById("cat-menu");
+         // Add the 'active' class to the 'cat-menu' item
+         const catMenu = document.getElementById("cat-menu");
         const cat = document.getElementById("forms");
         if (catMenu) {
             catMenu.classList.add("active");
