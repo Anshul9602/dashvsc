@@ -39,45 +39,59 @@
                                         <div class="row pt-2">
                                         <input type="text" class="d-none" name="id" value="">
                                             <div class="col-md-4 mt-3">
+                                                <label for="">Organizaion name</label>
                                                 <input type="text" class="form-control" name="name" placeholder="Organizaion name">
                                             </div>
                                             <div class="col-md-4 mt-3">
+                                                <label for="">Branch name</label>
                                                 <input type="text" class="form-control" name="branch" placeholder="Branch name">
                                             </div>
                                             <div class="col-md-4 mt-3">
+                                                <label for="">Assignment name</label>
                                                 <input type="text" class="form-control" name="assignment" placeholder="Assignment name">
                                             </div>
                                             <div class="col-md-4 mt-3">
+                                                <label for="">Frequency Of Audit</label>
                                                 <input type="text" class="form-control" name="audit" placeholder="Frequency Of Audit">
                                             </div>
                                             <div class="col-md-4 mt-3">
+                                                <label for=""> Professinal Fees</label>
                                                 <input type="text" class="form-control" name="fee" placeholder="Professinal Fees">
                                             </div>
                                             <div class="col-md-4 mt-3">
-                                                <input type="text" class="form-control" name="submit_date" placeholder="Last Date of Submission">
+                                                <label for="">Last Date of Submission</label>
+                                                <input type="date" class="form-control" name="submit_date" placeholder="Last Date of Submission">
                                             </div>
                                             <div class="col-md-4 mt-3">
-                                                <input type="text" class="form-control" name="report_submit_date" placeholder="Report Date of Submission">
+                                                <label for="">Report Date of Submission</label>
+                                                <input type="date" class="form-control" name="report_submit_date" placeholder="Report Date of Submission">
                                             </div>
                                             <div class="col-md-4 mt-3">
+                                                <label for="">Bill Date </label>
                                                 <input type="text" class="form-control" name="bill_date" placeholder="Bill Date ">
                                             </div>
                                             <div class="col-md-4 mt-3">
+                                                <label for="">Invoice Number</label>
                                                 <input type="text" class="form-control" name="invoice_no" placeholder="Invoice Number">
                                             </div>
                                             <div class="col-md-4 mt-3">
+                                                <label for="">Recovery status</label>
                                                 <input type="text" class="form-control" name="recovery_status" placeholder="Recovery status">
                                             </div>
                                             <div class="col-md-4 mt-3">
+                                                <label for="">Security Deposit</label>
                                                 <input type="text" class="form-control" name="security_deposit" placeholder="Security Deposit">
                                             </div>
                                             <div class="col-md-4 mt-3">
+                                                <label for="">Working Environment</label>
                                                 <input type="text" class="form-control" name="working" placeholder="Working Environment">
                                             </div>
                                             <div class="col-md-4 mt-3">
+                                                <label for="">Completion Certificate Received</label>
                                                 <input type="text" class="form-control" name="completion" placeholder="Completion Certificate Received">
                                             </div>
                                             <div class="col-md-4 mt-3">
+                                                <label for=""> Status</label>
                                                 <select class="form-control form-control-lg" name="status">
                                                     <option value="1">Enable</option>
                                                     <option value="0">Disable</option>

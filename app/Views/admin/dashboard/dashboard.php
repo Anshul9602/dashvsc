@@ -25,7 +25,7 @@
 							<div class="card-header border-0 pb-0">
 								<h4 class="card-title">Notice Board</h4>
 							</div>
-							<div class="card-body d-none">
+							<div class="card-body ">
 								<div id="DZ_W_TimeLine1" class="widget-timeline dz-scroll style-1" style="height:250px;">
 									<ul class="timeline ">
 										<?php if ($users !== null && !empty($users)):
@@ -33,10 +33,10 @@
 
 										?>
 
-											<?php foreach ($users as $index => $user): ?>
+											<?php foreach ($pending as $index => $user): ?>
 												<?php
 												// Parse created_at into a DateTime object
-												$createdAt = new DateTime($user->created_at);
+												$createdAt = new DateTime($user->submit_date);
 												$currentDate = new DateTime(); // Current date and time
 
 												// Calculate the difference
@@ -56,10 +56,14 @@
 												<li>
 													<div class="timeline-badge primary"></div>
 													<a class="timeline-panel text-muted" href="#">
-														<span><?= htmlspecialchars($timeAgo) ?></span>
+												<p>Submission Date<span style="color:red;"><?= htmlspecialchars($timeAgo) ?></span></p>
+														
 														<h6 class="mb-0">
 															<strong class="text-primary">$<?= htmlspecialchars($user->name) ?></strong>.
 														</h6>
+														<p class="mb-0">
+														Branch:<strong class="text-primary"> <?= htmlspecialchars($user->branch) ?></strong>.
+														</p>
 													</a>
 												</li>
 											<?php endforeach; ?>
@@ -114,49 +118,7 @@
 									<div class="card-header border-0 pb-0">
 										<h4 class="card-title">Task Assiged to me</h4>
 									</div>
-									<div class="card-body" style=" overflow: overlay;width:100%;">
-										<table id="example3" class="display" style="   max-width: 645px;">
-											<thead>
-												<tr>
-													<th>Sheet Name</th>
-													<th>Category</th>
-													<th>Sheet Url</th>
-													<th>Status</th>
-													<th>Date</th>
-												</tr>
-											</thead>
-											<tbody>
-												<?php if ($user_shreet !== null && !empty($user_shreet)):
-												?>
-
-													<?php foreach ($user_shreet as $index => $user): ?>
-														<tr>
-															<td>
-																<?= $user->name ?></td>
-															<td> <?= $user->cat ?></td>
-															<td>
-																<a target="_blank" href="<?= $user->sheet_url ?>">
-																	<?= $user->sheet_url ?>
-																</a>
-															</td>
-															<td>
-																<label class="switch">
-																	<input type="checkbox" data-id="<?= $user->id ?>"
-																		id="switch<?= $user->id ?>" <?= $user->status == '1' ? 'checked' : '' ?> class="status_update" value="<?= $user->status ?>">
-																	<span class="slider round"></span>
-																</label>
-															</td>
-
-															<td>
-																<?= $user->created_at ?>
-															</td>
-														</tr>
-													<?php endforeach; ?>
-												<?php else: ?>
-												<?php endif; ?>
-											</tbody>
-										</table>
-									</div>
+								
 								</div>
 							</div>
 						</div>

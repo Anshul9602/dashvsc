@@ -150,7 +150,7 @@
             <?php 
                       $role = session()->get('role'); 
                       if ($role == 'DATA MINER'): ?>
-               <li class="nav-label">Sheets</li>
+               <li class="nav-label">Task Sheet</li>
                <li>
                   <a class="has-arrow" href="<?php echo base_url('admin/category/' . $token); ?>" aria-expanded="false">
                      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
@@ -160,7 +160,7 @@
                            <path d="M6.84712709,9 L17.1528729,9 C17.6417121,9 18.0589022,9.35341304 18.1392668,9.83560101 L19.611867,18.671202 C19.7934571,19.7607427 19.0574178,20.7911977 17.9678771,20.9727878 C17.8592143,20.9908983 17.7492409,21 17.6390792,21 L6.36092084,21 C5.25635134,21 4.36092084,20.1045695 4.36092084,19 C4.36092084,18.8898383 4.37002252,18.7798649 4.388133,18.671202 L5.86073316,9.83560101 C5.94109783,9.35341304 6.35828794,9 6.84712709,9 Z" fill="#000000" />
                         </g>
                      </svg>
-                    Sheets
+                     Task Sheet
                   </a>
                </li>
               
@@ -169,7 +169,7 @@
 
             </ul>
          </div>
-         <div class="tab-pane fade" id="hrr">
+         <div class="tab-pane fade " id="hrr">
             <ul class="metismenu tab-nav-menu">
                <li class="nav-label">Hr Page</li>
                <?php

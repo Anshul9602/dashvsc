@@ -4,7 +4,8 @@ namespace App\Controllers\Admin;
 
 use App\Models\CandidatesModel;
 use App\Models\TaskModel;
-use App\Models\SheetModel;
+use App\Models\CatModel;
+
 use App\Models\Hr_noticeModel;
 use App\Controllers\BaseController;
 
@@ -27,9 +28,69 @@ class Dashboard extends BaseController
         $user = new CandidatesModel();
         $user1 = new TaskModel();
 
-        $data['total_task'] = $user1->getTaskCount();
-        $data['total_task_com'] = $user1->getTaskCount_com();
-        $data['total_task_pending'] = $user1->getTaskCount_pen();
+       
+        $admin_email = session()->get('admin_email');
+       
+        // $data['user_shreet'] = [];
+        // $data['user_shreet'] = array_filter($data['sheet'], function ($item) use ($admin_email) {
+        //     // Check if the email exists in the 'dis' field
+        //     return strpos($item->dis, $admin_email) !== false;
+        // });
+        
+        date_default_timezone_set('Asia/Kolkata'); // Set your timezone
+        $current_date = date('Y-m-d'); // Get the current date
+        
+        $model = new CatModel();
+        $data['users'] = $model->getallData();
+        $total_task = count($data['users']); // Total tasks
+
+        $pending = [];
+        $late_complete = [];
+        $complete = [];
+        
+        foreach ($data['users'] as $user) {
+            $submit_date = $user->submit_date;
+            $report_submit_date = $user->report_submit_date;
+        
+            if ($submit_date > $current_date) {
+                // Future tasks - Pending
+                $pending[] = $user;
+            } elseif (empty($report_submit_date) || $report_submit_date > $submit_date) {
+                // Report not submitted or submitted late
+                $late_complete[] = $user;
+            } else {
+                // Completed on time
+                $complete[] = $user;
+            }
+        }
+        
+        // Count totals
+        $total_pending = count($pending);
+$total_late_complete = count($late_complete);
+$total_complete = count($complete);
+        
+        // Print results
+        // echo "<pre>";
+        // echo "Total Tasks: " . $total_task . "\n";
+        // echo "Total Pending: " . $total_pending . "\n";
+        // echo "Total Late Complete: " . $total_late_complete . "\n";
+        // echo "Total Complete: " . $total_complete . "\n";
+        
+        // echo "\nPending Tasks:\n";
+        // print_r($pending);
+        
+        // echo "\nLate Completed Tasks:\n";
+        // print_r($late_complete);
+        
+        // echo "\nCompleted On-Time Tasks:\n";
+        // print_r($complete);
+        // echo "</pre>";
+        
+        // die();
+        $data['total_task'] = $total_task;
+        $data['total_task_com'] = $total_complete;
+        $data['total_task_pending'] = $total_pending;
+         
         if ($data['total_task'] > 0) {
             $data['completed_percentage'] = round(($data['total_task_com'] / $data['total_task']) * 100);
 
@@ -38,70 +99,24 @@ class Dashboard extends BaseController
             $data['completed_percentage'] = 100;
             $data['pending_percentage'] = 0;
         }
-        $admin_email = session()->get('admin_email');
-        $user2 = new SheetModel();
-        $users = $user2->get_data();
-        // $data['user_shreet'] = [];
-        // $data['user_shreet'] = array_filter($data['sheet'], function ($item) use ($admin_email) {
-        //     // Check if the email exists in the 'dis' field
-        //     return strpos($item->dis, $admin_email) !== false;
-        // });
-        if ($users) {
-            foreach ($users as $user) {
+        if ($pending || $late_complete) {
+           if($pending){
+            $data['pending']= $pending;
+           }else{
+            $data['pending']= '';
+           }
+           if($late_complete){
+            $data['late']= $late_complete;
+           }else{
+            $data['late']= '';
+           }
             
-    
-                // Parse the `dis` field and check if the admin has `sheets_view` permission
-                $disEntries = explode(';', $user->dis); // Split `dis` into individual entries
-                foreach ($disEntries as $entry) {
-                    if (strpos($entry, 'Email:') !== false) {
-                        preg_match('/Email:\s*([^,]+)/', $entry, $emailMatches);
-                        preg_match('/Permissions:\s*(.+)/', $entry, $permissionMatches);
-    
-                        $email = isset($emailMatches[1]) ? trim($emailMatches[1]) : '';
-                        $permissions = isset($permissionMatches[1]) ? explode(',', $permissionMatches[1]) : [];
-    
-                        if ($email === $admin_email && in_array('sheets_view', $permissions)) {
-                            $data['user_shreet'][] = $user; // Add sheet data to the list
-                            break; // No need to check further entries for this sheet
-                        }
-                    }
-                }
-            }
-        }
-
-        // Reset array keys to maintain numeric indexing if needed
-        $data['user_shreet'] = array_values($data['user_shreet']);
-
-
-        $model = new Hr_noticeModel();
-        $users = $model->get_data_des();
-        $baseUrl = rtrim(base_url(), '/'); // Ensure the base URL does not have a trailing slash
-
-        if ($users) {
-            foreach ($users as $user) {
-                $post1 = $user->profile_pic;
-                if ($post1 !== null) {
-                    $resume1 = $post1;
-                    $existingFilePath = FCPATH . $resume1; // FCPATH points to the 'public' directory
-
-                    if (file_exists($existingFilePath)) {
-                        $user_img = $baseUrl  . '/' . $resume1;
-                    } else {
-                        $user_img = $baseUrl . '/images/user_img.png';
-                    }
-                } else {
-                    $user_img = $baseUrl . '/images/user_img.png';
-                }
-                // Add user image to user object
-                $user->image_url = $user_img;
-                $data['users'][] = $user;
-            }
         } else {
-            $data['users'] = '';
+            $data['pending']= '';
+            $data['late']= '';
         }
 
-        // echo "<pre>"; print_r($data['users']);
-        // echo "</pre>";
+    
         // die();
         return view('admin/dashboard/dashboard', $data);
     }
