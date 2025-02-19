@@ -189,6 +189,9 @@ class CatModel extends Model
         $report_submit_date= $data['report_submit_date'];
         $submit_date= $data['submit_date'];
         $fee= $data['fee'];
+        $udin= $data['udin'];
+        $udin_no= $data['udin_no'];
+        $udin_trun= $data['udin_trun'];
         $audit= $data['audit'];
         $assignment= $data['assignment'];
        
@@ -198,8 +201,8 @@ class CatModel extends Model
 
         $date1 = date('Y-m-d H:i:s');
         $sql = "INSERT INTO `category`( `id`,`name`,`branch`,`completion`,`working`,`security_deposit`, 
-        `recovery_status`,`invoice_no`,`bill_date`,`report_submit_date`,`submit_date`,`fee`,`audit`, 
-        `assignment`,`status`,`created_at`) VALUES (null,'$name','$branch','$completion','$working','$security_deposit','$recovery_status','$invoice_no','$bill_date','$report_submit_date','$submit_date','$fee','$audit','$assignment','$status','$date1')";
+        `recovery_status`,`invoice_no`,`bill_date`,`report_submit_date`,`submit_date`,`fee`,`udin`,
+        `udin_no`,`udin_trun`,`audit`,`assignment`,`status`,`created_at`) VALUES (null,'$name','$branch','$completion','$working','$security_deposit','$recovery_status','$invoice_no','$bill_date','$report_submit_date','$submit_date','$fee','$udin','$udin_no','$udin_trun','$audit','$assignment','$status','$date1')";
 
 
         //     echo "<pre>"; print_r($sql); echo "</pre>";
@@ -238,6 +241,9 @@ class CatModel extends Model
         $report_submit_date= $data['report_submit_date'];
         $submit_date= $data['submit_date'];
         $fee= $data['fee'];
+        $udin= $data['udin'];
+        $udin_no= $data['udin_no'];
+        $udin_trun= $data['udin_trun'];
         $audit= $data['audit'];
         $assignment= $data['assignment'];
         $status= $data['status'];
@@ -247,8 +253,8 @@ class CatModel extends Model
 
 
         $sql = "UPDATE `category` SET name = '$name', 
-        branch = '$branch',completion = '$completion',working = '$working',security_deposit = '$security_deposit',recovery_status = '$recovery_status',invoice_no = '$invoice_no',bill_date = '$bill_date',report_submit_date = '$report_submit_date',submit_date = '$submit_date', fee = '$fee',
-        audit = '$audit',assignment = '$assignment',status ='$status' WHERE id = $id";
+        branch = '$branch',completion = '$completion',working = '$working',security_deposit = '$security_deposit',recovery_status = '$recovery_status',invoice_no = '$invoice_no',bill_date = '$bill_date',report_submit_date = '$report_submit_date',submit_date = '$submit_date',
+         fee = '$fee',udin = '$udin',udin_no = '$udin_no',udin_trun = '$udin_trun',audit = '$audit',assignment = '$assignment',status ='$status' WHERE id = $id";
         // echo "<pre>"; print_r($sql);
         // echo "</pre>";
         $post = $this->db->query($sql);

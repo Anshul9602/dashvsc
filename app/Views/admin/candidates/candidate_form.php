@@ -34,20 +34,20 @@
                         <div class="pt-4 row">
                            <div class="col-6">
                               <div class="form-group">
-                                 <label for="first_name">First Name</label>
+                                 <label for="first_name">Branch Name</label>
                                  <input type="text" name="name" id="name" class="form-control" required>
                               </div>
                            </div>
                          
                            <div class="col-6">
                               <div class="form-group">
-                                 <label for="phone_number">Phone Number</label>
+                                 <label for="phone_number">Branch Phone Number</label>
                                  <input type="text" name="mobile_number" id="mobile_number" class="form-control" required>
                               </div>
                            </div>
                            <div class="col-6">
                               <div class="form-group">
-                                 <label for="email">Email</label>
+                                 <label for="email">Branch Email</label>
                                  <input type="email" name="email" id="email" class="form-control" required>
                               </div>
                            </div>

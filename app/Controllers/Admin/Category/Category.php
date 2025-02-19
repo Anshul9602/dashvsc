@@ -110,8 +110,16 @@ class Category extends BaseController
         ];
         $data = $this->request->getPost();
 
+// echo "<pre>";
+// print_r($data);
+// echo "</pre>";
+// die();
+$submit_dates = isset($data['submit_date']) ? $data['submit_date'] : [];
+$report_dates = isset($data['report_submit_date']) ? $data['report_submit_date'] : [];
 
-
+// Convert arrays to comma-separated strings
+$submit_date_string = !empty($submit_dates) ? implode(',', $submit_dates) : '';
+$report_date_string = !empty($report_dates) ? implode(',', $report_dates) : '';
         $model = new CatModel();
 
         if ($data['id']) {
@@ -124,13 +132,16 @@ class Category extends BaseController
                 'assignment' => isset($data['assignment']) ? $data['assignment'] : '',
                 'audit' => isset($data['audit']) ? $data['audit'] : '',
                 'fee' => isset($data['fee']) ? $data['fee'] : '',
-                'submit_date' => isset($data['submit_date']) ? $data['submit_date'] : '',
+                'submit_date' => $submit_date_string,
                 'report_submit_date' => isset($data['report_submit_date']) ? $data['report_submit_date'] : '',
                 'bill_date' => isset($data['bill_date']) ? $data['bill_date'] : '',
                 'invoice_no' => isset($data['invoice_no']) ? $data['invoice_no'] : '',
                 'recovery_status' => isset($data['recovery_status']) ? $data['recovery_status'] : '',
                 'security_deposit' => isset($data['security_deposit']) ? $data['security_deposit'] : '',
                 'working' => isset($data['working']) ? $data['working'] : '',
+                'udin' => isset($data['udin']) ? $data['udin'] : '',
+    'udin_no' => isset($data['udin_no']) ? $data['udin_no'] : '',
+    'udin_trun' => isset($data['udin_trun']) ? $data['udin_trun'] : '',
                 'completion' => isset($data['completion']) ? $data['completion'] : '',
                 'status' => isset($data['status']) ? $data['status'] : ''
             ];
@@ -143,13 +154,16 @@ class Category extends BaseController
                 'assignment' => isset($data['assignment']) ? $data['assignment'] : '',
                 'audit' => isset($data['audit']) ? $data['audit'] : '',
                 'fee' => isset($data['fee']) ? $data['fee'] : '',
-                'submit_date' => isset($data['submit_date']) ? $data['submit_date'] : '',
-                'report_submit_date' => isset($data['report_submit_date']) ? $data['report_submit_date'] : '',
+                'submit_date' => $submit_date_string,
+                'report_submit_date' => $report_date_string,
                 'bill_date' => isset($data['bill_date']) ? $data['bill_date'] : '',
                 'invoice_no' => isset($data['invoice_no']) ? $data['invoice_no'] : '',
                 'recovery_status' => isset($data['recovery_status']) ? $data['recovery_status'] : '',
                 'security_deposit' => isset($data['security_deposit']) ? $data['security_deposit'] : '',
                 'working' => isset($data['working']) ? $data['working'] : '',
+                'udin' => isset($data['udin']) ? $data['udin'] : '',
+    'udin_no' => isset($data['udin_no']) ? $data['udin_no'] : '',
+    'udin_trun' => isset($data['udin_trun']) ? $data['udin_trun'] : '',
                 'completion' => isset($data['completion']) ? $data['completion'] : '',
                 'status' => isset($data['status']) ? $data['status'] : ''
             ];
