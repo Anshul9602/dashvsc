@@ -90,14 +90,17 @@ $total_complete = count($complete);
         $data['total_task'] = $total_task;
         $data['total_task_com'] = $total_complete;
         $data['total_task_pending'] = $total_pending;
+        $data['total_task_late'] = $total_late_complete;
          
         if ($data['total_task'] > 0) {
             $data['completed_percentage'] = round(($data['total_task_com'] / $data['total_task']) * 100);
+            $data['completed_late'] = round(($data['total_task_late'] / $data['total_task']) * 100);
 
             $data['pending_percentage'] = round(($data['total_task_pending'] / $data['total_task']) * 100);
         } else {
             $data['completed_percentage'] = 100;
             $data['pending_percentage'] = 0;
+            $data['completed_late'] = 0;
         }
         if ($pending || $late_complete) {
            if($pending){
@@ -110,14 +113,22 @@ $total_complete = count($complete);
            }else{
             $data['late']= '';
            }
+           if($complete){
+            $data['complete']= $complete;
+           }else{
+            $data['complete']= '';
+           }
             
         } else {
             $data['pending']= '';
             $data['late']= '';
+            $data['complete']= '';
         }
 
-    
-        // die();
+    //  echo "<pre>";
+    //     print_r($data);
+    //     echo "</pre>";
+    //     die();
         return view('admin/dashboard/dashboard', $data);
     }
     public function hr($token = null)

@@ -48,20 +48,20 @@
                            <div class="col-6">
                               <div class="form-group">
                                  <label for="email">Email</label>
-                                 <input type="email" name="email" id="email" class="form-control">
+                                 <input type="email" name="email" id="email" class="form-control" required>
                               </div>
                            </div>
                            <div class="col-6">
                               <div class="form-group">
                                  <label for="last_name">Password</label>
-                                 <input type="text" name="pass" id="pass" class="form-control">
+                                 <input type="text" name="pass" id="pass" class="form-control" required>
                               </div>
                            </div>
                           
                            <div class="col-6">
                               <div class="form-group">
                                  <label for="gender">Gender</label>
-                                 <select name="gender" id="gender" class="form-control">
+                                 <select name="gender" id="gender" class="form-control" required>
                                     <option value="male">Male</option>
                                     <option value="female">Female</option>
                                     <option value="other">Other</option>
@@ -71,7 +71,7 @@
                            <div class="col-6">
                               <div class="form-group">
                                  <label for="gender">Role</label>
-                                 <select name="role" id="role" class="form-control">
+                                 <select name="role" id="role" class="form-control" required>
                                  <?php if ($roles !== null && !empty($roles)): ?>
                                     <?php foreach ($roles as $index => $user): 
                                        if($user->status == "1"){

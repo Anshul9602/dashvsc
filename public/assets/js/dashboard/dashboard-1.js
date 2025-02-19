@@ -550,15 +550,17 @@ if(jQuery('#chart_widget_5').length > 0 ){
 			data: {
 				defaultFontFamily: 'Poppins',
 				datasets: [{
-					data: [completedPercentage, pendingPercentage],
+					data: [completedPercentage, latePercentage,pendingPercentage],
 					borderWidth: 2, 
 					borderColor: "rgba(255, 255, 255, 1)",
 					backgroundColor: [
 						"rgba(41, 200, 112, 1)",
+						"rgb(200, 158, 41)",
                         "rgba(58, 122, 254, 1)"
 					],
 					hoverBackgroundColor: [
 						"rgba(41, 200, 112, 1)",
+                        "rgb(200, 158, 41)",
                         "rgba(58, 122, 254, 1)"
 					]
 
