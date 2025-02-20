@@ -123,13 +123,14 @@
                                         <th>Last Date of Submission</th>
                                         <th>Report Date of Submission</th>
                                         <th>Bill Date</th>
+                                        <th>UDIN</th>
+                                        <th>UDIN No</th>
+                                        <th>UDIN Trunover</th>
                                         <th>Invoice Number</th>
                                         <th>Recovery status</th>
                                         <th>Security Deposit</th>
                                         <th>Working Environment</th>
                                         <th>Completion Certificate Received</th>
-
-
                                         <th>Status</th>
                                         <th> Date added</th>
                                         <th>Action</th>
@@ -154,13 +155,14 @@
                                                 <td><?= $user->submit_date ?></td>
                                                 <td><?= $user->report_submit_date ?></td>
                                                 <td><?= $user->bill_date ?></td>
+                                                <td><?= $user->udin ?></td>
+                                                <td><?= $user->udin_no ?></td>
+                                                <td><?= $user->udin_trun ?></td>
                                                 <td><?= $user->invoice_no ?></td>
                                                 <td><?= $user->recovery_status ?></td>
                                                 <td><?= $user->security_deposit ?></td>
                                                 <td><?= $user->working ?></td>
                                                 <td><?= $user->completion ?></td>
-
-
                                                 <td>
                                                     <label class="switch">
                                                         <input type="checkbox" data-id="<?= $user->id ?>"
