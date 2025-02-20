@@ -53,24 +53,32 @@ class Category extends BaseController
 
         date_default_timezone_set('Asia/Kolkata'); // Set your timezone
         $current_date = date('Y-m-d'); // Get the current date
-        
+
+        $role = session()->get('role');
         $model = new CatModel();
-        $data['users'] = $model->getallData();
-        $not_complete_on_time = [];
-        
-        foreach ($data['users'] as $user) {
-            $submit_date = $user->submit_date; // Get submit date
-            $report_submit_date = $user->report_submit_date; // Get report submit date
-        
-            // Check if the current date is greater than submit_date
-            if ($current_date > $submit_date) {
-                // If report_submit_date is empty OR report_submit_date is greater than submit_date
-                if (empty($report_submit_date) || $report_submit_date > $submit_date) {
-                    $not_complete_on_time[] = $user; // Add to the new array
+        if ($role == 'DATA MINER') {
+            $data['users'] = $model->getallData();
+        } else {
+            $branch = session()->get('admin_name');
+            $data['users'] = $model->getCatDatabranch($branch);
+        }
+        if ($data['users'] !== null) {
+            $not_complete_on_time = [];
+
+            foreach ($data['users'] as $user) {
+                $submit_date = $user->submit_date; // Get submit date
+                $report_submit_date = $user->report_submit_date; // Get report submit date
+
+                // Check if the current date is greater than submit_date
+                if ($current_date > $submit_date) {
+                    // If report_submit_date is empty OR report_submit_date is greater than submit_date
+                    if (empty($report_submit_date) || $report_submit_date > $submit_date) {
+                        $not_complete_on_time[] = $user; // Add to the new array
+                    }
                 }
             }
         }
-        
+
         // echo "<pre>";
         // print_r($not_complete_on_time);
         // echo "</pre>";
@@ -90,10 +98,8 @@ class Category extends BaseController
             'users' => [] // Initialize 'users' to an empty array
         ];
 
-        $model = new CatModel();
-        $users = $model->getallData();
-
-
+        $model = new CandidatesModel();
+        $data['roles'] = $model->get_data();
         return view('admin/catalog/category_form1', $data);
     }
     public function listAllCategory_Form_save($segment)
@@ -110,16 +116,16 @@ class Category extends BaseController
         ];
         $data = $this->request->getPost();
 
-// echo "<pre>";
-// print_r($data);
-// echo "</pre>";
-// die();
-$submit_dates = isset($data['submit_date']) ? $data['submit_date'] : [];
-$report_dates = isset($data['report_submit_date']) ? $data['report_submit_date'] : [];
+        // echo "<pre>";
+        // print_r($data);
+        // echo "</pre>";
+        // die();
+        $submit_dates = isset($data['submit_date']) ? $data['submit_date'] : [];
+        $report_dates = isset($data['report_submit_date']) ? $data['report_submit_date'] : [];
 
-// Convert arrays to comma-separated strings
-$submit_date_string = !empty($submit_dates) ? implode(',', $submit_dates) : '';
-$report_date_string = !empty($report_dates) ? implode(',', $report_dates) : '';
+        // Convert arrays to comma-separated strings
+        $submit_date_string = !empty($submit_dates) ? implode(',', $submit_dates) : '';
+        $report_date_string = !empty($report_dates) ? implode(',', $report_dates) : '';
         $model = new CatModel();
 
         if ($data['id']) {
@@ -133,18 +139,19 @@ $report_date_string = !empty($report_dates) ? implode(',', $report_dates) : '';
                 'audit' => isset($data['audit']) ? $data['audit'] : '',
                 'fee' => isset($data['fee']) ? $data['fee'] : '',
                 'submit_date' => $submit_date_string,
-                'report_submit_date' => isset($data['report_submit_date']) ? $data['report_submit_date'] : '',
+                'report_submit_date' => $report_date_string,
                 'bill_date' => isset($data['bill_date']) ? $data['bill_date'] : '',
                 'invoice_no' => isset($data['invoice_no']) ? $data['invoice_no'] : '',
                 'recovery_status' => isset($data['recovery_status']) ? $data['recovery_status'] : '',
                 'security_deposit' => isset($data['security_deposit']) ? $data['security_deposit'] : '',
                 'working' => isset($data['working']) ? $data['working'] : '',
                 'udin' => isset($data['udin']) ? $data['udin'] : '',
-    'udin_no' => isset($data['udin_no']) ? $data['udin_no'] : '',
-    'udin_trun' => isset($data['udin_trun']) ? $data['udin_trun'] : '',
+                'udin_no' => isset($data['udin_no']) ? $data['udin_no'] : '',
+                'udin_trun' => isset($data['udin_trun']) ? $data['udin_trun'] : '',
                 'completion' => isset($data['completion']) ? $data['completion'] : '',
                 'status' => isset($data['status']) ? $data['status'] : ''
             ];
+      
             $user = $model->update1($id, $input);
         } else {
 
@@ -162,11 +169,14 @@ $report_date_string = !empty($report_dates) ? implode(',', $report_dates) : '';
                 'security_deposit' => isset($data['security_deposit']) ? $data['security_deposit'] : '',
                 'working' => isset($data['working']) ? $data['working'] : '',
                 'udin' => isset($data['udin']) ? $data['udin'] : '',
-    'udin_no' => isset($data['udin_no']) ? $data['udin_no'] : '',
-    'udin_trun' => isset($data['udin_trun']) ? $data['udin_trun'] : '',
+                'udin_no' => isset($data['udin_no']) ? $data['udin_no'] : '',
+                'udin_trun' => isset($data['udin_trun']) ? $data['udin_trun'] : '',
                 'completion' => isset($data['completion']) ? $data['completion'] : '',
                 'status' => isset($data['status']) ? $data['status'] : ''
             ];
+
+
+            
             $user = $model->save($input);
         }
         $role = session()->get('role');
@@ -179,29 +189,7 @@ $report_date_string = !empty($report_dates) ? implode(',', $report_dates) : '';
 
         return redirect()->to(base_url('admin/category/' . session()->get('token')));
     }
-    public function listAllCategory_list($segment)
-    {
-        if (!$this->validateToken($segment)) {
-            return redirect()->to('/admin/login');
-        }
 
-        $data = [
-            'token' => $segment,
-            'role' => session()->get('role'),
-            'admin_name' => session()->get('admin_name'),
-            'users' => [] // Initialize 'users' to an empty array
-        ];
-
-        $model = new CandidatesModel();
-        $users = $model->getAllUserData();
-
-        $profile = new ProfileModel();
-        $baseUrl = rtrim(base_url(), '/'); // Ensure the base URL does not have a trailing slash
-
-
-
-        return view('admin/catalog/category_list', $data);
-    }
 
     public function listAllcat_Form_value($id)
     {
@@ -240,11 +228,11 @@ $report_date_string = !empty($report_dates) ? implode(',', $report_dates) : '';
 
         return redirect()->to(base_url('admin/category/' . session()->get('token')));
     }
-  
-   
-    
-  
-   
+
+
+
+
+
 
     public function createSheet($data)
     {

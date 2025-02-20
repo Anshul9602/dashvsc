@@ -239,7 +239,7 @@ class CandidatesModel extends Model
     {
         $name = $data['name'];
         $mobile_number = $data['mobile_number'];
-        $gender = $data['gender'];
+       
         $email = $data['email'];
         $role = $data['role'];
         $pass = $data['pass'];
@@ -249,7 +249,7 @@ class CandidatesModel extends Model
         $date1 = date("m-d-Y h:i A");
 
 
-        $sql = "INSERT INTO `admin`( `id`, `name`,`mobile_number`,`gender`,`email`,`pass`,`role`, `created_at`, `updated_at`,`status`) VALUES (null,'$name','$mobile_number','$gender','$email','$pass','$role','$date1','$date1','$status')";
+        $sql = "INSERT INTO `admin`( `id`, `name`,`mobile_number`,`email`,`pass`,`role`, `created_at`, `updated_at`,`status`) VALUES (null,'$name','$mobile_number','$email','$pass','$role','$date1','$date1','$status')";
         $post = $this->db->query($sql);
 
         if (!$post) {
@@ -264,7 +264,7 @@ class CandidatesModel extends Model
         $user_id = $id;
         $name = $data['name'];
         $mobile_number = $data['mobile_number'];
-        $gender = $data['gender'];
+       
         $email = $data['email'];
         $pass = $data['pass'];
         $role = $data['role'];
@@ -273,7 +273,7 @@ class CandidatesModel extends Model
         $date = date_default_timezone_set('Asia/Kolkata');
         $date1 = date("m-d-Y h:i A");
 
-        $sql = "UPDATE `admin` SET `mobile_number` = '$mobile_number',`gender` = '$gender',
+        $sql = "UPDATE `admin` SET `mobile_number` = '$mobile_number',
         `name`='$name',`pass`='$pass',`email`='$email',`role`='$role',`updated_at`='$date1' WHERE id = $user_id";
         // echo json_encode($sql);
         // echo ( $sql);

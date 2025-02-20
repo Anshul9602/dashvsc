@@ -44,7 +44,18 @@
                                             </div>
                                             <div class="col-md-4 mt-3">
                                                 <label for="">Branch name</label>
-                                                <input type="text" class="form-control" name="branch" placeholder="Branch name">
+                                                
+                                                <select name="branch" id="role" class="form-control">
+    <?php if ($roles !== null && !empty($roles)): ?>
+        <?php foreach ($roles as $index => $user): ?>
+            <option value="<?= $user->name ?>" >
+                <?= $user->name ?>
+            </option>
+        <?php endforeach; ?>
+    <?php else: ?>
+        <option value="Jaipur">Jaipur</option>
+    <?php endif; ?>
+</select>
                                             </div>
                                             <div class="col-md-4 mt-3">
                                                 <label for="">Assignment name</label>

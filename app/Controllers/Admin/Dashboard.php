@@ -5,7 +5,7 @@ namespace App\Controllers\Admin;
 use App\Models\CandidatesModel;
 use App\Models\TaskModel;
 use App\Models\CatModel;
-
+use \Datetime;
 use App\Models\Hr_noticeModel;
 use App\Controllers\BaseController;
 
@@ -19,116 +19,128 @@ class Dashboard extends BaseController
 
         $role = session()->get('role');
 
-        // Pass the role to the view
+        // Initialize data array
         $data = [
             'role' => $role,
             'admin_name' => session()->get('admin_name'),
             'token' => $token
         ];
+
         $user = new CandidatesModel();
         $user1 = new TaskModel();
 
-       
         $admin_email = session()->get('admin_email');
-       
-        // $data['user_shreet'] = [];
-        // $data['user_shreet'] = array_filter($data['sheet'], function ($item) use ($admin_email) {
-        //     // Check if the email exists in the 'dis' field
-        //     return strpos($item->dis, $admin_email) !== false;
-        // });
-        
-        date_default_timezone_set('Asia/Kolkata'); // Set your timezone
-        $current_date = date('Y-m-d'); // Get the current date
-        
+
+        date_default_timezone_set('Asia/Kolkata'); // Set timezone
+        $current_date = date('Y-m-d'); // Get current date
+
         $model = new CatModel();
-        $data['users'] = $model->getallData();
-        $total_task = count($data['users']); // Total tasks
 
-        $pending = [];
-        $late_complete = [];
-        $complete = [];
-        
-        foreach ($data['users'] as $user) {
-            $submit_date = $user->submit_date;
-            $report_submit_date = $user->report_submit_date;
-        
-            if ($submit_date > $current_date) {
-                // Future tasks - Pending
-                $pending[] = $user;
-            } elseif (empty($report_submit_date) || $report_submit_date > $submit_date) {
-                // Report not submitted or submitted late
-                $late_complete[] = $user;
-            } else {
-                // Completed on time
-                $complete[] = $user;
-            }
-        }
-        
-        // Count totals
-        $total_pending = count($pending);
-$total_late_complete = count($late_complete);
-$total_complete = count($complete);
-        
-        // Print results
-        // echo "<pre>";
-        // echo "Total Tasks: " . $total_task . "\n";
-        // echo "Total Pending: " . $total_pending . "\n";
-        // echo "Total Late Complete: " . $total_late_complete . "\n";
-        // echo "Total Complete: " . $total_complete . "\n";
-        
-        // echo "\nPending Tasks:\n";
-        // print_r($pending);
-        
-        // echo "\nLate Completed Tasks:\n";
-        // print_r($late_complete);
-        
-        // echo "\nCompleted On-Time Tasks:\n";
-        // print_r($complete);
-        // echo "</pre>";
-        
-        // die();
-        $data['total_task'] = $total_task;
-        $data['total_task_com'] = $total_complete;
-        $data['total_task_pending'] = $total_pending;
-        $data['total_task_late'] = $total_late_complete;
-         
-        if ($data['total_task'] > 0) {
-            $data['completed_percentage'] = round(($data['total_task_com'] / $data['total_task']) * 100);
-            $data['completed_late'] = round(($data['total_task_late'] / $data['total_task']) * 100);
-
-            $data['pending_percentage'] = round(($data['total_task_pending'] / $data['total_task']) * 100);
+        // Fetch data based on user role
+        if ($role == 'DATA MINER') {
+            $data['users'] = $model->getallData();
         } else {
+            $branch = session()->get('admin_name');
+            $data['users'] = $model->getCatDatabranch($branch);
+        }
+
+        // Check if users exist
+        if (!isset($data['users']) || empty($data['users'])) {
+            $data['total_task'] = 0;
+            $data['total_task_com'] = 0;
+            $data['total_task_pending'] = 0;
+            $data['total_task_late'] = 0;
             $data['completed_percentage'] = 100;
             $data['pending_percentage'] = 0;
             $data['completed_late'] = 0;
-        }
-        if ($pending || $late_complete) {
-           if($pending){
-            $data['pending']= $pending;
-           }else{
-            $data['pending']= '';
-           }
-           if($late_complete){
-            $data['late']= $late_complete;
-           }else{
-            $data['late']= '';
-           }
-           if($complete){
-            $data['complete']= $complete;
-           }else{
-            $data['complete']= '';
-           }
-            
+            $data['pending'] = '';
+            $data['late'] = '';
+            $data['complete'] = '';
         } else {
-            $data['pending']= '';
-            $data['late']= '';
-            $data['complete']= '';
-        }
+            $total_task = count($data['users']); // Total tasks
 
-    //  echo "<pre>";
-    //     print_r($data);
-    //     echo "</pre>";
-    //     die();
+            $pending = [];
+            $late_complete = [];
+            $complete = [];
+
+            foreach ($data['users'] as $user) {
+                $submit_dates = explode(',', $user->submit_date);
+                $report_dates = explode(',', $user->report_submit_date);
+            
+                // Current Date
+                $current_date = (new DateTime())->format('Y-m-d');
+            
+                // Filter valid submit dates (before or equal to today)
+                $valid_submit_dates = array_filter($submit_dates, function ($date) use ($current_date) {
+                    $submit_date = new DateTime(trim($date));
+                    return $submit_date->format('Y-m-d') <= $current_date;
+                });
+            //   echo "<pre>";
+            // print_r($valid_submit_dates);
+            // echo "</pre>";
+                // If no valid submit dates, mark as pending
+                if (empty($valid_submit_dates)) {
+                    $pending[] = $user;
+                    continue;
+                }
+            
+                // Find latest valid submit date
+                $latest_submit_date = new DateTime(max($valid_submit_dates));
+                $formatted_latest_submit_date = $latest_submit_date->format('Y-m-d');
+            
+                // Find latest report date (if exists)
+                $latest_report_date = !empty($report_dates) ? new DateTime(max($report_dates)) : null;
+                $formatted_latest_report_date = $latest_report_date ? $latest_report_date->format('Y-m-d') : null;
+            
+                // Debugging (Check values)
+                // echo "<pre>";
+                // echo "User: " . $user->name . "\n";
+                // echo "Latest Submit Date: " . $formatted_latest_submit_date . "\n";
+                // echo "Latest Report Date: " . ($formatted_latest_report_date ?? 'Not Submitted') . "\n";
+                // echo "</pre>";
+            
+                // Task Categorization
+                if ($formatted_latest_submit_date > $current_date) {
+                    $pending[] = $user; // Future tasks - Pending
+                } elseif (is_null($formatted_latest_report_date) || $formatted_latest_report_date > $formatted_latest_submit_date) {
+                    $late_complete[] = $user; // Report not submitted or submitted late
+                } else {
+                    $complete[] = $user; // Completed on time
+                }
+            }
+
+            // Count totals
+            $total_pending = count($pending);
+            $total_late_complete = count($late_complete);
+            $total_complete = count($complete);
+
+            // Store in data array
+            $data['total_task'] = $total_task;
+            $data['total_task_com'] = $total_complete;
+            $data['total_task_pending'] = $total_pending;
+            $data['total_task_late'] = $total_late_complete;
+
+            // Calculate percentages
+            if ($total_task > 0) {
+                $data['completed_percentage'] = round(($total_complete / $total_task) * 100);
+                $data['completed_late'] = round(($total_late_complete / $total_task) * 100);
+                $data['pending_percentage'] = round(($total_pending / $total_task) * 100);
+            } else {
+                $data['completed_percentage'] = 100;
+                $data['pending_percentage'] = 0;
+                $data['completed_late'] = 0;
+            }
+
+            // Assign categorized data
+            $data['pending'] = !empty($pending) ? $pending : '';
+            $data['late'] = !empty($late_complete) ? $late_complete : '';
+            $data['complete'] = !empty($complete) ? $complete : '';
+        }
+        // die();
+        //  echo "<pre>";
+        //     print_r($data);
+        //     echo "</pre>";
+        // die();
         return view('admin/dashboard/dashboard', $data);
     }
     public function hr($token = null)

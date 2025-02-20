@@ -58,16 +58,7 @@
                               </div>
                            </div>
                           
-                           <div class="col-6">
-                              <div class="form-group">
-                                 <label for="gender">Gender</label>
-                                 <select name="gender" id="gender" class="form-control" required>
-                                    <option value="male">Male</option>
-                                    <option value="female">Female</option>
-                                    <option value="other">Other</option>
-                                 </select>
-                              </div>
-                           </div>
+                           
                            <div class="col-6">
                               <div class="form-group">
                                  <label for="gender">Role</label>

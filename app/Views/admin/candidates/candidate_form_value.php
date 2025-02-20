@@ -58,16 +58,7 @@
                               </div>
                            </div>
                           
-                           <div class="col-6">
-                              <div class="form-group">
-                                 <label for="gender">Gender</label>
-                                 <select name="gender" id="gender" class="form-control">
-    <option value="male" <?= ($role['gender'] === 'male') ? 'selected' : '' ?>>Male</option>
-    <option value="female" <?= ($role['gender'] === 'female') ? 'selected' : '' ?>>Female</option>
-    <option value="other" <?= ($role['gender'] === 'other') ? 'selected' : '' ?>>Other</option>
-</select>
-                              </div>
-                           </div>
+                          
                            <div class="col-6">
                               <div class="form-group">
                                  <label for="gender">Role</label>

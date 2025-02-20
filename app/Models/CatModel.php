@@ -80,6 +80,23 @@ class CatModel extends Model
             return $result;
         }
     }
+    public function getCatDatabranch($branch)
+    {
+        $builder = $this->db->table('category');
+        $builder->select('category.*');
+    
+        $builder->where('category.branch', $branch);
+        $query = $builder->get();
+    
+        // Get the result
+        $result = $query->getResult();
+    
+        if (!$result) {
+            return null;
+        } else {
+            return $result;
+        }
+    }
 
 
 

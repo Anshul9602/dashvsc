@@ -136,8 +136,8 @@ class Candidates extends BaseController
             'mobile_number' => isset($data['mobile_number']) ? $data['mobile_number'] : '',
             'role' => isset($data['role']) ? $data['role'] : '',
             'email' => isset($data['email']) ? $data['email'] : '',
-            'pass1' => isset($data['pass']) ? $data['pass'] : '',
-            'gender' => isset($data['gender']) ? $data['gender'] : ''
+            'pass1' => isset($data['pass']) ? $data['pass'] : ''
+            
 
         ];
 
