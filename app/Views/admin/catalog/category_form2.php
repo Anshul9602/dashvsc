@@ -19,9 +19,10 @@
                     Save
                 </button>
                 &nbsp;
-                <button class="btn btn-danger btn-rounded">
-                    <li class="fa fa-arrow-left"></li>
-                </button>
+                <button class="btn btn-danger btn-rounded" onclick="history.back();">
+    <i class="fa fa-arrow-left"></i> <!-- Use <i> instead of <li> -->
+</button>
+
 
             </div>
         </div>
@@ -63,7 +64,15 @@
                                                 <label for="">Assignment Name</label>
                                                 <input type="text" class="form-control" name="assignment" value="<?= $cat->assignment ?>" placeholder="Assignment Name">
                                             </div>
-
+                                            <div class="col-md-4 mt-3">
+                                                <label for="">Type</label>
+                                                <select class="form-control form-control-lg" name="type">
+                                                    <option value="" selected>Select an option</option>
+                                                    
+                                                    <option value="Empanel" <?= ($cat->type == "Empanel") ? "selected" : "" ?>>Empanel</option>
+                                                    <option value="WO" <?= ($cat->type == "WO") ? "selected" : "" ?>>WO</option>
+                                                </select>
+                                            </div>
                                             <div class="col-md-4 mt-3">
                                                 <label for="">Professional Fees</label>
                                                 <input type="text" class="form-control" name="fee" value="<?= $cat->fee ?>" placeholder="Professional Fees">
@@ -134,25 +143,15 @@
                                                     <option value="">Select Frequency</option>
                                                     <option value="monthly" <?= ($cat->audit == "monthly") ? "selected" : "" ?>>Monthly</option>
                                                     <option value="quarterly" <?= ($cat->audit == "quarterly") ? "selected" : "" ?>>Quarterly</option>
+                                                    <option value="half"<?= ($cat->audit == "half") ? "selected" : "" ?>>Half Yearly</option>
                                                     <option value="yearly" <?= ($cat->audit == "yearly") ? "selected" : "" ?>>Yearly</option>
                                                 </select>
                                             </div>
-
+                                            <div id="auditDatesContainer" class="col-md-8 row mt-3">
+                                                <!-- Dynamic date fields will be appended here -->
+                                            </div>
                                             <!-- Submit Date Fields -->
-                                            <div class="col-md-4 mt-3">
-                                                <label>Last Date of Submission</label>
-                                                <?php foreach ($submit_dates as $index => $date) : ?>
-                                                    <input type="text" class="form-control mt-2" name="submit_date[]" value="<?= trim($date) ?>">
-                                                <?php endforeach; ?>
-                                            </div>
-
-                                            <!-- Report Submit Date Fields -->
-                                            <div class="col-md-4 mt-3">
-                                                <label>Report Date of Submission</label>
-                                                <?php foreach ($report_submit_dates as $index => $date) : ?>
-                                                    <input type="text" class="form-control mt-2" name="report_submit_date[]" value="<?= trim($date) ?>">
-                                                <?php endforeach; ?>
-                                            </div>
+                                            
                                         </div>
 
                                         <button type="submit" value="submit" class="btn d-none" id="s_btnn">Submit</button>
@@ -172,6 +171,74 @@
     </div>
 
 </div>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function () {
+        let submitDates = "<?= $cat->submit_date ?>".split(',');
+        let reportSubmitDates = "<?= $cat->report_submit_date ?>".split(',');
+        let frequency = "<?= $cat->audit ?>"; // Get selected frequency from PHP
+
+        $("#auditFrequency").val(frequency); // Set selected audit frequency
+        let container = $("#auditDatesContainer");
+        container.empty(); // Clear previous fields
+
+        let count = 0;
+        if (frequency === "monthly") {
+            count = 12;
+        } else if (frequency === "quarterly") {
+            count = 4;
+        } else if (frequency === "half") {
+            count = 2;
+        } else if (frequency === "yearly") {
+            count = 1;
+        }
+
+        for (let i = 0; i < count; i++) {
+            let submitDateValue = submitDates[i] ? submitDates[i] : "";
+            let reportSubmitDateValue = reportSubmitDates[i] ? reportSubmitDates[i] : "";
+
+            let dateFields = `
+                <div class="col-md-6 mt-3">
+                    <label>Last Date of Submission ${i + 1}</label>
+                    <input type="date" class="form-control" name="submit_date[]" value="${submitDateValue}" >
+                </div>
+                <div class="col-md-6 mt-3">
+                    <label>Report Date of Submission ${i + 1}</label>
+                    <input type="date" class="form-control" name="report_submit_date[]" value="${reportSubmitDateValue}" >
+                </div>`;
+            container.append(dateFields);
+        }
+
+        $("#auditFrequency").change(function () {
+            let newFrequency = $(this).val();
+            container.empty(); // Clear previous fields
+
+            let newCount = 0;
+            if (newFrequency === "monthly") {
+                newCount = 12;
+            } else if (newFrequency === "quarterly") {
+                newCount = 4;
+            } else if (newFrequency === "half") {
+                newCount = 2;
+            } else if (newFrequency === "yearly") {
+                newCount = 1;
+            }
+
+            for (let i = 0; i < newCount; i++) {
+                let dateFields = `
+                    <div class="col-md-6 mt-3">
+                        <label>Last Date of Submission ${i + 1}</label>
+                        <input type="date" class="form-control" name="submit_date[]" >
+                    </div>
+                    <div class="col-md-6 mt-3">
+                        <label>Report Date of Submission ${i + 1}</label>
+                        <input type="date" class="form-control" name="report_submit_date[]" >
+                    </div>`;
+                container.append(dateFields);
+            }
+        });
+    });
+</script>
 <script>
     document.getElementById('save_btn').addEventListener('click', function() {
         // Trigger a click on the second button

@@ -136,6 +136,7 @@ class Category extends BaseController
                 'name' => isset($data['name']) ? $data['name'] : '',
                 'branch' => isset($data['branch']) ? $data['branch'] : '',
                 'assignment' => isset($data['assignment']) ? $data['assignment'] : '',
+                'type' => isset($data['type']) ? $data['type'] : '',
                 'audit' => isset($data['audit']) ? $data['audit'] : '',
                 'fee' => isset($data['fee']) ? $data['fee'] : '',
                 'submit_date' => $submit_date_string,
@@ -154,11 +155,11 @@ class Category extends BaseController
       
             $user = $model->update1($id, $input);
         } else {
-
             $input = [
                 'name' => isset($data['name']) ? $data['name'] : '',
                 'branch' => isset($data['branch']) ? $data['branch'] : '',
                 'assignment' => isset($data['assignment']) ? $data['assignment'] : '',
+                'type' => isset($data['type']) ? $data['type'] : '',
                 'audit' => isset($data['audit']) ? $data['audit'] : '',
                 'fee' => isset($data['fee']) ? $data['fee'] : '',
                 'submit_date' => $submit_date_string,
@@ -174,9 +175,6 @@ class Category extends BaseController
                 'completion' => isset($data['completion']) ? $data['completion'] : '',
                 'status' => isset($data['status']) ? $data['status'] : ''
             ];
-
-
-            
             $user = $model->save($input);
         }
         $role = session()->get('role');
@@ -200,7 +198,7 @@ class Category extends BaseController
         $model = new CatModel();
         $role = $model->getCatDataid($id); // Ensure the base URL does not have a trailing slash
         $data['cat'] = $role[0];
-        //      echo "<pre>"; print_r( $data['role']);
+        //      echo "<pre>"; print_r( $data['cat']);
         // echo "</pre>";
         // die();
 

@@ -1,0 +1,21 @@
+INFO - 2025-02-24 05:31:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-24 05:31:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-24 05:32:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-24 05:32:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-24 05:32:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-24 05:32:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-24 05:33:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-24 05:33:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-24 05:33:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-24 05:37:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-24 05:37:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-02-24 05:37:10 --> ErrorException: Undefined array key "typet"
+in APPPATH\Controllers\Admin\Category\Category.php on line 139.
+ 1 APPPATH\Controllers\Admin\Category\Category.php(139): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "typet"', 'C:\\xampp\\htdocs\\vscadmin\\app\\Controllers\\Admin\\Category\\Category.php', 139)
+ 2 SYSTEMPATH\CodeIgniter.php(943): App\Controllers\Admin\Category\Category->listAllCategory_Form_save('b2d7038d9d6ac94d072e00b19cc4c338')
+ 3 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Category\Category))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\vscadmin\\public\\index.php')
+INFO - 2025-02-24 05:38:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-02-24 05:38:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

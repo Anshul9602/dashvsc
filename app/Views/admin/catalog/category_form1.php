@@ -17,9 +17,9 @@
                     Save
                 </button>
                 &nbsp;
-                <button class="btn btn-danger btn-rounded">
-                    <li class="fa fa-arrow-left"></li>
-                </button>
+                <button class="btn btn-danger btn-rounded" onclick="history.back();">
+    <i class="fa fa-arrow-left"></i> <!-- Use <i> instead of <li> -->
+</button>
             </div>
         </div>
         <!-- row -->
@@ -44,22 +44,30 @@
                                             </div>
                                             <div class="col-md-4 mt-3">
                                                 <label for="">Branch name</label>
-                                                
+
                                                 <select name="branch" id="role" class="form-control">
-    <?php if ($roles !== null && !empty($roles)): ?>
-        <?php foreach ($roles as $index => $user): ?>
-            <option value="<?= $user->name ?>" >
-                <?= $user->name ?>
-            </option>
-        <?php endforeach; ?>
-    <?php else: ?>
-        <option value="Jaipur">Jaipur</option>
-    <?php endif; ?>
-</select>
+                                                    <?php if ($roles !== null && !empty($roles)): ?>
+                                                        <?php foreach ($roles as $index => $user): ?>
+                                                            <option value="<?= $user->name ?>">
+                                                                <?= $user->name ?>
+                                                            </option>
+                                                        <?php endforeach; ?>
+                                                    <?php else: ?>
+                                                        <option value="Jaipur">Jaipur</option>
+                                                    <?php endif; ?>
+                                                </select>
                                             </div>
                                             <div class="col-md-4 mt-3">
                                                 <label for="">Assignment name</label>
                                                 <input type="text" class="form-control" name="assignment" placeholder="Assignment name">
+                                            </div>
+                                            <div class="col-md-4 mt-3">
+                                                <label for="">Type</label>
+                                                <select class="form-control form-control-lg" name="type" required>
+                                                    <option value="" selected>Select an option</option>
+                                                    <option value="Empanel">Empanel</option>
+                                                    <option value="WO">WO</option>
+                                                </select>
                                             </div>
 
                                             <div class="col-md-4 mt-3">
@@ -91,7 +99,7 @@
                                                 <label for="">Completion Certificate Received</label>
                                                 <input type="text" class="form-control" name="completion" placeholder="Completion Certificate Received">
                                             </div>
-                                           
+
                                             <div class="col-md-4 mt-3">
                                                 <label for="">UDIN</label>
                                                 <select class="form-control form-control-lg" name="udin">
@@ -121,7 +129,9 @@
                                                     <option value="" selected>Select Frequency</option>
                                                     <option value="monthly">Monthly</option>
                                                     <option value="quarterly">Quarterly</option>
+                                                    <option value="half">Half Yearly</option>
                                                     <option value="yearly">Yearly</option>
+                                                    
                                                 </select>
                                             </div>
                                             <div id="auditDatesContainer" class="col-md-8 row mt-3">
@@ -141,8 +151,8 @@
 </div>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
-    $(document).ready(function () {
-        $("#auditFrequency").change(function () {
+    $(document).ready(function() {
+        $("#auditFrequency").change(function() {
             let frequency = $(this).val();
             let container = $("#auditDatesContainer");
             container.empty(); // Clear previous fields
@@ -152,6 +162,8 @@
                 count = 12;
             } else if (frequency === "quarterly") {
                 count = 4;
+            } else if (frequency === "half") {
+                count = 2;
             } else if (frequency === "yearly") {
                 count = 1;
             }
@@ -160,11 +172,11 @@
                 let dateFields = `
                     <div class="col-md-6 mt-3">
                         <label for="submit_date_${i}">Last Date of Submission ${i} </label>
-                        <input type="date" class="form-control" name="submit_date[]" required>
+                        <input type="date" class="form-control" name="submit_date[]" >
                     </div>
                     <div class="col-md-6 mt-3">
                         <label for="report_submit_date_${i}">Report Date of Submission ${i} </label>
-                        <input type="date" class="form-control" name="report_submit_date[]" required>
+                        <input type="date" class="form-control" name="report_submit_date[]" >
                     </div>`;
                 container.append(dateFields);
             }

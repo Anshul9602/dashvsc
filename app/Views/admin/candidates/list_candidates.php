@@ -22,10 +22,10 @@
                 $permissionsArray = explode(',', $permission); // Convert the string to an array for easier checking
                 ?>
                 <?php if (in_array('users_create', $permissionsArray)): ?><a href="<?php echo base_url('admin/candidates/candidates_form/' . $token); ?>">
-                        <button type="button" class="btn btn-rounded btn-primary open-add-form">
-                            <span class="btn-icon-left text-primary">
+                        <button type="button" class="btn btn-rounded btn-primary open-add-form text-center">
+                            <span class="btn-icon-left text-primary text-center">
                                 <i class="fa fa-plus"></i>
-                            </span>Add New User
+                            </span>
                         </button>
                     </a><?php endif; ?>
             </div>
@@ -46,10 +46,7 @@
                             <thead>
                                 <tr>
                                     <th>
-                                        <div class="custom-control custom-checkbox checkbox-success check-lg mr-3">
-                                            <input type="checkbox" class="custom-control-input" id="checkAll" required="">
-                                            <label class="custom-control-label" for="checkAll"></label>
-                                        </div>
+                                       Sr. No
                                     </th>
                                     <th>Name</th>
                                     <th>Details</th>
@@ -66,10 +63,7 @@
                                     <?php foreach ($roles as $index => $user): ?>
                                         <tr>
                                             <td>
-                                                <div class="custom-control custom-checkbox checkbox-success check-lg mr-3">
-                                                    <input type="checkbox" class="custom-control-input" id="checkAll" required="">
-                                                    <label class="custom-control-label" for="checkAll"></label>
-                                                </div>
+                                            <?= sprintf("%02d", $index + 1) ?> 
                                             </td>
 
                                             <td><?= $user->name ?></td>

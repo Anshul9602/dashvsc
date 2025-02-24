@@ -90,10 +90,7 @@
                 </a>
                 &nbsp;
 
-                <button class="btn btn-danger btn-rounded">
-                    <li class="fa fa-trash"></li>
-                </button>
-                &nbsp;
+               
 
 
 
@@ -108,15 +105,12 @@
                             <table id="example3" class="display" style="min-width: 845px">
                                 <thead>
                                     <tr>
-                                        <th>
-                                            <div class="custom-control custom-checkbox checkbox-success check-lg mr-3">
-                                                <input type="checkbox" class="custom-control-input" id="checkAll" required="">
-                                                <label class="custom-control-label" for="checkAll"></label>
-                                            </div>
-                                        </th>
+                                       
 
+                                        <th>Sr. No</th>
                                         <th>Name</th>
                                         <th>Branch</th>
+                                        <th>Type</th>
                                         <th>Type Of <br>Assignment</th>
                                         <th>Frequency <br>Of Audit </th>
                                         <th>Professinal Fees</th>
@@ -140,15 +134,12 @@
                                     <?php if ($users !== null && !empty($users)): ?>
                                         <?php foreach ($users as $index => $user): ?>
                                             <tr>
-                                                <td>
-                                                    <div class="custom-control custom-checkbox checkbox-success check-lg mr-3">
-                                                        <input type="checkbox" class="custom-control-input" id="checkAll" required="">
-                                                        <label class="custom-control-label" for="checkAll"></label>
-                                                    </div>
-                                                </td>
+                                                
+                                            <td><?= sprintf("%02d", $index + 1) ?></td>
 
                                                 <td><?= $user->name ?></td>
                                                 <td><?= $user->branch ?></td>
+                                                <td><?= $user->type ?></td>
                                                 <td><?= $user->assignment ?></td>
                                                 <td><?= $user->audit ?></td>
                                                 <td><?= $user->fee ?></td>

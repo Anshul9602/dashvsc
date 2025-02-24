@@ -90,9 +90,7 @@
                 </a>
                 &nbsp;
 
-                <button class="btn btn-danger btn-rounded">
-                    <li class="fa fa-trash"></li>
-                </button>
+               
                
               
 
@@ -108,10 +106,7 @@
                                 <thead>
                                     <tr>
                                         <th>
-                                            <div class="custom-control custom-checkbox checkbox-success check-lg mr-3">
-                                                <input type="checkbox" class="custom-control-input" id="checkAll" required="">
-                                                <label class="custom-control-label" for="checkAll"></label>
-                                            </div>
+                                           Sr. No
                                         </th>
 
                                         <th>Name</th>
@@ -127,10 +122,7 @@
                                         <?php foreach ($roles as $index => $user): ?>
                                             <tr>
                                                 <td>
-                                                    <div class="custom-control custom-checkbox checkbox-success check-lg mr-3">
-                                                        <input type="checkbox" class="custom-control-input" id="checkAll" required="">
-                                                        <label class="custom-control-label" for="checkAll"></label>
-                                                    </div>
+                                                <?= sprintf("%02d", $index + 1) ?>
                                                 </td>
 
                                                 <td><?= $user->name ?></td>
