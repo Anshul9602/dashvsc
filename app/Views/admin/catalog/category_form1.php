@@ -18,8 +18,8 @@
                 </button>
                 &nbsp;
                 <button class="btn btn-danger btn-rounded" onclick="history.back();">
-    <i class="fa fa-arrow-left"></i> <!-- Use <i> instead of <li> -->
-</button>
+                    <i class="fa fa-arrow-left"></i> <!-- Use <i> instead of <li> -->
+                </button>
             </div>
         </div>
         <!-- row -->
@@ -43,9 +43,9 @@
                                                 <input type="text" class="form-control" name="name" placeholder="Organizaion name">
                                             </div>
                                             <div class="col-md-4 mt-3">
-                                                <label for="">Branch name</label>
+                                                <label for="">Branch name *</label>
 
-                                                <select name="branch" id="role" class="form-control">
+                                                <select name="branch" id="role" class="form-control" required>
                                                     <?php if ($roles !== null && !empty($roles)): ?>
                                                         <?php foreach ($roles as $index => $user): ?>
                                                             <option value="<?= $user->name ?>">
@@ -62,7 +62,7 @@
                                                 <input type="text" class="form-control" name="assignment" placeholder="Assignment name">
                                             </div>
                                             <div class="col-md-4 mt-3">
-                                                <label for="">Type</label>
+                                                <label for="">Type *</label>
                                                 <select class="form-control form-control-lg" name="type" required>
                                                     <option value="" selected>Select an option</option>
                                                     <option value="Empanel">Empanel</option>
@@ -75,10 +75,7 @@
                                                 <input type="text" class="form-control" name="fee" placeholder="Professinal Fees">
                                             </div>
 
-                                            <div class="col-md-4 mt-3">
-                                                <label for="">Bill Date </label>
-                                                <input type="text" class="form-control" name="bill_date" placeholder="Bill Date ">
-                                            </div>
+
                                             <div class="col-md-4 mt-3">
                                                 <label for="">Invoice Number</label>
                                                 <input type="text" class="form-control" name="invoice_no" placeholder="Invoice Number">
@@ -124,6 +121,23 @@
                                                 </select>
                                             </div>
                                             <div class="col-md-4 mt-3">
+                                                <label for="">Bill Type</label>
+                                                <select class="form-control form-control-lg" name="bill_type" id="bill_type">
+                                                    <option value="">Select type</option>
+                                                    <option value="monthly">Monthly</option>
+                                                    <option value="quarterly">Quarterly</option>
+                                                    <option value="half">Half Yearly</option>
+                                                    <option value="yearly" selected>Yearly</option>
+
+                                                </select>
+                                            </div>
+                                            <div id="auditDatesContainer1" class="col-md-4 row ">
+                                                <div class="col-md-12 mt-3">
+                                                    <label for="bill_date">Bill Date </label>
+                                                    <input type="date" class="form-control" name="bill_date[]">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 mt-3">
                                                 <label for="">Frequency Of Audit</label>
                                                 <select class="form-control form-control-lg" name="audit" id="auditFrequency">
                                                     <option value="" selected>Select Frequency</option>
@@ -131,11 +145,12 @@
                                                     <option value="quarterly">Quarterly</option>
                                                     <option value="half">Half Yearly</option>
                                                     <option value="yearly">Yearly</option>
-                                                    
+
                                                 </select>
                                             </div>
-                                            <div id="auditDatesContainer" class="col-md-8 row mt-3">
+                                            <div id="auditDatesContainer" class="col-md-8 row ">
                                                 <!-- Dynamic date fields will be appended here -->
+
                                             </div>
                                         </div>
                                         <button type="submit" id="s_btnn5" class="btn btn-primary d-none">Submit</button>
@@ -152,6 +167,32 @@
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
     $(document).ready(function() {
+        $("#bill_type").change(function() {
+            let frequency = $(this).val();
+            let container = $("#auditDatesContainer1");
+            container.empty(); // Clear previous fields
+
+            let count = 0;
+            if (frequency === "monthly") {
+                count = 12;
+            } else if (frequency === "quarterly") {
+                count = 4;
+            } else if (frequency === "half") {
+                count = 2;
+            } else if (frequency === "yearly") {
+                count = 1;
+            }
+
+            for (let i = 1; i <= count; i++) {
+                let dateFields = `
+                    <div class="col-md-12 mt-3">
+                        <label for="bill_date_${i}">Bill Date ${i} </label>
+                        <input type="date" class="form-control" name="bill_date[]" >
+                    </div>
+                    `;
+                container.append(dateFields);
+            }
+        });
         $("#auditFrequency").change(function() {
             let frequency = $(this).val();
             let container = $("#auditDatesContainer");

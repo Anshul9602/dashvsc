@@ -53,7 +53,7 @@
 
        
         <div class="nav-header">
-            <a href="<?php echo base_url('dashboard');?>" class="brand-logo">
+            <a href="<?= base_url('admin/dashboard/' . $token) ?>" class="brand-logo">
                 <img class="logo-abbr" src="<?php echo base_url('assets/logo.png');?>" alt="">
             </a>
 

@@ -148,13 +148,15 @@
 		max-width: 90% !important;
 	}
 </style>
-
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 <div class="modal fade" id="taskModal" tabindex="-1" aria-labelledby="taskModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
 			<div class="modal-header">
 				<h5 class="modal-title" id="taskModalLabel">Task Details</h5>
-				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">x</button>
+				
 			</div>
 			<div class="modal-body">
 				<div class="table-responsive">
@@ -167,12 +169,17 @@
 									</th>
 									<th>Name</th>
 									<th>Branch</th>
+									<th>Type</th>
 									<th>Type Of <br>Assignment</th>
 									<th>Frequency <br>Of Audit </th>
 									<th>Professinal Fees</th>
 									<th>Last Date of Submission</th>
 									<th>Report Date of Submission</th>
+									<th>Bill Type</th>
 									<th>Bill Date</th>
+									<th>UDIN</th>
+									<th>UDIN No</th>
+									<th>UDIN Trunover</th>
 									<th>Invoice Number</th>
 									<th>Recovery status</th>
 									<th>Security Deposit</th>
@@ -195,6 +202,7 @@
 		</div>
 	</div>
 </div>
+
 <!-- Bootstrap JS (Include jQuery if using Bootstrap 4) -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -222,28 +230,35 @@
 			tableBody.innerHTML = "";
 
 			if (taskData.length > 0) {
+				let index = 1;
 				taskData.forEach(task => {
 					let row = `
                     <tr>
-                        <td>${task.id}</td>
+                        <td>${index}</td> 
                         <td>${task.name}</td>
                         <td>${task.branch}</td>
-                        <td>${task.completion || "N/A"}</td>
-                        <td>${task.working || "N/A"}</td>
-                        <td>${task.security_deposit || "N/A"}</td>
-                        <td>${task.recovery_status || "N/A"}</td>
-                        <td>${task.invoice_no || "N/A"}</td>
-                        <td>${task.bill_date || "N/A"}</td>
-                        <td>${task.report_submit_date || "N/A"}</td>
-                        <td>${task.submit_date || "N/A"}</td>
-                        <td>${task.fee || "N/A"}</td>
-                        <td>${task.audit || "N/A"}</td>
+                        <td>${task.type}</td>
                         <td>${task.assignment || "N/A"}</td>
+                        <td>${task.audit || "N/A"}</td>
+                        <td>${task.fee || "N/A"}</td>
+                        <td>${task.submit_date || "N/A"}</td>
+                        <td>${task.report_submit_date || "N/A"}</td>
+                        <td>${task.bill_type || "N/A"}</td>
+                        <td>${task.bill_date || "N/A"}</td>
+                        <td>${task.udin || "N/A"}</td>
+                        <td>${task.udin_no || "N/A"}</td>
+                        <td>${task.udin_trun || "N/A"}</td>
+                        <td>${task.invoice_no || "N/A"}</td>
+                        <td>${task.recovery_status || "N/A"}</td>
+                        <td>${task.security_deposit || "N/A"}</td>
+                        <td>${task.working || "N/A"}</td>
+                        <td>${task.completion || "N/A"}</td>
                         <td>${task.status == 1 ? "Active" : "Inactive"}</td>
                         <td>${task.created_at}</td>
                     </tr>
                 `;
 					tableBody.innerHTML += row;
+					index++;
 				});
 			} else {
 				tableBody.innerHTML = "<tr><td colspan='16' class='text-center'>No tasks available</td></tr>";
@@ -269,6 +284,7 @@
 			let lateData = <?php echo json_encode($late); ?>;
 			openModal("late", lateData);
 		});
+		
 	});
 </script>
 

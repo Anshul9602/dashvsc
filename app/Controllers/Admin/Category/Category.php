@@ -126,6 +126,11 @@ class Category extends BaseController
         // Convert arrays to comma-separated strings
         $submit_date_string = !empty($submit_dates) ? implode(',', $submit_dates) : '';
         $report_date_string = !empty($report_dates) ? implode(',', $report_dates) : '';
+
+        $bill_dates = isset($data['bill_date']) ? $data['bill_date'] : [];
+        // Convert arrays to comma-separated strings
+        $bill_date_string = !empty($bill_dates) ? implode(',', $bill_dates) : '';
+       
         $model = new CatModel();
 
         if ($data['id']) {
@@ -141,7 +146,8 @@ class Category extends BaseController
                 'fee' => isset($data['fee']) ? $data['fee'] : '',
                 'submit_date' => $submit_date_string,
                 'report_submit_date' => $report_date_string,
-                'bill_date' => isset($data['bill_date']) ? $data['bill_date'] : '',
+                'bill_date' => $bill_date_string,
+                'bill_type' => isset($data['bill_type']) ? $data['bill_type'] : '',
                 'invoice_no' => isset($data['invoice_no']) ? $data['invoice_no'] : '',
                 'recovery_status' => isset($data['recovery_status']) ? $data['recovery_status'] : '',
                 'security_deposit' => isset($data['security_deposit']) ? $data['security_deposit'] : '',
@@ -164,7 +170,8 @@ class Category extends BaseController
                 'fee' => isset($data['fee']) ? $data['fee'] : '',
                 'submit_date' => $submit_date_string,
                 'report_submit_date' => $report_date_string,
-                'bill_date' => isset($data['bill_date']) ? $data['bill_date'] : '',
+                'bill_date' => $bill_date_string,
+                'bill_type' => isset($data['bill_type']) ? $data['bill_type'] : '',
                 'invoice_no' => isset($data['invoice_no']) ? $data['invoice_no'] : '',
                 'recovery_status' => isset($data['recovery_status']) ? $data['recovery_status'] : '',
                 'security_deposit' => isset($data['security_deposit']) ? $data['security_deposit'] : '',

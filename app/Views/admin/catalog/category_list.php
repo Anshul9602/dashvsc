@@ -116,6 +116,7 @@
                                         <th>Professinal Fees</th>
                                         <th>Last Date of Submission</th>
                                         <th>Report Date of Submission</th>
+                                        <th>Bill Type</th>
                                         <th>Bill Date</th>
                                         <th>UDIN</th>
                                         <th>UDIN No</th>
@@ -145,6 +146,7 @@
                                                 <td><?= $user->fee ?></td>
                                                 <td><?= $user->submit_date ?></td>
                                                 <td><?= $user->report_submit_date ?></td>
+                                                <td><?= $user->bill_type ?></td>
                                                 <td><?= $user->bill_date ?></td>
                                                 <td><?= $user->udin ?></td>
                                                 <td><?= $user->udin_no ?></td>

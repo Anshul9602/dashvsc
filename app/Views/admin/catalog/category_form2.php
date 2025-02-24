@@ -138,6 +138,19 @@
 
                                             <!-- Frequency of Audit -->
                                             <div class="col-md-4 mt-3">
+                                                <label for="">Bill Type</label>
+                                                <select class="form-control form-control-lg" name="bill_type" id="bill_type">
+                                                    <option value="">Select date</option>
+                                                    <option value="monthly" <?= ($cat->bill_type == "monthly") ? "selected" : "" ?>>Monthly</option>
+                                                    <option value="quarterly" <?= ($cat->bill_type == "quarterly") ? "selected" : "" ?>>Quarterly</option>
+                                                    <option value="half"<?= ($cat->bill_type == "half") ? "selected" : "" ?>>Half Yearly</option>
+                                                    <option value="yearly" <?= ($cat->bill_type == "yearly") ? "selected" : "" ?>>Yearly</option>
+                                                </select>
+                                            </div>
+                                            <div id="auditDatesContainer1" class="col-md-4 row ">
+                                                <!-- Dynamic date fields will be appended here -->
+                                            </div>
+                                            <div class="col-md-4 mt-3">
                                                 <label for="">Frequency Of Audit</label>
                                                 <select class="form-control form-control-lg" name="audit" id="auditFrequency">
                                                     <option value="">Select Frequency</option>
@@ -147,7 +160,7 @@
                                                     <option value="yearly" <?= ($cat->audit == "yearly") ? "selected" : "" ?>>Yearly</option>
                                                 </select>
                                             </div>
-                                            <div id="auditDatesContainer" class="col-md-8 row mt-3">
+                                            <div id="auditDatesContainer" class="col-md-8 row ">
                                                 <!-- Dynamic date fields will be appended here -->
                                             </div>
                                             <!-- Submit Date Fields -->
@@ -173,6 +186,65 @@
 </div>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
+    $(document).ready(function () {
+        let BillDates = "<?= $cat->bill_date ?>".split(',');
+       
+        let frequency1 = "<?= $cat->bill_type ?>"; // Get selected frequency from PHP
+
+        $("#bill_type").val(frequency1); // Set selected audit frequency
+        let container1 = $("#auditDatesContainer1");
+        container1.empty(); // Clear previous fields
+
+        let count = 0;
+        if (frequency1 === "monthly") {
+            count = 12;
+        } else if (frequency1 === "quarterly") {
+            count = 4;
+        } else if (frequency1 === "half") {
+            count = 2;
+        } else if (frequency1 === "yearly") {
+            count = 1;
+        }
+
+        for (let i = 0; i < count; i++) {
+            let BillDatesValue = BillDates[i] ? BillDates[i] : "";
+           
+
+            let dateFields = `
+                <div class="col-md-12 mt-3">
+                    <label>Bill Date ${i + 1}</label>
+                    <input type="date" class="form-control" name="bill_date[]" value="${BillDatesValue}" >
+                </div>
+               `;
+            container1.append(dateFields);
+        }
+
+        $("#bill_type").change(function () {
+            let newFrequency1 = $(this).val();
+            container1.empty(); // Clear previous fields
+
+            let newCount = 0;
+            if (newFrequency1 === "monthly") {
+                newCount = 12;
+            } else if (newFrequency1 === "quarterly") {
+                newCount = 4;
+            } else if (newFrequency1 === "half") {
+                newCount = 2;
+            } else if (newFrequency1 === "yearly") {
+                newCount = 1;
+            }
+
+            for (let i = 0; i < newCount; i++) {
+                let dateFields = `
+                    <div class="col-md-12 mt-3">
+                        <label>Bill Date ${i + 1}</label>
+                        <input type="date" class="form-control" name="bill_date[]" >
+                    </div>
+                    `;
+                container1.append(dateFields);
+            }
+        });
+    });
     $(document).ready(function () {
         let submitDates = "<?= $cat->submit_date ?>".split(',');
         let reportSubmitDates = "<?= $cat->report_submit_date ?>".split(',');
