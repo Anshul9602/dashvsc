@@ -3,6 +3,8 @@
 
 
 <div class="content-body">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.3.6/css/buttons.dataTables.min.css">
     <style>
         .role-f {
             display: none !important;
@@ -92,6 +94,11 @@
 
                
 
+                <div class="mb-3">
+        <button id="exportCsv" class="btn btn-success">Export CSV</button>
+        <button id="exportExcel" class="btn btn-primary">Export Excel</button>
+        <button id="exportPdf" class="btn btn-danger">Export PDF</button>
+    </div>
 
 
             </div>
@@ -102,7 +109,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table id="example3" class="display" style="min-width: 845px">
+                            <table id="example32" class="display" style="min-width: 845px">
                                 <thead>
                                     <tr>
                                        
@@ -207,7 +214,61 @@
         </div>
     </div>
 </div>
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<!-- Include jQuery and DataTables JS -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.print.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script>
+    $(document).ready(function () {
+        var table = $('#example32').DataTable({
+            dom: 'Bfrtip', // Enables Buttons
+            buttons: [
+                {
+                    extend: 'csv',
+                    text: 'Export CSV',
+                    className: 'btn btn-success',
+                    exportOptions: {
+                        columns: ':visible' // Export only visible columns
+                    }
+                },
+                {
+                    extend: 'excel',
+                    text: 'Export Excel',
+                    className: 'btn btn-primary',
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                },
+                {
+                    extend: 'pdf',
+                    text: 'Export PDF',
+                    className: 'btn btn-danger',
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                }
+            ]
+        });
+
+        // Manually trigger button clicks
+        $('#exportCsv').on('click', function () {
+            table.button('.buttons-csv').trigger();
+        });
+
+        $('#exportExcel').on('click', function () {
+            table.button('.buttons-excel').trigger();
+        });
+
+        $('#exportPdf').on('click', function () {
+            table.button('.buttons-pdf').trigger();
+        });
+    });
+</script>
 <script>
     $('.status_update').click(function() {
         var deptId = $(this).data('id'); // Get the data-id attribute of the clicked checkbox

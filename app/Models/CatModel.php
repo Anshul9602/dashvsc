@@ -63,6 +63,23 @@ class CatModel extends Model
             return $result;
         }
     }
+    public function getallDataDesh()
+    {
+        $builder = $this->db->table('category');
+        $builder->select('category.*');
+        $builder->where('category.type', 'Empanel');
+        
+        $query = $builder->get();
+    
+        // Get the result
+        $result = $query->getResult();
+    
+        if (!$result) {
+            return null;
+        } else {
+            return $result;
+        }
+    }
     public function getCatDataid($id)
     {
         $builder = $this->db->table('category');
