@@ -3,8 +3,7 @@
 
 
 <div class="content-body">
-<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
-<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.3.6/css/buttons.dataTables.min.css">
+
     <style>
         .role-f {
             display: none !important;
@@ -85,22 +84,13 @@
                 </div>
             </div>
             <div class="col-sm-6 justify-content-sm-end mt-2 mt-sm-0 d-flex">
-                <a href="<?php echo base_url('admin/category/category_form/' . $token); ?>">
+                
+            <button id="exportCsv" class="btn btn-success" data-id="<?php echo $token; ?>">Export CSV</button> &nbsp;&nbsp;
+            <a href="<?php echo base_url('admin/category/category_form/' . $token); ?>">
                     <button class="btn btn-primary btn-rounded">
                         <li class="fa fa-plus"></li>
                     </button>
                 </a>
-                &nbsp;
-
-               
-
-                <div class="mb-3">
-        <button id="exportCsv" class="btn btn-success">Export CSV</button>
-        <button id="exportExcel" class="btn btn-primary">Export Excel</button>
-        <button id="exportPdf" class="btn btn-danger">Export PDF</button>
-    </div>
-
-
             </div>
         </div>
         <!-- row -->
@@ -109,10 +99,10 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table id="example32" class="display" style="min-width: 845px">
+                            <table id="example3" class="display ndfn" style="min-width: 845px">
                                 <thead>
                                     <tr>
-                                       
+
 
                                         <th>Sr. No</th>
                                         <th>Name</th>
@@ -142,8 +132,8 @@
                                     <?php if ($users !== null && !empty($users)): ?>
                                         <?php foreach ($users as $index => $user): ?>
                                             <tr>
-                                                
-                                            <td><?= sprintf("%02d", $index + 1) ?></td>
+
+                                                <td><?= sprintf("%02d", $index + 1) ?></td>
 
                                                 <td><?= $user->name ?></td>
                                                 <td><?= $user->branch ?></td>
@@ -216,60 +206,24 @@
 </div>
 <!-- Include jQuery and DataTables JS -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.html5.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.print.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+
 <script>
-    $(document).ready(function () {
-        var table = $('#example32').DataTable({
-            dom: 'Bfrtip', // Enables Buttons
-            buttons: [
-                {
-                    extend: 'csv',
-                    text: 'Export CSV',
-                    className: 'btn btn-success',
-                    exportOptions: {
-                        columns: ':visible' // Export only visible columns
-                    }
-                },
-                {
-                    extend: 'excel',
-                    text: 'Export Excel',
-                    className: 'btn btn-primary',
-                    exportOptions: {
-                        columns: ':visible'
-                    }
-                },
-                {
-                    extend: 'pdf',
-                    text: 'Export PDF',
-                    className: 'btn btn-danger',
-                    exportOptions: {
-                        columns: ':visible'
-                    }
-                }
-            ]
-        });
-
-        // Manually trigger button clicks
-        $('#exportCsv').on('click', function () {
-            table.button('.buttons-csv').trigger();
-        });
-
-        $('#exportExcel').on('click', function () {
-            table.button('.buttons-excel').trigger();
-        });
-
-        $('#exportPdf').on('click', function () {
-            table.button('.buttons-pdf').trigger();
-        });
-    });
 </script>
 <script>
+    $('#exportCsv').click(function() {
+    var token = $(this).data('id'); // Get token from button data-id
+
+    // Construct download URL
+    var downloadUrl = `<?= base_url('/admin/category_export') ?>/${token}`;
+
+    // Create a hidden download link
+    var link = document.createElement('a');
+    link.href = downloadUrl;
+    link.setAttribute('download', 'category_export.csv'); // Set filename
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+});
     $('.status_update').click(function() {
         var deptId = $(this).data('id'); // Get the data-id attribute of the clicked checkbox
         // var status = $(this).value('data'); // Get the data-id attribute of the clicked checkbox

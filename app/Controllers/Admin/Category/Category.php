@@ -85,6 +85,74 @@ class Category extends BaseController
         // die();
         return view('admin/catalog/category_list', $data);
     }
+    public function listAllCategory_export($segment)
+    {
+        if (!$this->validateToken($segment)) {
+            return redirect()->to('/admin/login');
+        }
+    
+        date_default_timezone_set('Asia/Kolkata');
+        $current_date = date('Y-m-d');
+    
+        $role = session()->get('role');
+        $model = new CatModel();
+    
+        if ($role == 'DATA MINER') {
+            $users = $model->getallData();
+        } else {
+            $branch = session()->get('admin_name');
+            $users = $model->getCatDatabranch($branch);
+        }
+    
+        // Set headers for CSV file download
+        header('Content-Type: text/csv');
+        header('Content-Disposition: attachment; filename="category_export.csv"');
+        header('Pragma: no-cache');
+        header('Expires: 0');
+    
+        $output = fopen('php://output', 'w');
+    
+        // **CSV Headers** - Matching Table Columns
+        fputcsv($output, [
+            'Sr. No', 'Name', 'Branch', 'Type', 'Type Of Assignment', 'Frequency Of Audit',
+            'Professional Fees', 'Last Date of Submission', 'Report Date of Submission',
+            'Bill Type', 'Bill Date', 'UDIN', 'UDIN No', 'UDIN Turnover',
+            'Invoice Number', 'Recovery Status', 'Security Deposit', 'Working Environment',
+            'Completion Certificate Received', 'Status', 'Date Added'
+        ]);
+    
+        // **CSV Data**
+        $index = 1;
+        foreach ($users as $user) {
+            fputcsv($output, [
+                sprintf("%02d", $index++), // Serial Number
+                $user->name,
+                $user->branch,
+                $user->type,
+                $user->assignment,
+                $user->audit,
+                $user->fee,
+                $user->submit_date,
+                $user->report_submit_date,
+                $user->bill_type,
+                $user->bill_date,
+                $user->udin,
+                $user->udin_no,
+                $user->udin_trun,
+                $user->invoice_no,
+                $user->recovery_status,
+                $user->security_deposit,
+                $user->working,
+                $user->completion,
+                $user->status == '1' ? 'Active' : 'Inactive', // Convert status to readable text
+                $user->created_at
+            ]);
+        }
+    
+        fclose($output);
+        exit;
+    }
+    
     public function listAllCategory_Form($segment)
     {
         if (!$this->validateToken($segment)) {
@@ -560,3 +628,7 @@ class Category extends BaseController
         }
     }
 }
+
+
+       
+     

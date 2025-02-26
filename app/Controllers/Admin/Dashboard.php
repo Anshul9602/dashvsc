@@ -66,7 +66,7 @@ class Dashboard extends BaseController
             foreach ($data['users'] as $user) {
                 $submit_dates = explode(',', $user->submit_date);
                 $report_dates = explode(',', $user->report_submit_date);
-            
+              
                 // Current Date
                 $current_date = (new DateTime())->format('Y-m-d');
             
@@ -75,9 +75,13 @@ class Dashboard extends BaseController
                     $submit_date = new DateTime(trim($date));
                     return $submit_date->format('Y-m-d') <= $current_date;
                 });
-            //   echo "<pre>";
-            // print_r($valid_submit_dates);
-            // echo "</pre>";
+                echo "<pre>";
+                echo "submit";
+            print_r($valid_submit_dates);
+            echo "repot";
+            print_r($report_dates);
+            echo "</pre>";
+            die();
                 // If no valid submit dates, mark as pending
                 if (empty($valid_submit_dates)) {
                     $pending[] = $user;
@@ -98,7 +102,7 @@ class Dashboard extends BaseController
                 // echo "Latest Submit Date: " . $formatted_latest_submit_date . "\n";
                 // echo "Latest Report Date: " . ($formatted_latest_report_date ?? 'Not Submitted') . "\n";
                 // echo "</pre>";
-            
+             
                 // Task Categorization
                 if ($formatted_latest_submit_date > $current_date) {
                     $pending[] = $user; // Future tasks - Pending

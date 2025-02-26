@@ -40,6 +40,7 @@ $routes->group('admin', function($routes) {
 
   // Category routes
   $routes->get('category/(:segment)', 'Admin\Category\Category::listAllCategory/$1');
+  $routes->get('category_export/(:segment)', 'Admin\Category\Category::listAllCategory_export/$1');
   $routes->get('category/category_form/(:segment)', 'Admin\Category\Category::listAllCategory_Form/$1');
   $routes->post('catalog/category_form_save/(:segment)', 'Admin\Category\Category::listAllCategory_Form_save/$1');
   $routes->get('cat/category_form_value/(:num)', 'Admin\Category\Category::listAllcat_Form_value/$1');
