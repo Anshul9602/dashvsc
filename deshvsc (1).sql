@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 07, 2025 at 10:50 AM
+-- Generation Time: Mar 04, 2025 at 12:13 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -31,7 +31,6 @@ CREATE TABLE `admin` (
   `id` int(10) UNSIGNED NOT NULL,
   `name` text NOT NULL,
   `mobile_number` text NOT NULL,
-  `gender` text NOT NULL,
   `email` varchar(255) NOT NULL,
   `pass` varchar(255) NOT NULL,
   `role` text DEFAULT NULL,
@@ -44,9 +43,34 @@ CREATE TABLE `admin` (
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`id`, `name`, `mobile_number`, `gender`, `email`, `pass`, `role`, `created_at`, `updated_at`, `status`) VALUES
-(1, 'test', '0123456789', 'male', 'admin@gmail.com', '$2y$10$kkqAqX1OwsnyrsnEaeCXquwsA7hhq//wk0xmhgfsTk.gimqdmyfM6', 'DATA MINER', '2024-05-05 10:50:26', '01-13-2025 12:45 PM', 'Enable'),
-(4, 'tebbv', '01234567890', 'male', 'anshulkumar9696021@gmail.com', '$2y$10$nqc7FbYY83Q4ehZy4puRyurjw7CPXqpPWImD.PPhTeKm7B0mzErM2', 'DPE', '01-10-2025 04:19 PM', '01-22-2025 05:40 PM', 'Enable');
+INSERT INTO `admin` (`id`, `name`, `mobile_number`, `email`, `pass`, `role`, `created_at`, `updated_at`, `status`) VALUES
+(1, 'Admin ', '0123456789', 'admin@gmail.com', '$2y$10$kkqAqX1OwsnyrsnEaeCXquwsA7hhq//wk0xmhgfsTk.gimqdmyfM6', 'DATA MINER', '2024-05-05 10:50:26', '02-19-2025 12:59 PM', 'Enable'),
+(6, 'Jaipur', '941452099', 'prateekgoyal@vsc.co.in', '$2y$10$gyB2gcj/36vmaqS5c8wvU.x30UYVzWtmNOFX5sDr8w6gOrCcvBRy2', 'Branch', '02-20-2025 06:22 PM', '02-20-2025 06:22 PM', 'Enable'),
+(7, 'AJMER', '8741867420', 'rohitdaryani@vsc.co.in', '$2y$10$TDPDsJvVc7I6BX9LmUx/0OHNVBtbnyovoThXCcyt9BG8mV980F34a', 'Branch', '02-20-2025 06:25 PM', '02-20-2025 06:25 PM', 'Enable'),
+(8, 'UDAIPUR', '9352501451', 'shyam.shishodia@gmail.com', '$2y$10$7rMjgIc78QVK8HN/j1g9hOoBWPQ1Gjz1GqLvQ1.lCcwIswqITAcSC', 'Branch', '02-20-2025 06:27 PM', '02-20-2025 06:27 PM', 'Enable'),
+(9, 'JHODPUR', '9888768006', 'as.sisodia@vsc.co.in', '$2y$10$fHc5NDBv2xUsRg0dho0E3eCY5isCctRWZW120jmYl3u9CVx/3Ukq2', 'Branch', '02-20-2025 06:27 PM', '02-20-2025 06:27 PM', 'Enable'),
+(10, 'JAMMU', '9086081288', 'yogeshsarin@vsc.co.in', '$2y$10$NcN9wnuV5czcaiZ0Yel.v.mfBfGHcY1Z8nMA2gDpXjP5rLsybtpFa', 'Branch', '02-20-2025 06:28 PM', '02-20-2025 06:28 PM', 'Enable'),
+(11, 'SHIMLA', '9811195641', 'richapandya@vsc.co.in', '$2y$10$dPokbgRlWE9gz09gHctCoeFiohvmkVQVyZ4.EFI4JMHIg8Kv3I2AW', 'Branch', '02-20-2025 06:29 PM', '02-20-2025 06:29 PM', 'Enable'),
+(12, 'BHATINDA', '9417749678', 'princebansal@vsc.co.in', '$2y$10$9LYVKDceSiUwQY7mYXPezO7RLxwAAV0xdw7GON8Ku.cscklT3aPF2', 'Branch', '02-20-2025 06:29 PM', '02-20-2025 06:29 PM', 'Enable'),
+(13, 'DEHRADUN', '9529632961', 'divyanshsinghal@vsc.co.in', '$2y$10$TUyY07Z0.N8hVLxKpmn87uLmIaPQvls5MEeci1FBL6pVdL/HMncOq', 'Branch', '02-20-2025 06:30 PM', '02-20-2025 06:30 PM', 'Enable'),
+(14, 'GURUGRAM', '9711720014', 'mohitmittal@vsc.co.in', '$2y$10$vEgn4j3SHYncH3MiyAnTiOtRfzWvhUQcP26utgq8EScn1v1N1/8me', 'Branch', '02-20-2025 06:31 PM', '02-20-2025 06:31 PM', 'Enable'),
+(15, 'LUCKNOW', '9606634544', 'mohitbadani@vsc.co.in', '$2y$10$NOQaYss84AbdmhbEJftBXOMIhxlLPUS8e6qUwn9r1LKXSTlbN2vf.', 'Branch', '02-20-2025 06:31 PM', '02-20-2025 06:31 PM', 'Enable'),
+(16, 'PATNA', ' 9650404850', 'rahul@vsc.co.in', '$2y$10$zH14WTQtPOVSk0QFx7/U7e6I1EBr6heYx8qjbo2FJN.gV1CwJOSpS', 'Branch', '02-20-2025 06:32 PM', '02-20-2025 06:32 PM', 'Enable'),
+(17, 'GUWAHATI', '7002609752', 'bikashchoradia@vsc.co.in', '$2y$10$7JwuLJyMW6FluQJcso8R3.RS2FfAOlZTA5q8N3Oa.X098a0hGivPy', 'Branch', '02-20-2025 06:32 PM', '02-20-2025 06:32 PM', 'Enable'),
+(18, 'AHEMDABAD', ' 8511103880', 'harshil@vsc.co.in', '$2y$10$YixQ2f9ZRBinH2FljTIt0e7uSfFW5Zi.qiAnxNAP485J6IBNpWKRq', 'Branch', '02-20-2025 06:33 PM', '02-20-2025 06:33 PM', 'Enable'),
+(19, 'SURAT', '7567596291', 'paragkumar@vsc.co.in', '$2y$10$3J16TNfhT2HZslM.aa/rn.HhdtaEPawosCJGC3aoyWJPq0MmCTSHu', 'Branch', '02-20-2025 06:34 PM', '02-20-2025 06:34 PM', 'Enable'),
+(20, 'BHOPAL', '7566756644', 'lokeshtotlani@vsc.co.in', '$2y$10$fbeQwTTI5SBLB97ldyqPCeaBfWcrDQV03tVYGNyIfmxB6zHw5Aqy.', 'Branch', '02-20-2025 06:34 PM', '02-20-2025 06:34 PM', 'Enable'),
+(21, 'RANCHI', '9431581700', 'dineshpradhan@vsc.co.in', '$2y$10$b3qo8ePO87/ig58zXdOJROw0uvbUSVZcYqN5TH7sSOhKf9XfXOQI2', 'Branch', '02-20-2025 06:35 PM', '02-20-2025 06:35 PM', 'Enable'),
+(22, 'MUMBAI', '9820098650', 'manojbokadia@vsc.co.in', '$2y$10$CFMtXhn8RM1DlIK3.noAnOjePT3pGhF79buVSWi5qsVFHSz2zvEeu', 'Branch', '02-20-2025 06:35 PM', '02-20-2025 06:35 PM', 'Enable'),
+(23, 'PUNE', '8007882666', 'pritamnahar@vsc.co.in', '$2y$10$DiGx4.K0nzPGJSmDHkH71eVN.7XqTBYWPePIPAipKqLAhGMLgNqeS', 'Branch', '02-20-2025 06:36 PM', '02-20-2025 06:36 PM', 'Enable'),
+(24, 'RAIPUR', '8654929608', 'rakeshjain@vsc.co.in', '$2y$10$w0rb7GW6SCMQsrgSWyoWOeEpxccIbjjUlTZntfsuiofTqT..My5XS', 'Branch', '02-20-2025 06:36 PM', '02-20-2025 06:36 PM', 'Enable'),
+(25, 'BHUBANESHWAR', '8270367253', 'satyajeetpanigrahi@vsc.co.in', '$2y$10$ho99x5wcx.JRmEG00qSaBeL2DEwjb2bKLZgkSm17jORkIRYml0Fim', 'Branch', '02-20-2025 06:37 PM', '02-20-2025 06:37 PM', 'Enable'),
+(26, 'KOLKATA', '8348790513', 'mukeshagrawal@vsc.co.in', '$2y$10$KOkvBIEzI.HDr4PGkTaSKu91Zwhml431A6zkOTdX/zz0oWVfODyyC', 'Branch', '02-20-2025 06:37 PM', '02-20-2025 06:37 PM', 'Enable'),
+(27, 'GOA', '9175557405', 'nandansirsat@vsc.co.in', '$2y$10$NI4in5M/zFru7HV6btDUu.5yt1/45yhaWlT67xZrfsAhGJuUOephG', 'Branch', '02-20-2025 06:38 PM', '02-20-2025 06:38 PM', 'Enable'),
+(28, 'BENGALURU', '9959645503', 'rameshreddy@vsc.co.in', '$2y$10$HOcwdHGF0PiTIIMRG.yF6ucjh.s/FQakQOwwh5YJzI9TnqkPN/Xny', 'Branch', '02-20-2025 06:39 PM', '02-20-2025 06:39 PM', 'Enable'),
+(29, 'HYDERABAD', '7386372725', 'vemula@vsc.co.in', '$2y$10$hhrVANbo3m32tM1boITSge2XzTz8tLiHR39Ee6hrZpNEyXRiU0/oS', 'Branch', '02-20-2025 06:39 PM', '02-20-2025 06:39 PM', 'Enable'),
+(30, 'ERNAKULAM', '9961545491', 'akhilraj@vsc.co.in', '$2y$10$ZUCE8boHtX.cKZghnByqj.gYPyaNMTK9fkkJWpSj.UFgK6ERQi7rW', 'Branch', '02-20-2025 06:40 PM', '02-20-2025 06:40 PM', 'Enable'),
+(31, 'COIMBATORE', ' 9865945757', 'kaviya@vsc.co.in', '$2y$10$im/3eREqm//A3LftS8KkOe3X9g5Dwp4Ai4UF2s39Pe41di5DjVJsm', 'Branch', '02-20-2025 06:41 PM', '02-20-2025 06:41 PM', 'Enable');
 
 -- --------------------------------------------------------
 
@@ -102,12 +126,18 @@ CREATE TABLE `category` (
   `security_deposit` text NOT NULL,
   `recovery_status` text NOT NULL,
   `invoice_no` text NOT NULL,
+  `invoice_amount` text NOT NULL,
+  `bill_type` text NOT NULL,
   `bill_date` text NOT NULL,
   `report_submit_date` text NOT NULL,
   `submit_date` text NOT NULL,
   `fee` text NOT NULL,
+  `udin` text NOT NULL,
+  `udin_no` text NOT NULL,
+  `udin_trun` text NOT NULL,
   `audit` text NOT NULL,
   `assignment` text NOT NULL,
+  `type` text NOT NULL,
   `status` text NOT NULL,
   `created_at` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -116,42 +146,131 @@ CREATE TABLE `category` (
 -- Dumping data for table `category`
 --
 
-INSERT INTO `category` (`id`, `name`, `branch`, `completion`, `working`, `security_deposit`, `recovery_status`, `invoice_no`, `bill_date`, `report_submit_date`, `submit_date`, `fee`, `audit`, `assignment`, `status`, `created_at`) VALUES
-(12, 'bdsxf', 'ng', '', '', '', '', '', 'mcg', 'mc', 'mgcm', 'ngmd', 'nf', 'nfd', '1', '2025-02-07 12:51:22');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `google_sheets`
---
-
-CREATE TABLE `google_sheets` (
-  `id` int(11) NOT NULL,
-  `name` text NOT NULL,
-  `dis` text NOT NULL,
-  `status` text NOT NULL,
-  `sheet_url` text NOT NULL,
-  `prof_img` text NOT NULL,
-  `permistion` text NOT NULL,
-  `emails` text NOT NULL,
-  `cat` text NOT NULL,
-  `sheet_cat` text NOT NULL,
-  `created_at` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `google_sheets`
---
-
-INSERT INTO `google_sheets` (`id`, `name`, `dis`, `status`, `sheet_url`, `prof_img`, `permistion`, `emails`, `cat`, `sheet_cat`, `created_at`) VALUES
-(9, 'xcbvv1', '', '1', 'https://docs.google.com/spreadsheets/d/1ILXRZkkNFeVtSPLv6Sz4oDz7h7h_csRhy0LE3mNIGO0/edit', '', '', 'admin@gmail.com', 'Inventory', 'sheet', '2025-01-22 12:10:14'),
-(10, 'tfnsdvn', 'Name: test, Email: admin@gmail.com, Permissions: sheets_view, sheets_edit; Name: tebbv, Email: anshulkumar9696021@gmail.com, Permissions: sheets_view, sheets_edit', '1', 'https://docs.google.com/spreadsheets/d/15v3la0pLdlLQ6o4JPaRxmUV487bwxG75V35eaCE3GXI/edit', '', '', 'admin@gmail.com', 'Sales', 'sheet', '2025-01-22 17:13:13'),
-(11, 'tfnsdvn', 'Name: test, Email: admin@gmail.com, Permissions: sheets_view, sheets_edit; Name: no permission, Email: anshulkumar969602@gmail.com, Permissions: sheets_view, sheets_edit', '1', 'https://docs.google.com/spreadsheets/d/1VhxAnkFAL5Kp3ySN1dLKJ7RKXJvhxRvhw2s4tvfDXC0/edit', 'uploads/sheet/tfnsdvn-img/1737546334_e821246f8002aa4a04ef.webp', '', 'admin@gmail.com', 'Sales', '', '2025-01-22 17:15:37'),
-(12, 'the new one', 'Name: test, Email: admin@gmail.com, Permissions: sheets_view, sheets_edit; Name: tebbv, Email: anshulkumar9696021@gmail.com, Permissions: sheets_view, sheets_edit', '1', 'https://docs.google.com/spreadsheets/d/1nxOxdtUqu1mxKcN2mk6NNPc_AXqUrPqk8sDwoaeypt0/edit', 'uploads/sheet/the-img/1737549058_25f5f2eb43b00c5ea8fc.png', '', 'admin@gmail.com', 'Inventory', '', '2025-01-22 18:01:01'),
-(13, 'anshul kumar', 'Name: tebbv, Email: anshulkumar9696021@gmail.com, Permissions: sheets_view', '1', 'https://docs.google.com/spreadsheets/d/1_XDv3er4bKVCnPYrGmC5U5oIwwkMLIEEqmFLxj0xBQI/edit', 'uploads/sheet/anshul-img/1737696681_9b9efd6aeb41f6c1b2ac.mp4', '', 'admin@gmail.com', 'Inventory', 'forms', '2025-01-24 11:01:23'),
-(14, 'sheet ', 'Name: test, Email: admin@gmail.com, Permissions: sheets_view, sheets_edit', '1', 'https://docs.google.com/spreadsheets/d/16No75rgBJTKOA_GYdULc1BjwbWUTYKzhVBsjI6IuIhQ/edit', '', '', 'admin@gmail.com', 'Inventory', 'sheet', '2025-01-29 10:20:54'),
-(15, 'forms', 'Name: test, Email: admin@gmail.com, Permissions: sheets_view, sheets_edit', '1', 'https://docs.google.com/spreadsheets/d/1yJsDlh1x-u5CG6Tw6u3D_X3a-fn_qSG1RUlCjH24Bqo/edit', '', '', 'admin@gmail.com', 'Sales', 'forms', '2025-01-29 10:21:29'),
-(16, 'Dashborad', 'Name: test, Email: admin@gmail.com, Permissions: sheets_view, sheets_edit', '1', 'https://docs.google.com/spreadsheets/d/1r_hsFZjaEvkA5dBpF85JpJ07dcLmM5jav5oHhi98iNA/edit', '', '', 'admin@gmail.com', 'Inventory', 'dashboard', '2025-01-29 10:22:22');
+INSERT INTO `category` (`id`, `name`, `branch`, `completion`, `working`, `security_deposit`, `recovery_status`, `invoice_no`, `invoice_amount`, `bill_type`, `bill_date`, `report_submit_date`, `submit_date`, `fee`, `udin`, `udin_no`, `udin_trun`, `audit`, `assignment`, `type`, `status`, `created_at`) VALUES
+(19, 'Samagra Shiksha, (RCSE Raiasthan)', 'Jaipur', '', '', '', '', '', '', '', '', '', '2024-09-30', '826000', '', '', '', 'yearly', 'Statutory Audit', 'WO', '1', '2025-02-20 18:43:53'),
+(20, 'PMGSY Tripura', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '250000', '', '', '', '', 'Internal Audit ', 'WO', '1', '2025-02-20 18:44:24'),
+(21, 'IREDA', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '200000', '', '', '', '', 'Lenders Financial Advisors', 'WO', '1', '2025-02-20 18:45:30'),
+(22, 'GST Jaipur ', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Special Audit empmaelment', 'Empanel', '1', '2025-02-20 18:45:59'),
+(23, 'Jaipur Development Authority', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'RERA Consultant empanlement', 'Empanel', '1', '2025-02-20 18:46:18'),
+(24, 'Bank Of Baroda (Ginodia Agro)', 'Jaipur', '', '', '', '', '24-25/307', '', 'yearly', '2025-02-11', '2025-02-11', '2025-01-31', '11000', 'yes', '25425013BMJNQC3053', '', 'yearly', 'Stock Audit ', 'WO', '1', '2025-02-20 18:46:41'),
+(25, 'Bank Of Baroda (Sri Sai Kripa Stones)', 'Jaipur', '', '', '', '', '24-25/295', '', 'yearly', '2025-01-31', '2025-01-31', '2025-01-31', '11000', 'yes', '25425013BMJNPZ5948', '', 'yearly', 'Stock Audit ', 'WO', '1', '2025-02-20 18:46:59'),
+(26, 'LIC India ', 'Jaipur', '', '', '', '', '', '', '', '', '', '2025-04-15', '324000', '', '', '', 'yearly', 'Statutory Audit ', 'WO', '1', '2025-02-20 18:47:23'),
+(27, 'M/s BMSS Fabricators Jaipur', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'GST Special Audit', 'WO', '1', '2025-02-20 18:47:45'),
+(28, 'Rajasthan Marudhara Gramin Bank', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Statutory Central Audit', 'WO', '1', '2025-02-24 13:27:21'),
+(29, 'Steel Authority of India Ltd', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Statutory Central Audit', 'WO', '1', '2025-02-24 13:28:51'),
+(30, 'LIC', 'Jaipur', '', '', '', '', '', '', '', '', '', '2025-06-30', '100000', '', '', '', 'yearly', 'Tax Audit', 'WO', '1', '2025-02-24 13:29:27'),
+(31, 'Council for Insurance Ombudsmen', 'Jaipur', '', '', '', '', '', '', '', '', '', '2025-04-15', '18000', '', '', '', 'yearly', 'Statutory Audit', 'WO', '1', '2025-02-24 13:29:49'),
+(32, 'PMGSY Tripura - AJMK', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Statutory Audit', 'WO', '1', '2025-02-24 13:30:05'),
+(33, 'PMGSY Tripura - VSC', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Statutory Audit', 'WO', '1', '2025-02-24 13:30:21'),
+(34, 'PMGSY Rajasthan - JLNUS', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Statutory Audit', 'WO', '1', '2025-02-24 13:30:38'),
+(35, 'PMGSY Mizorum - AJMK', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Internal Audit ', 'WO', '1', '2025-02-24 13:30:59'),
+(36, 'Bharti Airtel Ltd', 'Jaipur', '', '', '', '', '', '', '', '', ',,,', ',,,', '', '', '', '', 'quarterly', 'M & B Audit', 'WO', '1', '2025-02-24 13:31:30'),
+(37, 'Quadrant Televenture Limited', 'Jaipur', '', '', '', '', '24-25/133', '', 'yearly', '2024-09-14', '', '', '210000', '', '', '', 'yearly', 'M & B Audit', 'WO', '1', '2025-02-24 13:32:04'),
+(38, 'Vodafone Idea Ltd', 'Jaipur', '', '', '', '', '24-25/132', '', 'yearly', '2024-09-10', '', '', '2250000', '', '', '', 'yearly', 'M & B Audit', 'WO', '1', '2025-02-24 13:32:18'),
+(39, 'SIDBI Jaipur Main Branch', 'Jaipur', '', '', '0', '', '', '', 'monthly', '2024-05-02,2024-06-04,2024-07-04,2024-08-06,2024-09-06,2024-10-10,2024-11-06,2024-12-05,2025-01-08,2025-02-04,,', '2024-05-03,2024-06-03,2024-07-03,2024-08-03,2024-09-03,2024-10-03,2024-11-03,2024-12-03,2025-01-03,2025-02-03,2025-03-03,2025-04-03', '2024-05-03,2024-06-03,2024-07-03,2024-08-03,2024-09-03,2024-10-03,2024-11-03,2024-12-03,2025-01-03,2025-02-03,2025-03-03,2025-04-03', '', '', '', '', 'monthly', 'Concurrent Audit', 'WO', '1', '2025-02-24 13:32:40'),
+(40, 'Eastern Coalfields Ltd', 'Jaipur', '', '', '', '', '', '', '', '', '', '2024-05-20,2024-06-20,2024-07-20,2024-08-20,2024-09-20,2023-10-30,2024-11-30,2024-12-30,2025-01-30,2025-02-28,2025-03-30,2025-04-30', '', '', '', '', 'monthly', 'Internal Audit ', 'WO', '1', '2025-02-24 13:32:59'),
+(41, 'Alwar Zila Dugdth Utpadak Sahakari Sangh Ltd - LD Sharma ji', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Internal Audit ', 'WO', '1', '2025-02-24 13:33:16'),
+(42, 'Rajasthan Knowledge Corporation Ltd', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Internal Audit ', 'WO', '1', '2025-02-24 13:34:06'),
+(43, 'IBA', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Forensic Audit', 'Empanel', '1', '2025-02-24 13:45:33'),
+(44, 'HARERA Gurugram', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'RERA', 'Empanel', '1', '2025-02-24 13:45:52'),
+(45, 'Jaipur Development Authority', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'RERA', 'Empanel', '1', '2025-02-24 13:46:12'),
+(46, 'Directorate of Co-operative Audit Bhubneshwar', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Co-Operative Audit', 'Empanel', '1', '2025-02-24 13:46:41'),
+(47, 'Co-operative Society, Rajasthan', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Co-Operative Audit', 'Empanel', '1', '2025-02-24 13:47:06'),
+(48, 'Co-Operative Society, Uttrakhand', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Co-Operative Audit', 'Empanel', '1', '2025-02-24 13:47:24'),
+(49, 'Co-Operative Society, Uttrakhand', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Co-Operative Audit', 'Empanel', '1', '2025-02-24 13:48:30'),
+(50, 'Co-operative Society, Goa', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Co-Operative Audit', 'Empanel', '1', '2025-02-24 13:48:48'),
+(51, 'Co-operative Society, Jharkhand', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Co-Operative Audit', 'Empanel', '1', '2025-02-24 13:49:02'),
+(52, 'Ministry of Cooperation, Office of Central Registrar of Cooperative Societies', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'MCA AUDIT', 'Empanel', '1', '2025-02-24 13:49:26'),
+(53, 'GST Odisha', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'GST Audit', 'Empanel', '1', '2025-02-24 13:49:42'),
+(54, 'GST Chhattisgarh ', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'GST Audit', 'Empanel', '1', '2025-02-24 13:49:58'),
+(55, 'GST Bihar', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'GST Audit', 'Empanel', '1', '2025-02-24 13:50:16'),
+(56, 'GST Rajasthan', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'GST Audit', 'Empanel', '1', '2025-02-24 13:50:30'),
+(57, 'GST Bhiwandi', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'GST Audit', 'Empanel', '1', '2025-02-24 13:50:43'),
+(58, 'Chief Commissioner of Income Tax, Rajasthan', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Income Tax Audit', 'Empanel', '1', '2025-02-24 14:23:33'),
+(59, 'Chief Commissioner of Income Tax, Mumbai', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Income Tax Audit', 'Empanel', '1', '2025-02-24 14:23:52'),
+(60, 'Chief Commissioner of Income Tax Pune', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Income Tax Audit', 'Empanel', '1', '2025-02-24 14:24:08'),
+(61, 'Pr. Chief Commissioner of Income Tax Gujarat', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Income Tax Audit', 'Empanel', '1', '2025-02-24 14:24:23'),
+(62, 'PRINCIPAL CHIEF COMMISSIONER OT INCOME TAX KARNATAKA AND GOA REGION', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Income Tax Audit', 'Empanel', '1', '2025-02-24 14:25:03'),
+(63, 'Mumbai District Central Co-operative Bank Ltd.', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Co-Operative Audit', 'Empanel', '1', '2025-02-24 14:25:20'),
+(64, 'Bank of Baroda, Jaipur', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Stock Audit ', 'Empanel', '1', '2025-02-24 14:25:38'),
+(65, 'ICICI Bank, PAN India', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Stock Audit ', 'Empanel', '1', '2025-02-24 14:25:54'),
+(66, 'Indian Overseas Bank - PAN India', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Stock Audit ', 'Empanel', '1', '2025-02-24 14:26:11'),
+(67, 'Union bank of india', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Stock Audit ', 'Empanel', '1', '2025-02-24 14:26:32'),
+(68, 'J&K Bank - PAN India', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Stock Audit ', 'Empanel', '1', '2025-02-24 14:26:45'),
+(69, 'Mumbai District Central Co-op Bank Ltd', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Stock Audit ', 'Empanel', '1', '2025-02-24 14:27:00'),
+(70, 'Punjab National Bank, Rajasthan', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Stock Audit ', 'Empanel', '1', '2025-02-24 14:27:16'),
+(71, 'State Bank of India, Jaipur', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Stock Audit ', 'Empanel', '1', '2025-02-24 14:27:31'),
+(72, 'State Bank of India, Kolkata', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Stock Audit ', 'Empanel', '1', '2025-02-24 14:27:45'),
+(73, 'State Bank of India, Jaipur', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Concurrent Audit', 'Empanel', '1', '2025-02-24 14:28:12'),
+(74, 'Chhattisgarh Rajya Gramin Bank', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Concurrent Audit', 'Empanel', '1', '2025-02-24 14:28:34'),
+(75, 'Lender Financial Advisors (LFA)for monitoring of IREDA funded RE Projects', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Financial Instutions Audit', 'Empanel', '1', '2025-02-24 14:30:02'),
+(76, 'Indian Banking Association', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Financial Instutions Audit', 'Empanel', '1', '2025-02-24 14:30:31'),
+(77, 'MUDRA Limited, PAN India', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Financial Instutions Audit', 'Empanel', '1', '2025-02-24 14:30:51'),
+(78, 'CGTMSE, PAN India', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Financial Instutions Audit', 'Empanel', '1', '2025-02-24 14:31:10'),
+(79, 'EPFO Noida', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'PF Audit', 'Empanel', '1', '2025-02-24 14:34:03'),
+(80, 'EPFO Faridabad', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'PF Audit', 'Empanel', '1', '2025-02-24 14:34:36'),
+(81, 'EPFO Bengaluru (Electronic City)', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'PF Audit', 'Empanel', '1', '2025-02-24 14:34:54'),
+(82, 'EPFO Gurugram ', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'PF Audit', 'Empanel', '1', '2025-02-24 14:35:17'),
+(83, 'EPFO Nashik ', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'PF Audit', 'Empanel', '1', '2025-02-24 14:35:39'),
+(84, 'EPFO Tambaram Chennai', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'PF Audit', 'Empanel', '1', '2025-02-24 14:35:59'),
+(85, 'EPFO Tambaram Chennai', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'PF Audit', 'Empanel', '1', '2025-02-24 14:37:07'),
+(86, 'EPFO Haldwani', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'PF Audit', 'Empanel', '1', '2025-02-24 14:37:22'),
+(87, 'EPFO Dehradun', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'PF Audit', 'Empanel', '1', '2025-02-24 14:37:37'),
+(88, 'EPFO Bengaluru Central ', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'PF Audit', 'Empanel', '1', '2025-02-24 14:37:59'),
+(89, 'EPFO SURAT', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'PF Audit', 'Empanel', '1', '2025-02-24 14:38:14'),
+(90, 'EPFO Ahmedabad', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'PF Audit', 'Empanel', '1', '2025-02-24 14:38:29'),
+(91, 'EPFO Jaipur', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'PF Audit', 'Empanel', '1', '2025-02-24 14:38:43'),
+(92, 'EPFO Raipur ', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'PF Audit', 'Empanel', '1', '2025-02-24 14:38:55'),
+(93, 'EPFO Gorakhpur', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'PF Audit', 'Empanel', '1', '2025-02-24 14:39:09'),
+(94, 'EPFO Bharuch', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'PF Audit', 'Empanel', '1', '2025-02-24 14:39:26'),
+(95, 'EPFO Nagpur', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'PF Audit', 'Empanel', '1', '2025-02-24 14:39:39'),
+(96, 'EPFO Bhubhneshwar', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'PF Audit', 'Empanel', '1', '2025-02-24 14:39:51'),
+(97, 'EPFO Ranchi', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'PF Audit', 'Empanel', '1', '2025-02-24 14:40:03'),
+(98, 'EPFO Rajkot', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'PF Audit', 'Empanel', '1', '2025-02-24 14:40:16'),
+(99, 'EPFO Hyderabad', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'PF Audit', 'Empanel', '1', '2025-02-24 14:40:29'),
+(100, 'EPFO Pune', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'PF Audit', 'Empanel', '1', '2025-02-24 14:40:42'),
+(101, 'EPFO Shivamogga', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'PF Audit', 'Empanel', '1', '2025-02-24 14:40:55'),
+(102, 'EPFO Shivamogga', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'PF Audit', 'Empanel', '1', '2025-02-24 14:41:33'),
+(103, 'EPFO Kolkata', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'PF Audit', 'Empanel', '1', '2025-02-24 14:41:47'),
+(104, 'EPFO Bhopal', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'PF Audit', 'Empanel', '1', '2025-02-24 14:42:02'),
+(105, 'EPFO Meerut ', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'PF Audit', 'Empanel', '1', '2025-02-24 14:42:18'),
+(106, 'EPFO Agra', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'PF Audit', 'Empanel', '1', '2025-02-24 14:42:31'),
+(107, 'EPFO Yelahanka ', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'PF Audit', 'Empanel', '1', '2025-02-24 14:42:46'),
+(108, 'EPFO Udupi', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'PF Audit', 'Empanel', '1', '2025-02-24 14:43:00'),
+(109, 'EPFO Chennai North ', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'PF Audit', 'Empanel', '1', '2025-02-24 14:43:17'),
+(110, 'EPFO Peenya', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'PF Audit', 'Empanel', '1', '2025-02-24 14:43:29'),
+(111, 'EPFO Barkatpura', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'PF Audit', 'Empanel', '1', '2025-02-24 14:43:43'),
+(112, 'EPFO Hubballi', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'PF Audit', 'Empanel', '1', '2025-02-24 14:43:56'),
+(113, 'EPFO Chennai & Puducherry', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'PF Audit', 'Empanel', '1', '2025-02-24 14:44:12'),
+(114, 'National Highways Authority of India', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Empanel', '1', '2025-02-24 14:45:44'),
+(115, 'Airports Authority of India - Central Zone', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'PSU', 'Empanel', '1', '2025-02-24 14:46:15'),
+(116, 'NTPC Ltd - Stock Audit', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'PSU', 'Empanel', '1', '2025-02-24 14:46:33'),
+(117, 'NHPC Ltd - Stock Audit', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'PSU', 'Empanel', '1', '2025-02-24 14:46:52'),
+(118, 'LIC Rajasthan', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'PSU', 'Empanel', '1', '2025-02-24 14:47:16'),
+(119, 'Directorate of Tourism, UP', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Empanel', '1', '2025-02-24 15:10:07'),
+(120, 'TRAI - M&B Audit', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'M & B Audit', 'Empanel', '1', '2025-02-24 15:10:32'),
+(121, 'Central Bank of India -Pan India', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Due Diligence', 'Empanel', '1', '2025-02-24 15:10:57'),
+(122, 'Punjab National Bank, Bhubneshwar', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Due Diligence', 'Empanel', '1', '2025-02-24 15:11:12'),
+(123, 'Punjab National Bank, Kolkata', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Due Diligence', 'Empanel', '1', '2025-02-24 15:11:28'),
+(124, 'Uttar Bihar Gramin Bank', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Due Diligence', 'Empanel', '1', '2025-02-24 15:11:43'),
+(125, 'Punjab National Bank', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Due Diligence', 'Empanel', '1', '2025-02-24 15:12:01'),
+(126, 'Jharkhand Bijli Vitran Nigam Limited', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Empanel', '1', '2025-02-24 15:12:18'),
+(127, 'Maharashtra State Electicity Distribution Co. Ltd', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Empanel', '1', '2025-02-24 15:12:30'),
+(128, 'North Eastern Electric Power Corporation Ltd', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Empanel', '1', '2025-02-24 15:12:41'),
+(129, 'NBCC India Limited', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Empanel', '1', '2025-02-24 15:12:55'),
+(130, 'Panchayati RajyaJharkhand', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Empanel', '1', '2025-02-24 15:13:05'),
+(131, 'Higher Education Directorate (Education Department ', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Empanel', '1', '2025-02-24 15:13:25'),
+(132, 'Metropolitan Stock Exchange of India Limited (MSE)', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Empanel', '1', '2025-02-24 15:13:38'),
+(133, 'Bombay Stock Exchange (BSE)', 'Jaipur', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Empanel', '1', '2025-02-24 15:13:49'),
+(134, 'LIC India ', 'Jaipur', '', '', '', '', '', '', 'yearly', '', '', '', '', '', '', '', '', 'Tax Audit', 'WO', '1', '2025-02-27 10:58:43'),
+(135, 'SIDBI - UDAIPUR  BRANCH', 'Jaipur', '', '', '', '', '', '', 'monthly', '2024-05-01,2024-06-04,2024-06-27,2024-08-06,2024-09-02,2024-10-03,2024-11-06,2024-12-03,2025-01-01,2025-02-04,,', '2024-05-01,2024-06-03,2024-07-03,2024-08-03,2024-09-03,2024-10-03,2024-11-03,2024-12-03,2025-01-03,2025-02-03,2025-03-03,2025-04-03', '2024-05-03,2024-06-03,2024-07-03,2024-08-03,2024-09-03,2024-10-03,2024-11-03,2024-12-03,2025-01-03,2025-02-03,2025-03-03,2025-04-03', '', '', '', '', 'monthly', 'Concurrent Audit', 'WO', '1', '2025-02-27 11:16:24'),
+(136, 'SIDBI VKI', 'Jaipur', '', '', '', '', '', '', 'monthly', '2024-05-02,2024-06-04,2024-07-04,2024-08-06,2024-09-06,2024-10-10,2024-11-06,2024-12-05,2025-01-08,2025-02-04,,', '2024-05-03,2024-06-03,2024-07-03,2024-08-03,2024-09-03,2024-10-03,2024-11-03,2024-12-03,2025-01-03,2025-02-03,2025-03-03,2025-04-03', '2024-05-03,2024-06-03,2024-07-03,2024-08-03,2024-09-03,2024-10-03,2024-11-03,2024-12-03,2025-01-03,2025-02-03,2025-03-03,2025-04-03', '', '', '', '', 'monthly', 'Concurrent Audit', 'WO', '1', '2025-02-27 11:16:46'),
+(137, 'DGM, SIDBI Bhilwara', 'Jaipur', '', '', '', '', '', '', 'monthly', '2024-05-02,2024-06-06,2024-07-05,2024-08-06,2024-09-06,2024-10-10,2024-11-06,2024-12-05,2025-01-08,2025-02-04,,', '2024-05-03,2024-06-03,2024-07-03,2024-08-03,2024-09-03,2024-10-03,2024-11-03,2024-12-03,2025-01-03,2025-02-03,2025-03-03,2025-04-03', '2024-05-03,2024-06-03,2024-07-03,2024-08-03,2024-09-03,2024-10-03,2024-11-03,2024-12-03,2025-01-03,2025-02-03,2025-03-03,2025-04-03', '', '', '', '', 'monthly', 'Concurrent Audit', 'WO', '1', '2025-02-27 11:17:08'),
+(138, 'SIDBI BHIWADI', 'Jaipur', '', '', '', '', '', '', 'monthly', '2024-05-02,2024-06-04,2024-07-04,2024-08-06,2024-09-06,2024-10-10,2024-11-06,2024-12-05,2024-01-08,2024-02-04,,', '2024-05-03,2024-06-03,2024-07-03,2024-08-03,2024-09-03,2024-10-03,2024-11-03,2024-12-03,2025-01-03,2025-02-03,2025-03-03,2025-04-03', '2024-05-03,2024-06-03,2024-07-03,2024-08-03,2024-09-03,2024-10-03,2024-11-03,2024-12-03,2025-01-03,2025-02-03,2025-03-03,2025-04-03', '', '', '', '', 'monthly', 'Concurrent Audit', 'WO', '1', '2025-02-27 11:17:34'),
+(139, 'SIDBI - JODHPUR  BRANCH', 'Jaipur', '', '', '', '', '', '', 'monthly', '2024-05-01,2024-06-04,2024-07-04,2024-08-06,2024-09-02,2024-10-10,2024-11-06,2024-12-03,2025-01-07,2025-02-04,,', '2024-05-03,2024-06-03,2024-07-03,2024-08-03,2024-09-03,2024-10-03,2024-11-03,2024-12-03,2025-01-03,2025-02-03,2025-03-03,2025-04-03', '2024-05-03,2024-06-03,2024-07-03,2024-08-03,2024-09-03,2024-10-03,2024-11-03,2024-12-03,2025-01-03,2025-02-03,2025-03-03,2025-04-03', '', '', '', '', 'monthly', 'Concurrent Audit', 'WO', '1', '2025-02-27 11:18:37'),
+(140, 'SIDBI SITAPURA', 'Jaipur', '', '', '', '', '', '', 'monthly', '2024-05-02,2024-06-04,2024-07-04,2024-08-06,2024-09-06,2024-11-06,2024-11-06,2024-12-06,2025-01-08,2025-02-04,,', '2024-05-03,2024-06-03,2024-07-03,2024-08-03,2024-09-03,2024-10-03,2024-11-03,2024-12-03,2025-01-03,2025-02-03,2025-03-03,2025-04-03', '2024-05-03,2024-06-03,2024-07-03,2024-08-03,2024-09-03,2024-10-03,2024-11-03,2024-12-03,2025-01-03,2025-02-03,2025-03-03,2025-04-03', '', '', '', '', 'monthly', 'Concurrent Audit', 'WO', '1', '2025-02-27 11:19:01'),
+(141, 'SIDBI KISHANGARH', 'Jaipur', '', '', '', '', '', '', 'monthly', '2024-05-02,2024-06-04,2024-07-04,2024-08-27,2024-09-06,2024-10-10,2024-11-06,2024-12-05,2025-01-08,2025-02-04,,', '2024-05-03,2024-06-03,2024-07-03,2024-08-03,2024-09-03,2024-10-03,2024-11-03,2024-12-03,2025-01-03,2025-02-03,2025-03-03,2025-04-03', '2024-05-03,2024-06-03,2024-07-03,2024-08-03,2024-09-03,2024-10-03,2024-11-03,2024-12-03,2025-01-03,2025-02-03,2025-03-03,2025-04-03', '', '', '', '', 'monthly', 'Concurrent Audit', 'WO', '1', '2025-02-27 11:19:19'),
+(142, 'anshul kumar', 'Admin ', 'no', 'good', 'gdn', 'on', 'bcxbn,cbnxn', '10000,15000', 'half', '2025-03-05,2025-03-27', '', '2025-03-12', 'nfc', 'no', '', '', 'yearly', 'dcn', 'Empanel', '1', '2025-03-04 15:05:08');
 
 -- --------------------------------------------------------
 
@@ -220,23 +339,7 @@ CREATE TABLE `role` (
 
 INSERT INTO `role` (`id`, `name`, `permission`, `status`, `created_at`) VALUES
 (13, 'DATA MINER', 'users_create,users_view,users_edit,users_delete,tasks_create,tasks_view,tasks_edit,tasks_delete,sheets_create,sheets_view,sheets_edit,sheets_delete,hr_policies_create,hr_policies_view,hr_policies_edit,hr_policies_delete', '1', '2025-01-10 15:16:55'),
-(14, 'EA', 'tasks_create,tasks_view,sheets_create,sheets_view,hr_policies_create,hr_policies_view', '1', '2025-01-10 15:17:19'),
-(15, 'PC', 'tasks_create,tasks_view,sheets_create,sheets_view,hr_policies_create,hr_policies_view', '1', '2025-01-10 15:17:37'),
-(16, 'PPC', 'tasks_create,tasks_view,sheets_create,sheets_view,hr_policies_create,hr_policies_view', '1', '2025-01-10 15:17:55'),
-(17, 'DPE', 'tasks_create,tasks_view,sheets_create,sheets_view,hr_policies_create,hr_policies_view', '1', '2025-01-10 15:18:13'),
-(18, 'HRPC', 'tasks_create,tasks_view,sheets_create,sheets_view,hr_policies_create,hr_policies_view', '1', '2025-01-10 15:18:30'),
-(19, 'HR ONBOARDING', 'tasks_create,tasks_view,sheets_create,sheets_view,hr_policies_create,hr_policies_view', '1', '2025-01-10 15:18:49'),
-(20, 'NBD MANAGER', 'tasks_create,tasks_view,sheets_create,sheets_view,hr_policies_create,hr_policies_view', '1', '2025-01-10 15:20:10'),
-(21, 'CRM BDE', 'tasks_create,tasks_view,sheets_create,sheets_view,hr_policies_create,hr_policies_view', '1', '2025-01-10 15:20:39'),
-(22, 'CRM', 'tasks_create,tasks_view,sheets_create,sheets_view,hr_policies_create,hr_policies_view', '1', '2025-01-10 15:20:55'),
-(23, 'SALES MANAGER', 'tasks_create,tasks_view,sheets_create,sheets_view,hr_policies_create,hr_policies_view', '1', '2025-01-10 15:21:34'),
-(24, 'SALE OPERATION MANAGER', 'tasks_create,tasks_view,sheets_create,sheets_view,hr_policies_create,hr_policies_view', '1', '2025-01-10 15:21:53'),
-(25, 'ACCOUNT MANAGER', 'tasks_create,tasks_view,sheets_create,sheets_view,hr_policies_create,hr_policies_view', '1', '2025-01-10 15:22:12'),
-(26, 'ACCOUNT EXECUTIVE', 'tasks_create,tasks_view,sheets_create,sheets_view,hr_policies_create,hr_policies_view', '1', '2025-01-10 15:22:30'),
-(27, 'QUALITY MANAGER', 'tasks_create,tasks_view,sheets_create,sheets_view,hr_policies_create,hr_policies_view', '1', '2025-01-10 15:23:00'),
-(28, 'PRODUCTION ENGINEER', 'tasks_create,tasks_view,sheets_create,sheets_view,hr_policies_create,hr_policies_view', '1', '2025-01-10 15:23:31'),
-(29, 'GENERAL MANAGER', 'tasks_create,tasks_view,sheets_create,sheets_view,hr_policies_create,hr_policies_view', '1', '2025-01-10 15:23:50'),
-(30, 'PRODUCTION SUPERVISOR', 'tasks_create,tasks_view,sheets_create,sheets_view,hr_policies_create,hr_policies_view', '1', '2025-01-10 18:42:28');
+(31, 'Branch', 'user_view,tasks_view,sheets_view,hr_policies_view', '1', '2025-02-19 12:38:58');
 
 -- --------------------------------------------------------
 
@@ -19733,12 +19836,6 @@ ALTER TABLE `category`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `google_sheets`
---
-ALTER TABLE `google_sheets`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `hr_notice`
 --
 ALTER TABLE `hr_notice`
@@ -19790,7 +19887,7 @@ ALTER TABLE `user_profile_images`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `api_users`
@@ -19808,13 +19905,7 @@ ALTER TABLE `basic_table`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
---
--- AUTO_INCREMENT for table `google_sheets`
---
-ALTER TABLE `google_sheets`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=143;
 
 --
 -- AUTO_INCREMENT for table `hr_notice`
@@ -19832,7 +19923,7 @@ ALTER TABLE `hr_policies`
 -- AUTO_INCREMENT for table `role`
 --
 ALTER TABLE `role`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `task`

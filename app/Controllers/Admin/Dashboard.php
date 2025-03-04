@@ -58,11 +58,9 @@ class Dashboard extends BaseController
             $data['complete'] = '';
         } else {
             $total_task = count($data['users']); // Total tasks
-
             $pending = [];
             $late_complete = [];
             $complete = [];
-
             $current_date = (new DateTime())->format('Y-m-d');
 
             foreach ($data['users'] as $user) {
