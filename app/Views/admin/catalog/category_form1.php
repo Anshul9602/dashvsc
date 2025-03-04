@@ -76,10 +76,7 @@
                                             </div>
 
 
-                                            <div class="col-md-4 mt-3">
-                                                <label for="">Invoice Number</label>
-                                                <input type="text" class="form-control" name="invoice_no" placeholder="Invoice Number">
-                                            </div>
+                                           
                                             <div class="col-md-4 mt-3">
                                                 <label for="">Recovery status</label>
                                                 <input type="text" class="form-control" name="recovery_status" placeholder="Recovery status">
@@ -128,14 +125,21 @@
                                                     <option value="quarterly">Quarterly</option>
                                                     <option value="half">Half Yearly</option>
                                                     <option value="yearly" selected>Yearly</option>
-
                                                 </select>
                                             </div>
-                                            <div id="auditDatesContainer1" class="col-md-4 row ">
-                                                <div class="col-md-12 mt-3">
+                                            <div id="auditDatesContainer1" class="col-md-4 row m-0">
+                                                <div class="col-md-12 mt-3 p-0">
                                                     <label for="bill_date">Bill Date </label>
                                                     <input type="date" class="form-control" name="bill_date[]">
                                                 </div>
+                                            </div>
+                                            <div id="auditDatesContainer2" class="col-md-4 mt-3">
+                                                <label for="">Invoice Number</label>
+                                                <input type="text" class="form-control" name="invoice_no[]" placeholder="Invoice Number">
+                                            </div>
+                                            <div id="auditDatesContainer3" class="col-md-4 mt-3">
+                                                <label for="">Invoice Amount</label>
+                                                <input type="text" class="form-control" name="invoice_amount[]" placeholder="Invoice amount">
                                             </div>
                                             <div class="col-md-4 mt-3">
                                                 <label for="">Frequency Of Audit</label>
@@ -170,7 +174,11 @@
         $("#bill_type").change(function() {
             let frequency = $(this).val();
             let container = $("#auditDatesContainer1");
+            let container1 = $("#auditDatesContainer2");
+            let container2 = $("#auditDatesContainer3");
             container.empty(); // Clear previous fields
+            container1.empty(); // Clear previous fields
+            container2.empty(); // Clear previous fields
 
             let count = 0;
             if (frequency === "monthly") {
@@ -191,6 +199,28 @@
                     </div>
                     `;
                 container.append(dateFields);
+            }
+            for (let i = 1; i <= count; i++) {
+                let dateFields1 = `
+                    <div class="col-md-12 mt-3">
+                        <label for="Invoice Number${i}">Invoice Number ${i} </label>
+                    
+                        <input type="text" class="form-control" name="invoice_no[]" placeholder="Invoice Number">
+                                           
+                    </div>
+                    `;
+                container1.append(dateFields1);
+            }
+            for (let i = 1; i <= count; i++) {
+                let dateFields2 = `
+                    <div class="col-md-12 mt-3">
+                        <label for="Invoice Number${i}">Invoice Amount ${i} </label>
+                    
+                        <input type="text" class="form-control" name="invoice_amount[]" placeholder="Invoice amount">
+                                           
+                    </div>
+                    `;
+                container2.append(dateFields2);
             }
         });
         $("#auditFrequency").change(function() {

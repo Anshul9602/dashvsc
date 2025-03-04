@@ -117,7 +117,7 @@ class Category extends BaseController
             'Sr. No', 'Name', 'Branch', 'Type', 'Type Of Assignment', 'Frequency Of Audit',
             'Professional Fees', 'Last Date of Submission', 'Report Date of Submission',
             'Bill Type', 'Bill Date', 'UDIN', 'UDIN No', 'UDIN Turnover',
-            'Invoice Number', 'Recovery Status', 'Security Deposit', 'Working Environment',
+            'Invoice Number','Invoice Amount', 'Recovery Status', 'Security Deposit', 'Working Environment',
             'Completion Certificate Received', 'Status', 'Date Added'
         ]);
     
@@ -140,6 +140,7 @@ class Category extends BaseController
                 $user->udin_no,
                 $user->udin_trun,
                 $user->invoice_no,
+                $user->invoice_amount,
                 $user->recovery_status,
                 $user->security_deposit,
                 $user->working,
@@ -196,8 +197,12 @@ class Category extends BaseController
         $report_date_string = !empty($report_dates) ? implode(',', $report_dates) : '';
 
         $bill_dates = isset($data['bill_date']) ? $data['bill_date'] : [];
+        $invoice_no = isset($data['invoice_no']) ? $data['invoice_no'] : [];
+        $invoice_amount = isset($data['invoice_amount']) ? $data['invoice_amount'] : [];
         // Convert arrays to comma-separated strings
         $bill_date_string = !empty($bill_dates) ? implode(',', $bill_dates) : '';
+        $invoice_no_string = !empty($invoice_no) ? implode(',', $invoice_no) : '';
+        $invoice_amount_string = !empty($invoice_amount) ? implode(',', $invoice_amount) : '';
        
         $model = new CatModel();
 
@@ -216,7 +221,8 @@ class Category extends BaseController
                 'report_submit_date' => $report_date_string,
                 'bill_date' => $bill_date_string,
                 'bill_type' => isset($data['bill_type']) ? $data['bill_type'] : '',
-                'invoice_no' => isset($data['invoice_no']) ? $data['invoice_no'] : '',
+                'invoice_no' =>  $invoice_no_string,
+                'invoice_amount' =>  $invoice_amount_string,
                 'recovery_status' => isset($data['recovery_status']) ? $data['recovery_status'] : '',
                 'security_deposit' => isset($data['security_deposit']) ? $data['security_deposit'] : '',
                 'working' => isset($data['working']) ? $data['working'] : '',
@@ -240,7 +246,8 @@ class Category extends BaseController
                 'report_submit_date' => $report_date_string,
                 'bill_date' => $bill_date_string,
                 'bill_type' => isset($data['bill_type']) ? $data['bill_type'] : '',
-                'invoice_no' => isset($data['invoice_no']) ? $data['invoice_no'] : '',
+                'invoice_no' =>  $invoice_no_string,
+                'invoice_amount' =>  $invoice_amount_string,
                 'recovery_status' => isset($data['recovery_status']) ? $data['recovery_status'] : '',
                 'security_deposit' => isset($data['security_deposit']) ? $data['security_deposit'] : '',
                 'working' => isset($data['working']) ? $data['working'] : '',

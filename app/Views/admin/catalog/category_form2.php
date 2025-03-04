@@ -78,15 +78,8 @@
                                                 <input type="text" class="form-control" name="fee" value="<?= $cat->fee ?>" placeholder="Professional Fees">
                                             </div>
 
-                                            <div class="col-md-4 mt-3">
-                                                <label for="">Bill Date</label>
-                                                <input type="text" class="form-control" name="bill_date" value="<?= $cat->bill_date ?>" placeholder="Bill Date">
-                                            </div>
-
-                                            <div class="col-md-4 mt-3">
-                                                <label for="">Invoice Number</label>
-                                                <input type="text" class="form-control" name="invoice_no" value="<?= $cat->invoice_no ?>" placeholder="Invoice Number">
-                                            </div>
+                                          
+                                           
 
                                             <div class="col-md-4 mt-3">
                                                 <label for="">Recovery Status</label>
@@ -135,8 +128,6 @@
                                                     <option value="0" <?= ($cat->status == "0") ? "selected" : "" ?>>Disable</option>
                                                 </select>
                                             </div>
-
-                                            <!-- Frequency of Audit -->
                                             <div class="col-md-4 mt-3">
                                                 <label for="">Bill Type</label>
                                                 <select class="form-control form-control-lg" name="bill_type" id="bill_type">
@@ -146,9 +137,6 @@
                                                     <option value="half"<?= ($cat->bill_type == "half") ? "selected" : "" ?>>Half Yearly</option>
                                                     <option value="yearly" <?= ($cat->bill_type == "yearly") ? "selected" : "" ?>>Yearly</option>
                                                 </select>
-                                            </div>
-                                            <div id="auditDatesContainer1" class="col-md-4 row ">
-                                                <!-- Dynamic date fields will be appended here -->
                                             </div>
                                             <div class="col-md-4 mt-3">
                                                 <label for="">Frequency Of Audit</label>
@@ -160,7 +148,19 @@
                                                     <option value="yearly" <?= ($cat->audit == "yearly") ? "selected" : "" ?>>Yearly</option>
                                                 </select>
                                             </div>
-                                            <div id="auditDatesContainer" class="col-md-8 row ">
+                                            <!-- Frequency of Audit -->
+                                          
+                                            <div id="auditDatesContainer1" class="col-md-4 row m-0">
+                                                <!-- Dynamic date fields will be appended here -->
+                                            </div>
+                                            <div id="auditDatesContainer2" class="col-md-4 row m-0">
+                                                <!-- Dynamic date fields will be appended here -->
+                                            </div>
+                                            <div id="auditDatesContainer3" class="col-md-4 row m-0">
+                                                <!-- Dynamic date fields will be appended here -->
+                                            </div>
+                                           
+                                            <div id="auditDatesContainer" class="col-md-8 row m-0">
                                                 <!-- Dynamic date fields will be appended here -->
                                             </div>
                                             <!-- Submit Date Fields -->
@@ -188,12 +188,18 @@
 <script>
     $(document).ready(function () {
         let BillDates = "<?= $cat->bill_date ?>".split(',');
-       
+        let invoice_no = "<?= $cat->invoice_no ?>".split(',');
+        let invoice_amount = "<?= $cat->invoice_amount ?>".split(',');
+    
         let frequency1 = "<?= $cat->bill_type ?>"; // Get selected frequency from PHP
 
         $("#bill_type").val(frequency1); // Set selected audit frequency
         let container1 = $("#auditDatesContainer1");
+        let container2 = $("#auditDatesContainer2");
+        let container3 = $("#auditDatesContainer3");
         container1.empty(); // Clear previous fields
+        container2.empty(); // Clear previous fields
+        container3.empty(); // Clear previous fields
 
         let count = 0;
         if (frequency1 === "monthly") {
@@ -211,17 +217,43 @@
            
 
             let dateFields = `
-                <div class="col-md-12 mt-3">
+                <div class="col-md-12 mt-3 p-0">
                     <label>Bill Date ${i + 1}</label>
                     <input type="date" class="form-control" name="bill_date[]" value="${BillDatesValue}" >
                 </div>
                `;
             container1.append(dateFields);
         }
+        for (let i = 0; i < count; i++) {
+            let invoice_noValue = invoice_no[i] ? invoice_no[i] : "";
+           
+
+            let dateFields1 = `
+                <div class="col-md-12 mt-3 p-0">
+                    <label>Invoice No ${i + 1}</label>
+                    <input type="text" class="form-control" name="invoice_no[]" value="${invoice_noValue}" >
+                </div>
+               `;
+            container2.append(dateFields1);
+        }
+        for (let i = 0; i < count; i++) {
+            let invoice_amValue = invoice_amount[i] ? invoice_amount[i] : "";
+           
+
+            let dateFields1 = `
+                <div class="col-md-12 mt-3 p-0">
+                    <label>Invoice Amount ${i + 1}</label>
+                    <input type="text" class="form-control" name="invoice_amount[]" value="${invoice_amValue}" >
+                </div>
+               `;
+            container3.append(dateFields1);
+        }
 
         $("#bill_type").change(function () {
             let newFrequency1 = $(this).val();
             container1.empty(); // Clear previous fields
+            container2.empty(); // Clear previous fields
+            container3.empty(); // Clear previous fields
 
             let newCount = 0;
             if (newFrequency1 === "monthly") {
@@ -236,12 +268,30 @@
 
             for (let i = 0; i < newCount; i++) {
                 let dateFields = `
-                    <div class="col-md-12 mt-3">
+                    <div class="col-md-12 mt-3 p-0">
                         <label>Bill Date ${i + 1}</label>
                         <input type="date" class="form-control" name="bill_date[]" >
                     </div>
                     `;
                 container1.append(dateFields);
+            }
+            for (let i = 0; i < newCount; i++) {
+                let dateFields = `
+                   <div class="col-md-12 mt-3 p-0">
+                    <label>Invoice No ${i + 1}</label>
+                    <input type="text" class="form-control" name="invoice_no[]" value="" >
+                </div>
+                    `;
+                container2.append(dateFields);
+            }
+            for (let i = 0; i < newCount; i++) {
+                let dateFields = `
+                   <div class="col-md-12 mt-3 p-0">
+                    <label>Invoice Amount ${i + 1}</label>
+                    <input type="text" class="form-control" name="invoice_amount[]" value="" >
+                </div>
+                    `;
+                container3.append(dateFields);
             }
         });
     });
@@ -270,11 +320,11 @@
             let reportSubmitDateValue = reportSubmitDates[i] ? reportSubmitDates[i] : "";
 
             let dateFields = `
-                <div class="col-md-6 mt-3">
+                <div class="col-md-6 mt-3 p-0">
                     <label>Last Date of Submission ${i + 1}</label>
                     <input type="date" class="form-control" name="submit_date[]" value="${submitDateValue}" >
                 </div>
-                <div class="col-md-6 mt-3">
+                <div class="col-md-6 mt-3 m-0">
                     <label>Report Date of Submission ${i + 1}</label>
                     <input type="date" class="form-control" name="report_submit_date[]" value="${reportSubmitDateValue}" >
                 </div>`;

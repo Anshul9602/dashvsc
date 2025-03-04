@@ -219,6 +219,7 @@ class CatModel extends Model
         $security_deposit= $data['security_deposit'];
         $recovery_status= $data['recovery_status'];
         $invoice_no= $data['invoice_no'];
+        $invoice_amount= $data['invoice_amount'];
         $bill_type= $data['bill_type'];
         $bill_date= $data['bill_date'];
         $report_submit_date= $data['report_submit_date'];
@@ -237,8 +238,8 @@ class CatModel extends Model
 
         $date1 = date('Y-m-d H:i:s');
         $sql = "INSERT INTO `category`( `id`,`name`,`branch`,`completion`,`working`,`security_deposit`, 
-        `recovery_status`,`invoice_no`,`bill_type`,`bill_date`,`report_submit_date`,`submit_date`,`fee`,`udin`,
-        `udin_no`,`udin_trun`,`audit`,`assignment`,`type`,`status`,`created_at`) VALUES (null,'$name','$branch','$completion','$working','$security_deposit','$recovery_status','$invoice_no','$bill_type','$bill_date','$report_submit_date','$submit_date','$fee','$udin','$udin_no','$udin_trun','$audit','$assignment','$type','$status','$date1')";
+        `recovery_status`,`invoice_no`,`invoice_amount`,`bill_type`,`bill_date`,`report_submit_date`,`submit_date`,`fee`,`udin`,
+        `udin_no`,`udin_trun`,`audit`,`assignment`,`type`,`status`,`created_at`) VALUES (null,'$name','$branch','$completion','$working','$security_deposit','$recovery_status','$invoice_no','$invoice_amount','$bill_type','$bill_date','$report_submit_date','$submit_date','$fee','$udin','$udin_no','$udin_trun','$audit','$assignment','$type','$status','$date1')";
 
 
         //     echo "<pre>"; print_r($sql); echo "</pre>";
@@ -273,6 +274,7 @@ class CatModel extends Model
         $security_deposit= $data['security_deposit'];
         $recovery_status= $data['recovery_status'];
         $invoice_no= $data['invoice_no'];
+        $invoice_amount= $data['invoice_amount'];
         $bill_date= $data['bill_date'];
         $bill_type= $data['bill_type'];
         $report_submit_date= $data['report_submit_date'];
@@ -291,7 +293,7 @@ class CatModel extends Model
 
 
         $sql = "UPDATE `category` SET name = '$name', 
-        branch = '$branch',completion = '$completion',working = '$working',security_deposit = '$security_deposit',recovery_status = '$recovery_status',invoice_no = '$invoice_no',bill_date = '$bill_date',bill_type = '$bill_type',report_submit_date = '$report_submit_date',submit_date = '$submit_date',
+        branch = '$branch',completion = '$completion',working = '$working',security_deposit = '$security_deposit',recovery_status = '$recovery_status',invoice_no = '$invoice_no',invoice_amount = '$invoice_amount',bill_date = '$bill_date',bill_type = '$bill_type',report_submit_date = '$report_submit_date',submit_date = '$submit_date',
          fee = '$fee',udin = '$udin',udin_no = '$udin_no',udin_trun = '$udin_trun',audit = '$audit',
          assignment = '$assignment',
          type = '$type',

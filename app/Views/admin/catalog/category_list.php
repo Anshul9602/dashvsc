@@ -119,6 +119,7 @@
                                         <th>UDIN No</th>
                                         <th>UDIN Trunover</th>
                                         <th>Invoice Number</th>
+                                        <th>Invoice Amount</th>
                                         <th>Recovery status</th>
                                         <th>Security Deposit</th>
                                         <th>Working Environment</th>
@@ -149,6 +150,7 @@
                                                 <td><?= $user->udin_no ?></td>
                                                 <td><?= $user->udin_trun ?></td>
                                                 <td><?= $user->invoice_no ?></td>
+                                                <td><?= $user->invoice_amount ?></td>
                                                 <td><?= $user->recovery_status ?></td>
                                                 <td><?= $user->security_deposit ?></td>
                                                 <td><?= $user->working ?></td>
