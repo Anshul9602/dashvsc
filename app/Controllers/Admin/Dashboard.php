@@ -63,55 +63,81 @@ class Dashboard extends BaseController
             $late_complete = [];
             $complete = [];
 
+            $current_date = (new DateTime())->format('Y-m-d');
+
             foreach ($data['users'] as $user) {
                 $submit_dates = explode(',', $user->submit_date);
                 $report_dates = explode(',', $user->report_submit_date);
-              
-                // Current Date
-                $current_date = (new DateTime())->format('Y-m-d');
-            
-                // Filter valid submit dates (before or equal to today)
+
+                // Remove empty values & trim spaces
+                $submit_dates = array_filter(array_map('trim', $submit_dates));
+                $report_dates = array_filter(array_map('trim', $report_dates));
+
+                // echo "<pre>";
+                // echo "submitArray\n";
+                // print_r($submit_dates);
+                // echo "repotArray\n";
+                // print_r($report_dates);
+                // echo "</pre>";
+
+                // Case 1: If both arrays are empty → Complete
+                if (empty($submit_dates) && empty($report_dates)) {
+                    $complete[] = $user;
+                    continue;
+                }
+
+                // Case 2: If submitArray has values but reportArray is empty → Pending
+                if (!empty($submit_dates) && empty($report_dates)) {
+                    $pending[] = $user;
+                    continue;
+                }
+
+                // Step 3: Filter submit dates up to today
                 $valid_submit_dates = array_filter($submit_dates, function ($date) use ($current_date) {
-                    $submit_date = new DateTime(trim($date));
-                    return $submit_date->format('Y-m-d') <= $current_date;
+                    return (new DateTime($date))->format('Y-m-d') <= $current_date;
                 });
-                echo "<pre>";
-                echo "submit";
-            print_r($valid_submit_dates);
-            echo "repot";
-            print_r($report_dates);
-            echo "</pre>";
-            die();
+
                 // If no valid submit dates, mark as pending
                 if (empty($valid_submit_dates)) {
                     $pending[] = $user;
                     continue;
                 }
-            
-                // Find latest valid submit date
-                $latest_submit_date = new DateTime(max($valid_submit_dates));
-                $formatted_latest_submit_date = $latest_submit_date->format('Y-m-d');
-            
-                // Find latest report date (if exists)
-                $latest_report_date = !empty($report_dates) ? new DateTime(max($report_dates)) : null;
-                $formatted_latest_report_date = $latest_report_date ? $latest_report_date->format('Y-m-d') : null;
-            
-                // Debugging (Check values)
-                // echo "<pre>";
-                // echo "User: " . $user->name . "\n";
-                // echo "Latest Submit Date: " . $formatted_latest_submit_date . "\n";
-                // echo "Latest Report Date: " . ($formatted_latest_report_date ?? 'Not Submitted') . "\n";
-                // echo "</pre>";
-             
-                // Task Categorization
-                if ($formatted_latest_submit_date > $current_date) {
-                    $pending[] = $user; // Future tasks - Pending
-                } elseif (is_null($formatted_latest_report_date) || $formatted_latest_report_date > $formatted_latest_submit_date) {
-                    $late_complete[] = $user; // Report not submitted or submitted late
+
+                // Step 4: Compare each valid submit date with report dates
+                $is_pending = false;
+                $is_late_complete = false;
+
+                foreach ($valid_submit_dates as $submit_date) {
+                    $submit_date_obj = new DateTime($submit_date);
+                    $formatted_submit_date = $submit_date_obj->format('Y-m-d');
+
+                    // Find the closest matching report date
+                    $matching_report_date = null;
+                    foreach ($report_dates as $report_date) {
+                        if ($report_date >= $formatted_submit_date) {
+                            $matching_report_date = $report_date;
+                            break;
+                        }
+                    }
+
+                    if (is_null($matching_report_date)) {
+                        $is_pending = true; // No report date found → Pending
+                    } elseif ($matching_report_date > $formatted_submit_date) {
+                        $is_late_complete = true; // Report submitted late
+                    }
+                }
+
+                // Assign to the correct category
+                if ($is_pending) {
+                    $pending[] = $user;
+                } elseif ($is_late_complete) {
+                    $late_complete[] = $user;
                 } else {
-                    $complete[] = $user; // Completed on time
+                    $complete[] = $user;
                 }
             }
+
+            // die();
 
             // Count totals
             $total_pending = count($pending);
