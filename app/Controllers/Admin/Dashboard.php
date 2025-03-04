@@ -73,56 +73,49 @@ class Dashboard extends BaseController
                 $submit_dates = array_filter(array_map('trim', $submit_dates));
                 $report_dates = array_filter(array_map('trim', $report_dates));
 
+                // Convert to DateTime for comparison
+                $submit_dates = array_map(fn($date) => new DateTime($date), $submit_dates);
+                $report_dates = array_map(fn($date) => new DateTime($date), $report_dates);
+
+                // Sort dates to align them
+                sort($submit_dates);
+                sort($report_dates);
+
                 // echo "<pre>";
-                // echo "submitArray\n";
+                // echo "Submit Dates:\n";
                 // print_r($submit_dates);
-                // echo "repotArray\n";
+                // echo "Report Dates:\n";
                 // print_r($report_dates);
                 // echo "</pre>";
 
-                // Case 1: If both arrays are empty → Complete
+                // If there are no submit or report dates, mark as complete
                 if (empty($submit_dates) && empty($report_dates)) {
                     $complete[] = $user;
                     continue;
                 }
 
-                // Case 2: If submitArray has values but reportArray is empty → Pending
+                // If submitArray has values but reportArray is empty → Pending
                 if (!empty($submit_dates) && empty($report_dates)) {
                     $pending[] = $user;
                     continue;
                 }
 
-                // Step 3: Filter submit dates up to today
-                $valid_submit_dates = array_filter($submit_dates, function ($date) use ($current_date) {
-                    return (new DateTime($date))->format('Y-m-d') <= $current_date;
-                });
-
-                // If no valid submit dates, mark as pending
-                if (empty($valid_submit_dates)) {
-                    $pending[] = $user;
-                    continue;
-                }
-
-                // Step 4: Compare each valid submit date with report dates
+                // Compare each submit date with the corresponding report date
                 $is_pending = false;
                 $is_late_complete = false;
 
-                foreach ($valid_submit_dates as $submit_date) {
-                    $submit_date_obj = new DateTime($submit_date);
-                    $formatted_submit_date = $submit_date_obj->format('Y-m-d');
+                foreach ($submit_dates as $index => $submit_date) {
+                    $formatted_submit_date = $submit_date->format('Y-m-d');
 
-                    // Find the closest matching report date
-                    $matching_report_date = null;
-                    foreach ($report_dates as $report_date) {
-                        if ($report_date >= $formatted_submit_date) {
-                            $matching_report_date = $report_date;
-                            break;
-                        }
+                    // Find corresponding report date (if exists)
+                    $matching_report_date = $report_dates[$index] ?? null;
+
+                    if (!$matching_report_date) {
+                        $is_pending = true; // No report date found → Pending
+                        break;
                     }
 
-                    if (is_null($matching_report_date)) {
-                        $is_pending = true; // No report date found → Pending
-                    } elseif ($matching_report_date > $formatted_submit_date) {
+                    if ($matching_report_date->format('Y-m-d') > $formatted_submit_date) {
                         $is_late_complete = true; // Report submitted late
                     }
                 }
@@ -138,6 +131,16 @@ class Dashboard extends BaseController
             }
 
             // die();
+
+
+            // echo "<pre>";
+            //             echo "let complteArray\n";
+            //             print_r($late_complete);
+
+
+            //             echo "</pre>";
+
+            //         die();
 
             // Count totals
             $total_pending = count($pending);
