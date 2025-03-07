@@ -43,14 +43,12 @@ class Category extends BaseController
         if (!$this->validateToken($segment)) {
             return redirect()->to('/admin/login');
         }
-
         $data = [
             'token' => $segment,
             'role' => session()->get('role'),
             'admin_name' => session()->get('admin_name'),
             'users' => [] // Initialize 'users' to an empty array
         ];
-
         date_default_timezone_set('Asia/Kolkata'); // Set your timezone
         $current_date = date('Y-m-d'); // Get the current date
 
@@ -64,11 +62,9 @@ class Category extends BaseController
         }
         if ($data['users'] !== null) {
             $not_complete_on_time = [];
-
             foreach ($data['users'] as $user) {
                 $submit_date = $user->submit_date; // Get submit date
                 $report_submit_date = $user->report_submit_date; // Get report submit date
-
                 // Check if the current date is greater than submit_date
                 if ($current_date > $submit_date) {
                     // If report_submit_date is empty OR report_submit_date is greater than submit_date
@@ -207,7 +203,6 @@ class Category extends BaseController
         $model = new CatModel();
 
         if ($data['id']) {
-
             $id = $data['id'];
             $input = [
                 'id' => isset($data['id']) ? $data['id'] : '',
@@ -232,7 +227,6 @@ class Category extends BaseController
                 'completion' => isset($data['completion']) ? $data['completion'] : '',
                 'status' => isset($data['status']) ? $data['status'] : ''
             ];
-      
             $user = $model->update1($id, $input);
         } else {
             $input = [

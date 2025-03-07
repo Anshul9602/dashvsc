@@ -71,6 +71,16 @@
         .slider.round:before {
             border-radius: 50%;
         }
+
+        table.dataTable.display tbody td {
+            border: 1px solid #ddd;
+        }
+
+        table.dataTable.display tbody .td {
+            border: 1px solid #ddd;
+            padding: 8px 10px;
+            min-height: 37px;
+        }
     </style>
     <div class="container-fluid">
         <div class="row page-titles mx-0">
@@ -84,9 +94,9 @@
                 </div>
             </div>
             <div class="col-sm-6 justify-content-sm-end mt-2 mt-sm-0 d-flex">
-                
-            <button id="exportCsv" class="btn btn-success" data-id="<?php echo $token; ?>">Export CSV</button> &nbsp;&nbsp;
-            <a href="<?php echo base_url('admin/category/category_form/' . $token); ?>">
+
+                <button id="exportCsv" class="btn btn-success" data-id="<?php echo $token; ?>">Export CSV</button> &nbsp;&nbsp;
+                <a href="<?php echo base_url('admin/category/category_form/' . $token); ?>">
                     <button class="btn btn-primary btn-rounded">
                         <li class="fa fa-plus"></li>
                     </button>
@@ -102,8 +112,6 @@
                             <table id="example3" class="display ndfn" style="min-width: 845px">
                                 <thead>
                                     <tr>
-
-
                                         <th>Sr. No</th>
                                         <th>Name</th>
                                         <th>Branch</th>
@@ -113,17 +121,16 @@
                                         <th>Professinal Fees</th>
                                         <th>Last Date of Submission</th>
                                         <th>Report Date of Submission</th>
-                                        <th>Bill Type</th>
-                                        <th>Bill Date</th>
-                                        <th>UDIN</th>
-                                        <th>UDIN No</th>
-                                        <th>UDIN Trunover</th>
+                                        <th>Bill Date of Submission</th>
                                         <th>Invoice Number</th>
                                         <th>Invoice Amount</th>
                                         <th>Recovery status</th>
                                         <th>Security Deposit</th>
                                         <th>Working Environment</th>
                                         <th>Completion Certificate Received</th>
+                                        <th>UDIN</th>
+                                        <th>UDIN No</th>
+                                        <th>UDIN Trunover</th>
                                         <th>Status</th>
                                         <th> Date added</th>
                                         <th>Action</th>
@@ -132,53 +139,87 @@
                                 <tbody>
                                     <?php if ($users !== null && !empty($users)): ?>
                                         <?php foreach ($users as $index => $user): ?>
+                                            <?php
+                                            $submit_dates = explode(',', $user->submit_date);
+                                            $report_dates = explode(',', $user->report_submit_date);
+                                            $bill_dates = explode(',', $user->bill_date);
+                                            // Split dates 
+                                            ?>
+
                                             <tr>
-
                                                 <td><?= sprintf("%02d", $index + 1) ?></td>
-
                                                 <td><?= $user->name ?></td>
                                                 <td><?= $user->branch ?></td>
                                                 <td><?= $user->type ?></td>
                                                 <td><?= $user->assignment ?></td>
                                                 <td><?= $user->audit ?></td>
+                                                <?php 
+                                                $autt = $user->audit;
+                                                if ($autt == 'monthly'): ?>
                                                 <td><?= $user->fee ?></td>
-                                                <td><?= $user->submit_date ?></td>
-                                                <td><?= $user->report_submit_date ?></td>
-                                                <td><?= $user->bill_type ?></td>
-                                                <td><?= $user->bill_date ?></td>
-                                                <td><?= $user->udin ?></td>
-                                                <td><?= $user->udin_no ?></td>
-                                                <td><?= $user->udin_trun ?></td>
+                                                <td class="p-0">
+                                                    <?php foreach ($submit_dates as $subdate): ?>
+                                                        <div class="td"> <?= trim($subdate) ?></div>
+                                                    <?php endforeach; ?>
+                                                </td>
+                                                <td class="p-0">
+                                                    <?php foreach ($report_dates as $subdate): ?>
+                                                        <div class="td"> <?= trim($subdate) ?></div>
+                                                    <?php endforeach; ?>
+                                                </td>
+                                                <td class="p-0">
+                                                    <?php foreach ($bill_dates as $subdate): ?>
+                                                        <div class="td"><?= trim($subdate) ?></div>
+                                                    <?php endforeach; ?>
+                                                </td>
                                                 <td><?= $user->invoice_no ?></td>
                                                 <td><?= $user->invoice_amount ?></td>
                                                 <td><?= $user->recovery_status ?></td>
                                                 <td><?= $user->security_deposit ?></td>
                                                 <td><?= $user->working ?></td>
                                                 <td><?= $user->completion ?></td>
+                                                <?php else: ?>
+                                                <td><?= $user->fee ?></td>
+                                                <td > <?= $user->submit_date ?> </td>
+                                                <td ><?= $user->report_submit_date ?> </td>
+                                                <td > <?= $user->invoice_no ?></td>
+                                                <td><?= $user->invoice_no ?></td>
+                                                <td><?= $user->invoice_amount ?></td>
+                                                <td><?= $user->recovery_status ?></td>
+                                                <td><?= $user->security_deposit ?></td>
+                                                <td><?= $user->working ?></td>
+                                                <td><?= $user->completion ?></td>
+                                                <?php endif; ?>
+                                                <td><?= $user->udin ?></td>
+                                                <td><?= $user->udin_no ?></td>
+                                                <td><?= $user->udin_trun ?></td>
                                                 <td>
                                                     <label class="switch">
                                                         <input type="checkbox" data-id="<?= $user->id ?>"
-                                                            id="switch<?= $user->id ?>" <?= $user->status == '1' ? 'checked' : '' ?> class="status_update" value="<?= $user->status ?>">
+                                                            id="switch<?= $user->id ?>" <?= $user->status == '1' ? 'checked' : '' ?>
+                                                            class="status_update" value="<?= $user->status ?>">
                                                         <span class="slider round"></span>
                                                     </label>
                                                 </td>
-                                                <td><a href="javascript:void(0);"><strong><?= $user->created_at ?></a></strong></td>
+                                                <td><a href="javascript:void(0);"><strong><?= $user->created_at ?></strong></a></td>
                                                 <td>
                                                     <div class="d-flex">
-                                                        <a href="<?php echo base_url('admin/cat/category_form_value/' . $user->id); ?>" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
-                                                        <a href="javascript:void(0);"
-                                                            class="btn btn-danger shadow btn-xs sharp"
-                                                            data-bs-toggle="modal"
-                                                            data-bs-target="#deleteModal5"
-                                                            data-url="<?php echo base_url('admin/cat/category_delete/' . $user->id); ?>">
+                                                        <a href="<?= base_url('admin/cat/category_form_value/' . $user->id); ?>" class="btn btn-primary shadow btn-xs sharp mr-1">
+                                                            <i class="fa fa-pencil"></i>
+                                                        </a>
+                                                        <a href="javascript:void(0);" class="btn btn-danger shadow btn-xs sharp"
+                                                            data-bs-toggle="modal" data-bs-target="#deleteModal5"
+                                                            data-url="<?= base_url('admin/cat/category_delete/' . $user->id); ?>">
                                                             <i class="fa fa-trash"></i>
                                                         </a>
+                                                    </div>
                                                 </td>
                                             </tr>
+
                                         <?php endforeach; ?>
-                                    <?php else: ?>
                                     <?php endif; ?>
                                 </tbody>
+
                             </table>
                         </div>
                     </div>
@@ -213,19 +254,19 @@
 </script>
 <script>
     $('#exportCsv').click(function() {
-    var token = $(this).data('id'); // Get token from button data-id
+        var token = $(this).data('id'); // Get token from button data-id
 
-    // Construct download URL
-    var downloadUrl = `<?= base_url('/admin/category_export') ?>/${token}`;
+        // Construct download URL
+        var downloadUrl = `<?= base_url('/admin/category_export') ?>/${token}`;
 
-    // Create a hidden download link
-    var link = document.createElement('a');
-    link.href = downloadUrl;
-    link.setAttribute('download', 'category_export.csv'); // Set filename
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-});
+        // Create a hidden download link
+        var link = document.createElement('a');
+        link.href = downloadUrl;
+        link.setAttribute('download', 'category_export.csv'); // Set filename
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    });
     $('.status_update').click(function() {
         var deptId = $(this).data('id'); // Get the data-id attribute of the clicked checkbox
         // var status = $(this).value('data'); // Get the data-id attribute of the clicked checkbox
