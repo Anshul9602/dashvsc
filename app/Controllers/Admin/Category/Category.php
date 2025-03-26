@@ -185,17 +185,27 @@ class Category extends BaseController
         // print_r($data);
         // echo "</pre>";
         // die();
+        $fee = isset($data['fee']) ? $data['fee'] : [];
+        $recovery_status = isset($data['recovery_status']) ? $data['recovery_status'] : [];
+        $security_deposit = isset($data['security_deposit']) ? $data['security_deposit'] : [];
+        $working = isset($data['working']) ? $data['working'] : [];
+        $completion = isset($data['completion']) ? $data['completion'] : [];
         $submit_dates = isset($data['submit_date']) ? $data['submit_date'] : [];
         $report_dates = isset($data['report_submit_date']) ? $data['report_submit_date'] : [];
-
-        // Convert arrays to comma-separated strings
-        $submit_date_string = !empty($submit_dates) ? implode(',', $submit_dates) : '';
-        $report_date_string = !empty($report_dates) ? implode(',', $report_dates) : '';
-
         $bill_dates = isset($data['bill_date']) ? $data['bill_date'] : [];
         $invoice_no = isset($data['invoice_no']) ? $data['invoice_no'] : [];
         $invoice_amount = isset($data['invoice_amount']) ? $data['invoice_amount'] : [];
+
+
+
         // Convert arrays to comma-separated strings
+        $fee_string = !empty($fee) ? implode(',', $fee) : '';
+        $recovery_status_string = !empty($recovery_status) ? implode(',', $recovery_status) : '';
+        $security_deposit_string = !empty($security_deposit) ? implode(',', $security_deposit) : '';
+        $working_string = !empty($working) ? implode(',', $working) : '';
+        $completion_string = !empty($completion) ? implode(',', $completion) : '';
+        $submit_date_string = !empty($submit_dates) ? implode(',', $submit_dates) : '';
+        $report_date_string = !empty($report_dates) ? implode(',', $report_dates) : '';
         $bill_date_string = !empty($bill_dates) ? implode(',', $bill_dates) : '';
         $invoice_no_string = !empty($invoice_no) ? implode(',', $invoice_no) : '';
         $invoice_amount_string = !empty($invoice_amount) ? implode(',', $invoice_amount) : '';
@@ -211,20 +221,19 @@ class Category extends BaseController
                 'assignment' => isset($data['assignment']) ? $data['assignment'] : '',
                 'type' => isset($data['type']) ? $data['type'] : '',
                 'audit' => isset($data['audit']) ? $data['audit'] : '',
-                'fee' => isset($data['fee']) ? $data['fee'] : '',
+                'fee' => $fee_string,
                 'submit_date' => $submit_date_string,
                 'report_submit_date' => $report_date_string,
                 'bill_date' => $bill_date_string,
-                'bill_type' => isset($data['bill_type']) ? $data['bill_type'] : '',
                 'invoice_no' =>  $invoice_no_string,
                 'invoice_amount' =>  $invoice_amount_string,
-                'recovery_status' => isset($data['recovery_status']) ? $data['recovery_status'] : '',
-                'security_deposit' => isset($data['security_deposit']) ? $data['security_deposit'] : '',
-                'working' => isset($data['working']) ? $data['working'] : '',
+                'recovery_status' => $recovery_status_string,
+                'security_deposit' => $security_deposit_string,
+                'working' => $working_string,
                 'udin' => isset($data['udin']) ? $data['udin'] : '',
                 'udin_no' => isset($data['udin_no']) ? $data['udin_no'] : '',
                 'udin_trun' => isset($data['udin_trun']) ? $data['udin_trun'] : '',
-                'completion' => isset($data['completion']) ? $data['completion'] : '',
+                'completion' => $completion_string,
                 'status' => isset($data['status']) ? $data['status'] : ''
             ];
             $user = $model->update1($id, $input);
@@ -235,22 +244,28 @@ class Category extends BaseController
                 'assignment' => isset($data['assignment']) ? $data['assignment'] : '',
                 'type' => isset($data['type']) ? $data['type'] : '',
                 'audit' => isset($data['audit']) ? $data['audit'] : '',
-                'fee' => isset($data['fee']) ? $data['fee'] : '',
+                'fee' => $fee_string,
                 'submit_date' => $submit_date_string,
                 'report_submit_date' => $report_date_string,
                 'bill_date' => $bill_date_string,
-                'bill_type' => isset($data['bill_type']) ? $data['bill_type'] : '',
                 'invoice_no' =>  $invoice_no_string,
                 'invoice_amount' =>  $invoice_amount_string,
-                'recovery_status' => isset($data['recovery_status']) ? $data['recovery_status'] : '',
-                'security_deposit' => isset($data['security_deposit']) ? $data['security_deposit'] : '',
-                'working' => isset($data['working']) ? $data['working'] : '',
+                'recovery_status' => $recovery_status_string,
+                'security_deposit' => $security_deposit_string,
+                'working' => $working_string,
                 'udin' => isset($data['udin']) ? $data['udin'] : '',
                 'udin_no' => isset($data['udin_no']) ? $data['udin_no'] : '',
                 'udin_trun' => isset($data['udin_trun']) ? $data['udin_trun'] : '',
-                'completion' => isset($data['completion']) ? $data['completion'] : '',
+                'completion' => $completion_string,
                 'status' => isset($data['status']) ? $data['status'] : ''
             ];
+
+
+
+        //      echo "<pre>";
+        // print_r($input);
+        // echo "</pre>";
+        // die();
             $user = $model->save($input);
         }
         $role = session()->get('role');

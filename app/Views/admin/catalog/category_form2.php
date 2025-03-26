@@ -20,8 +20,8 @@
                 </button>
                 &nbsp;
                 <button class="btn btn-danger btn-rounded" onclick="history.back();">
-    <i class="fa fa-arrow-left"></i> <!-- Use <i> instead of <li> -->
-</button>
+                    <i class="fa fa-arrow-left"></i> <!-- Use <i> instead of <li> -->
+                </button>
 
 
             </div>
@@ -68,59 +68,11 @@
                                                 <label for="">Type</label>
                                                 <select class="form-control form-control-lg" name="type">
                                                     <option value="" selected>Select an option</option>
-                                                    
+
                                                     <option value="Empanel" <?= ($cat->type == "Empanel") ? "selected" : "" ?>>Empanel</option>
                                                     <option value="WO" <?= ($cat->type == "WO") ? "selected" : "" ?>>WO</option>
                                                 </select>
                                             </div>
-                                            <div class="col-md-4 mt-3">
-                                                <label for="">Professional Fees</label>
-                                                <input type="text" class="form-control" name="fee" value="<?= $cat->fee ?>" placeholder="Professional Fees">
-                                            </div>
-
-                                          
-                                           
-
-                                            <div class="col-md-4 mt-3">
-                                                <label for="">Recovery Status</label>
-                                                <input type="text" class="form-control" name="recovery_status" value="<?= $cat->recovery_status ?>" placeholder="Recovery Status">
-                                            </div>
-
-                                            <div class="col-md-4 mt-3">
-                                                <label for="">Security Deposit</label>
-                                                <input type="text" class="form-control" name="security_deposit" value="<?= $cat->security_deposit ?>" placeholder="Security Deposit">
-                                            </div>
-
-                                            <div class="col-md-4 mt-3">
-                                                <label for="">Working Environment</label>
-                                                <input type="text" class="form-control" name="working" value="<?= $cat->working ?>" placeholder="Working Environment">
-                                            </div>
-
-                                            <div class="col-md-4 mt-3">
-                                                <label for="">Completion Certificate Received</label>
-                                                <input type="text" class="form-control" name="completion" value="<?= $cat->completion ?>" placeholder="Completion Certificate Received">
-                                            </div>
-
-                                            <!-- UDIN -->
-                                            <div class="col-md-4 mt-3">
-                                                <label for="">UDIN</label>
-                                                <select class="form-control form-control-lg" name="udin">
-                                                    <option value="">Select an option</option>
-                                                    <option value="yes" <?= ($cat->udin == "yes") ? "selected" : "" ?>>Yes</option>
-                                                    <option value="no" <?= ($cat->udin == "no") ? "selected" : "" ?>>No</option>
-                                                </select>
-                                            </div>
-
-                                            <div class="col-md-4 mt-3">
-                                                <label for="">UDIN No</label>
-                                                <input type="text" class="form-control" name="udin_no" value="<?= $cat->udin_no ?>" placeholder="UDIN No">
-                                            </div>
-
-                                            <div class="col-md-4 mt-3">
-                                                <label for="">UDIN Turnover</label>
-                                                <input type="text" class="form-control" name="udin_trun" value="<?= $cat->udin_trun ?>" placeholder="UDIN Turnover">
-                                            </div>
-
                                             <div class="col-md-4 mt-3">
                                                 <label for="">Status</label>
                                                 <select class="form-control form-control-lg" name="status">
@@ -129,42 +81,57 @@
                                                 </select>
                                             </div>
                                             <div class="col-md-4 mt-3">
-                                                <label for="">Bill Type</label>
-                                                <select class="form-control form-control-lg" name="bill_type" id="bill_type">
-                                                    <option value="">Select date</option>
-                                                    <option value="monthly" <?= ($cat->bill_type == "monthly") ? "selected" : "" ?>>Monthly</option>
-                                                    <option value="quarterly" <?= ($cat->bill_type == "quarterly") ? "selected" : "" ?>>Quarterly</option>
-                                                    <option value="half"<?= ($cat->bill_type == "half") ? "selected" : "" ?>>Half Yearly</option>
-                                                    <option value="yearly" <?= ($cat->bill_type == "yearly") ? "selected" : "" ?>>Yearly</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-md-4 mt-3">
                                                 <label for="">Frequency Of Audit</label>
                                                 <select class="form-control form-control-lg" name="audit" id="auditFrequency">
                                                     <option value="">Select Frequency</option>
                                                     <option value="monthly" <?= ($cat->audit == "monthly") ? "selected" : "" ?>>Monthly</option>
                                                     <option value="quarterly" <?= ($cat->audit == "quarterly") ? "selected" : "" ?>>Quarterly</option>
-                                                    <option value="half"<?= ($cat->audit == "half") ? "selected" : "" ?>>Half Yearly</option>
+                                                    <option value="half" <?= ($cat->audit == "half") ? "selected" : "" ?>>Half Yearly</option>
                                                     <option value="yearly" <?= ($cat->audit == "yearly") ? "selected" : "" ?>>Yearly</option>
                                                 </select>
                                             </div>
+                                            <div class="col-md-12 row m-0">
+                                                <div id="auditDatesContainer" class="row col-md-12 mt-3 pl-0 m-0"></div>
+                                                <div id="bill_date" class=" row col-md-12 mt-1 pl-0 m-0"></div>
+                                                <div id="recovery_status" class=" row col-md-12 mt-1 pl-0 m-0"></div>
+                                                <div id="completion" class="col-md-4 mt-3 pl-0 "></div>
+                                                <div class="col-md-4 mt-3">
+                                                    <label for="">UDIN</label>
+                                                    <select class="form-control form-control-lg" name="udin">
+                                                        <option value="">Select an option</option>
+                                                        <option value="yes" <?= ($cat->udin == "yes") ? "selected" : "" ?>>Yes</option>
+                                                        <option value="no" <?= ($cat->udin == "no") ? "selected" : "" ?>>No</option>
+                                                    </select>
+                                                </div>
+
+                                                <div class="col-md-4 mt-3">
+                                                    <label for="">UDIN No</label>
+                                                    <input type="text" class="form-control" name="udin_no" value="<?= $cat->udin_no ?>" placeholder="UDIN No">
+                                                </div>
+
+                                                <div class="col-md-4 mt-3">
+                                                    <label for="">UDIN Turnover</label>
+                                                    <input type="text" class="form-control" name="udin_trun" value="<?= $cat->udin_trun ?>" placeholder="UDIN Turnover">
+                                                </div>
+                                            </div>
+
+
+
+
+
+
+                                            <!-- UDIN -->
+
+
+
+
+
                                             <!-- Frequency of Audit -->
-                                          
-                                            <div id="auditDatesContainer1" class="col-md-4 row m-0">
-                                                <!-- Dynamic date fields will be appended here -->
-                                            </div>
-                                            <div id="auditDatesContainer2" class="col-md-4 row m-0">
-                                                <!-- Dynamic date fields will be appended here -->
-                                            </div>
-                                            <div id="auditDatesContainer3" class="col-md-4 row m-0">
-                                                <!-- Dynamic date fields will be appended here -->
-                                            </div>
-                                           
-                                            <div id="auditDatesContainer" class="col-md-8 row m-0">
-                                                <!-- Dynamic date fields will be appended here -->
-                                            </div>
+
+
+
                                             <!-- Submit Date Fields -->
-                                            
+
                                         </div>
 
                                         <button type="submit" value="submit" class="btn d-none" id="s_btnn">Submit</button>
@@ -186,123 +153,32 @@
 </div>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
-    $(document).ready(function () {
+    $(document).ready(function() {
+        let fee = "<?= $cat->fee ?>".split(',');
+        let submitDates = "<?= $cat->submit_date ?>".split(',');
+        let reportSubmitDates = "<?= $cat->report_submit_date ?>".split(',');
         let BillDates = "<?= $cat->bill_date ?>".split(',');
         let invoice_no = "<?= $cat->invoice_no ?>".split(',');
         let invoice_amount = "<?= $cat->invoice_amount ?>".split(',');
-    
-        let frequency1 = "<?= $cat->bill_type ?>"; // Get selected frequency from PHP
+        let recovery_status = "<?= $cat->security_deposit ?>".split(',');
+        let security_deposit = "<?= $cat->security_deposit ?>".split(',');
+        let working = "<?= $cat->working ?>".split(',');
+        let completion = "<?= $cat->completion ?>".split(',');
 
-        $("#bill_type").val(frequency1); // Set selected audit frequency
-        let container1 = $("#auditDatesContainer1");
-        let container2 = $("#auditDatesContainer2");
-        let container3 = $("#auditDatesContainer3");
-        container1.empty(); // Clear previous fields
-        container2.empty(); // Clear previous fields
-        container3.empty(); // Clear previous fields
-
-        let count = 0;
-        if (frequency1 === "monthly") {
-            count = 12;
-        } else if (frequency1 === "quarterly") {
-            count = 4;
-        } else if (frequency1 === "half") {
-            count = 2;
-        } else if (frequency1 === "yearly") {
-            count = 1;
-        }
-
-        for (let i = 0; i < count; i++) {
-            let BillDatesValue = BillDates[i] ? BillDates[i] : "";
-           
-
-            let dateFields = `
-                <div class="col-md-12 mt-3 p-0">
-                    <label>Bill Date ${i + 1}</label>
-                    <input type="date" class="form-control" name="bill_date[]" value="${BillDatesValue}" >
-                </div>
-               `;
-            container1.append(dateFields);
-        }
-        for (let i = 0; i < count; i++) {
-            let invoice_noValue = invoice_no[i] ? invoice_no[i] : "";
-           
-
-            let dateFields1 = `
-                <div class="col-md-12 mt-3 p-0">
-                    <label>Invoice No ${i + 1}</label>
-                    <input type="text" class="form-control" name="invoice_no[]" value="${invoice_noValue}" >
-                </div>
-               `;
-            container2.append(dateFields1);
-        }
-        for (let i = 0; i < count; i++) {
-            let invoice_amValue = invoice_amount[i] ? invoice_amount[i] : "";
-           
-
-            let dateFields1 = `
-                <div class="col-md-12 mt-3 p-0">
-                    <label>Invoice Amount ${i + 1}</label>
-                    <input type="text" class="form-control" name="invoice_amount[]" value="${invoice_amValue}" >
-                </div>
-               `;
-            container3.append(dateFields1);
-        }
-
-        $("#bill_type").change(function () {
-            let newFrequency1 = $(this).val();
-            container1.empty(); // Clear previous fields
-            container2.empty(); // Clear previous fields
-            container3.empty(); // Clear previous fields
-
-            let newCount = 0;
-            if (newFrequency1 === "monthly") {
-                newCount = 12;
-            } else if (newFrequency1 === "quarterly") {
-                newCount = 4;
-            } else if (newFrequency1 === "half") {
-                newCount = 2;
-            } else if (newFrequency1 === "yearly") {
-                newCount = 1;
-            }
-
-            for (let i = 0; i < newCount; i++) {
-                let dateFields = `
-                    <div class="col-md-12 mt-3 p-0">
-                        <label>Bill Date ${i + 1}</label>
-                        <input type="date" class="form-control" name="bill_date[]" >
-                    </div>
-                    `;
-                container1.append(dateFields);
-            }
-            for (let i = 0; i < newCount; i++) {
-                let dateFields = `
-                   <div class="col-md-12 mt-3 p-0">
-                    <label>Invoice No ${i + 1}</label>
-                    <input type="text" class="form-control" name="invoice_no[]" value="" >
-                </div>
-                    `;
-                container2.append(dateFields);
-            }
-            for (let i = 0; i < newCount; i++) {
-                let dateFields = `
-                   <div class="col-md-12 mt-3 p-0">
-                    <label>Invoice Amount ${i + 1}</label>
-                    <input type="text" class="form-control" name="invoice_amount[]" value="" >
-                </div>
-                    `;
-                container3.append(dateFields);
-            }
-        });
-    });
-    $(document).ready(function () {
-        let submitDates = "<?= $cat->submit_date ?>".split(',');
-        let reportSubmitDates = "<?= $cat->report_submit_date ?>".split(',');
         let frequency = "<?= $cat->audit ?>"; // Get selected frequency from PHP
 
         $("#auditFrequency").val(frequency); // Set selected audit frequency
         let container = $("#auditDatesContainer");
         container.empty(); // Clear previous fields
+        // let fees = $("#fees");  fees.empty(); // Clear previous fields
+        let bill_date = $("#bill_date");
+        bill_date.empty(); // Clear previous fields
+
+        let recovery_status1 = $("#recovery_status");
+        recovery_status1.empty(); // Clear previous fields
+
+        let completion1 = $("#completion");
+        completion1.empty(); // Clear previous fields
 
         let count = 0;
         if (frequency === "monthly") {
@@ -316,24 +192,93 @@
         }
 
         for (let i = 0; i < count; i++) {
+            let feeValue = fee[i] ? fee[i] : "";
             let submitDateValue = submitDates[i] ? submitDates[i] : "";
             let reportSubmitDateValue = reportSubmitDates[i] ? reportSubmitDates[i] : "";
-
+            let bill_dateValue = bill_date[i] ? bill_date[i] : "";
             let dateFields = `
-                <div class="col-md-6 mt-3 p-0">
+                <div class="col-md-4 mt-3 pl-0">
+                    <label for="">Professinal Fees ${i + 1}</label>
+                    <input type="text" class="form-control" name="fee[]"  value="${feeValue}">
+                </div>
+           
+                <div class="col-md-4 mt-3 ">
                     <label>Last Date of Submission ${i + 1}</label>
                     <input type="date" class="form-control" name="submit_date[]" value="${submitDateValue}" >
                 </div>
-                <div class="col-md-6 mt-3 m-0">
+                <div class="col-md-4 mt-3 ">
                     <label>Report Date of Submission ${i + 1}</label>
                     <input type="date" class="form-control" name="report_submit_date[]" value="${reportSubmitDateValue}" >
-                </div>`;
+                </div>
+                
+                `;
             container.append(dateFields);
         }
+        for (let i = 0; i < count; i++) {
+            let bill_dateValue = bill_date[i] ? bill_date[i] : "";
+            let invoice_noValue = invoice_no[i] ? invoice_no[i] : "";
+            let invoice_amountValue = invoice_amount[i] ? invoice_amount[i] : "";
+            let dateFields = `
+             <div class="col-md-4 mt-3 pl-0">
+            
+                    <label>Bill Date  ${i + 1}</label>
+                    <input type="date" class="form-control" name="bill_date[]" value="${bill_dateValue}" >
+                </div>
+             <div class="col-md-4 mt-3 ">
+                    <label>Invoice Number  ${i + 1}</label>
+                   <input type="text" class="form-control" name="invoice_no[]"  value="${invoice_noValue}">
+                </div>
+             <div class="col-md-4 mt-3 ">
+                    <label>Invoice Amount  ${i + 1}</label>
+                   <input type="text" class="form-control" name="iinvoice_amount[]"  value="${invoice_amountValue}">
+                </div>
+            
+                `;
+            bill_date.append(dateFields);
+        }
 
-        $("#auditFrequency").change(function () {
+        for (let i = 0; i < count; i++) {
+            let recovery_statusValue = recovery_status[i] ? recovery_status[i] : "";
+            let security_depositValue = security_deposit[i] ? security_deposit[i] : "";
+            let workingValue = working[i] ? working[i] : "";
+            let dateFields = `
+                <div class="col-md-4 mt-3 pl-0">
+                
+                        <label>Recovery Status  ${i + 1}</label>
+                        <input type="text" class="form-control" name="recovery_status[]" value="${recovery_statusValue}" >
+                    </div>
+                <div class="col-md-4 mt-3 ">
+                        <label>Security Deposit  ${i + 1}</label>
+                        <input type="text" class="form-control" name="security_deposit[]" value="${security_depositValue}" >
+                    </div>
+                <div class="col-md-4 mt-3 ">
+                        <label>Working Environment  ${i + 1}</label>
+                        <input type="text" class="form-control" name="working[]" value="${workingValue}" >
+                    </div>
+            
+                `;
+                recovery_status1.append(dateFields);
+        }
+
+        for (let i = 0; i < count; i++) {
+            let completionValue = completion[i] ? completion[i] : "";
+            let dateFields = `
+                <div class="col-md-12 mt-3 pl-0">
+                
+                        <label>Completion Certificate Received  ${i + 1}</label>
+                        <input type="text" class="form-control" name="completion[]" value="${completionValue}" >
+                    </div>
+                `;
+                completion1.append(dateFields);
+        }
+
+
+        $("#auditFrequency").change(function() {
             let newFrequency = $(this).val();
             container.empty(); // Clear previous fields
+            bill_date.empty(); // Clear previous fields
+            recovery_status1.empty(); // Clear previous fields
+            completion1.empty(); // Clear previous fields
 
             let newCount = 0;
             if (newFrequency === "monthly") {
@@ -346,17 +291,67 @@
                 newCount = 1;
             }
 
-            for (let i = 0; i < newCount; i++) {
-                let dateFields = `
-                    <div class="col-md-6 mt-3">
-                        <label>Last Date of Submission ${i + 1}</label>
-                        <input type="date" class="form-control" name="submit_date[]" >
-                    </div>
-                    <div class="col-md-6 mt-3">
-                        <label>Report Date of Submission ${i + 1}</label>
-                        <input type="date" class="form-control" name="report_submit_date[]" >
-                    </div>`;
+            for (let i = 1; i <= newCount; i++) {
+                let dateFields = `<div class="col-md-4 mt-3 pl-0">
+                                        <label for=""> Professinal Fees ${i}</label>
+                                        <input type="text" class="form-control" name="fee[]" placeholder="Professinal Fees">
+                                    </div>
+                                    <div class="col-md-4 mt-3">
+                                        <label for="submit_date">Last Date of Submission ${i} </label>
+                                        <input type="date" class="form-control" name="submit_date[]">
+                                    </div>
+                                    <div class="col-md-4 mt-3">
+                                        <label for="report_submit_date">Report Date of Submission ${i} </label>
+                                        <input type="date" class="form-control" name="report_submit_date[]">
+                                    </div>`;
+
                 container.append(dateFields);
+
+            }
+            for (let i = 1; i <= newCount; i++) {
+
+                let dateFields2 = `<div class="col-md-4 mt-3 pl-0">
+                                        <label for="bill_date">Bill Date ${i}</label>
+                                        <input type="date" class="form-control" name="bill_date[]">
+                                    </div>
+                                    <div class="col-md-4 mt-3">
+                                        <label for="">Invoice Number ${i}</label>
+                                        <input type="text" class="form-control" name="invoice_no[]" placeholder="Invoice Number">
+                                    </div>
+                                    <div class="col-md-4 mt-3">
+                                        <label for="">Invoice Amount ${i}</label>
+                                        <input type="text" class="form-control" name="invoice_amount[]" placeholder="Invoice amount">
+                                    </div>`;
+
+                bill_date.append(dateFields2);
+
+            }
+            for (let i = 1; i <= newCount; i++) {
+
+                let dateFields3 = `<div class="col-md-4 mt-3 ">
+                                        <label for="">Recovery status ${i}</label>
+                                        <input type="text" class="form-control" name="recovery_status[]" placeholder="Recovery status">
+                                    </div>
+                                    <div class="col-md-4 mt-3 ">
+                                        <label for="">Security Deposit ${i}</label>
+                                        <input type="text" class="form-control" name="security_deposit[]" placeholder="Security Deposit">
+                                    </div>
+                                    <div class="col-md-4 mt-3">
+                                        <label for="">Working Environment ${i}</label>
+                                        <input type="text" class="form-control" name="working[]" placeholder="Working Environment">
+                                    </div>`;
+
+                recovery_status1.append(dateFields3);
+
+            }
+            for (let i = 1; i <= newCount; i++) {
+
+                let dateFields4 = ` <div class="col-md-12 mt-3 pl-0">
+                                                    <label for="">Completion Certificate Received ${i}</label>
+                                                    <input type="text" class="form-control" name="completion[]" placeholder="Completion Certificate Received">
+                                                </div>`;
+
+                completion1.append(dateFields4);
             }
         });
     });

@@ -132,7 +132,7 @@
                                         <th>UDIN No</th>
                                         <th>UDIN Trunover</th>
                                         <th>Status</th>
-                                        <th> Date added</th>
+                                        <th>Date added</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -140,9 +140,18 @@
                                     <?php if ($users !== null && !empty($users)): ?>
                                         <?php foreach ($users as $index => $user): ?>
                                             <?php
+                             
+
                                             $submit_dates = explode(',', $user->submit_date);
                                             $report_dates = explode(',', $user->report_submit_date);
                                             $bill_dates = explode(',', $user->bill_date);
+                                            $invoice_no = explode(',', $user->invoice_no);
+                                            $invoice_amount = explode(',', $user->invoice_amount);
+                                            $recovery_status = explode(',', $user->recovery_status);
+                                            $security_deposit = explode(',', $user->security_deposit);
+                                            $working = explode(',', $user->working);
+                                            $completion = explode(',', $user->completion);
+                                            $fee = explode(',', $user->fee);
                                             // Split dates 
                                             ?>
 
@@ -155,8 +164,13 @@
                                                 <td><?= $user->audit ?></td>
                                                 <?php 
                                                 $autt = $user->audit;
-                                                if ($autt == 'monthly'): ?>
-                                                <td><?= $user->fee ?></td>
+                                                if ($autt == 'monthly'|| $autt =='quarterly' || $autt =='half'): ?>
+                                               
+                                                <td class="p-0">
+                                                    <?php foreach ($fee as $fees): ?>
+                                                        <div class="td"> <?= trim($fees) ?></div>
+                                                    <?php endforeach; ?>
+                                                </td>
                                                 <td class="p-0">
                                                     <?php foreach ($submit_dates as $subdate): ?>
                                                         <div class="td"> <?= trim($subdate) ?></div>
@@ -172,12 +186,39 @@
                                                         <div class="td"><?= trim($subdate) ?></div>
                                                     <?php endforeach; ?>
                                                 </td>
-                                                <td><?= $user->invoice_no ?></td>
-                                                <td><?= $user->invoice_amount ?></td>
-                                                <td><?= $user->recovery_status ?></td>
-                                                <td><?= $user->security_deposit ?></td>
-                                                <td><?= $user->working ?></td>
-                                                <td><?= $user->completion ?></td>
+                                                <td class="p-0">
+                                                    <?php foreach ($invoice_no as $invoice): ?>
+                                                        <div class="td"><?= trim($invoice) ?></div>
+                                                    <?php endforeach; ?>
+                                                </td>
+                                                <td class="p-0">
+                                                    <?php foreach ($invoice_amount as $invoice_a): ?>
+                                                        <div class="td"><?= trim($invoice_a) ?></div>
+                                                    <?php endforeach; ?>
+                                                </td>
+                                                <td class="p-0">
+                                                    <?php foreach ($recovery_status as $recovery): ?>
+                                                        <div class="td"><?= trim($recovery) ?></div>
+                                                    <?php endforeach; ?>
+                                                </td>
+                                                <td class="p-0">
+                                                    <?php foreach ($security_deposit as $security): ?>
+                                                        <div class="td"><?= trim($security) ?></div>
+                                                    <?php endforeach; ?>
+                                                </td>
+                                                <td class="p-0">
+                                                    <?php foreach ($working as $working_a): ?>
+                                                        <div class="td"><?= trim($working_a) ?></div>
+                                                    <?php endforeach; ?>
+                                                </td>
+                                                <td class="p-0">
+                                                    <?php foreach ($completion as $completion_a): ?>
+                                                        <div class="td"><?= trim($completion_a) ?></div>
+                                                    <?php endforeach; ?>
+                                                </td>
+                                            
+                                               
+                                              
                                                 <?php else: ?>
                                                 <td><?= $user->fee ?></td>
                                                 <td > <?= $user->submit_date ?> </td>
