@@ -1,6 +1,10 @@
 <?= $this->include('admin/common/header') ?>
 
 <div class="content-body">
+<style>
+        .role-f {
+            display: none !important;
+        } </style>
 	<div class="container-fluid">
 		<div class="row page-titles mx-0">
 			<div class="col-sm-6">

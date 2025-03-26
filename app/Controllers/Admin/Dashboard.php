@@ -59,6 +59,8 @@ class Dashboard extends BaseController
         } else {
             $total_task = count($data['users']); // Total tasks
             $pending = [];
+            $pending_count = 0;
+            $late_count = 0;
             $late_complete = [];
             $complete = [];
             $current_date = (new DateTime())->format('Y-m-d');
@@ -70,6 +72,45 @@ class Dashboard extends BaseController
                 // Remove empty values & trim spaces
                 $submit_dates = array_filter(array_map('trim', $submit_dates));
                 $report_dates = array_filter(array_map('trim', $report_dates));
+                $submit_count = count($submit_dates);
+                $report_count = count($report_dates);
+
+                // echo "<pre>";
+                // echo "Submit Dates:\n";
+                // print_r($submit_count);
+                // echo "\n";
+                // echo "Report Dates:\n";
+                // print_r($report_count);
+                // echo "</pre>";
+                // echo "pre Report Dates:\n";
+                // print_r( $pending_count);
+
+
+
+                if ($submit_count > 0 && $report_count == 0) {
+                    $pending_count += $submit_count;
+                    
+                }
+                if ($submit_count > $report_count && $submit_count > 0 && $report_count > 0) {
+                  
+                    $late_count11 = $submit_count - $report_count;
+                    print_r($late_count11);
+                    $pending_count +=$late_count11;
+                    echo "post Report Dates:\n";
+                    print_r( $pending_count);
+                }
+              
+                // Check late completion
+                foreach ($submit_dates as $index => $submit_date) {
+                    if (!isset($report_dates[$index])) {
+                        continue; // Skip if there is no corresponding report date
+                    }
+            
+                    if ($report_dates[$index] > $submit_date) {
+                        $late_count++;
+                    }
+                }
+         
 
                 // Convert to DateTime for comparison
                 $submit_dates = array_map(fn($date) => new DateTime($date), $submit_dates);
@@ -79,6 +120,7 @@ class Dashboard extends BaseController
                 sort($submit_dates);
                 sort($report_dates);
 
+                
                 // echo "<pre>";
                 // echo "Submit Dates:\n";
                 // print_r($submit_dates);
@@ -101,12 +143,23 @@ class Dashboard extends BaseController
                 // Compare each submit date with the corresponding report date
                 $is_pending = false;
                 $is_late_complete = false;
-
+                // echo "<pre>";
+                // echo "Submit Dates:\n";
+                // print_r($submit_dates);
+                // echo "Report Dates:\n";
+                // print_r($report_dates);
+                // echo "</pre>";
                 foreach ($submit_dates as $index => $submit_date) {
                     $formatted_submit_date = $submit_date->format('Y-m-d');
-
+                //  echo "<pre>";
+                // echo "Submit Dates:\n";
+                // print_r($formatted_submit_date);
+                // echo "Report Dates:\n";
+                // print_r($report_dates);
+                // echo "</pre>";
                     // Find corresponding report date (if exists)
-                    $matching_report_date = $report_dates[$index] ?? null;
+                    $matching_report_date = $report_dates[$index] ?? null; 
+                  
 
                     if (!$matching_report_date) {
                         $is_pending = true; // No report date found → Pending
@@ -127,7 +180,8 @@ class Dashboard extends BaseController
                     $complete[] = $user;
                 }
             }
-
+            // echo "Pending Count: $pending_count\n";
+            // echo "Late Complete Count: $late_count\n";
             // die();
 
 
@@ -141,8 +195,8 @@ class Dashboard extends BaseController
             //         die();
 
             // Count totals
-            $total_pending = count($pending);
-            $total_late_complete = count($late_complete);
+            $total_pending = $pending_count;
+            $total_late_complete = $late_count;
             $total_complete = count($complete);
 
             // Store in data array
