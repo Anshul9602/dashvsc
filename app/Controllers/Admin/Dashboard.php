@@ -94,10 +94,10 @@ class Dashboard extends BaseController
                 if ($submit_count > $report_count && $submit_count > 0 && $report_count > 0) {
                   
                     $late_count11 = $submit_count - $report_count;
-                    print_r($late_count11);
+                    // print_r($late_count11);
                     $pending_count +=$late_count11;
-                    echo "post Report Dates:\n";
-                    print_r( $pending_count);
+                    // echo "post Report Dates:\n";
+                    // print_r( $pending_count);
                 }
               
                 // Check late completion
