@@ -120,31 +120,54 @@ class Category extends BaseController
         // **CSV Data**
         $index = 1;
         foreach ($users as $user) {
-            fputcsv($output, [
-                sprintf("%02d", $index++), // Serial Number
-                $user->name,
-                $user->branch,
-                $user->type,
-                $user->assignment,
-                $user->audit,
-                $user->fee,
-                $user->submit_date,
-                $user->report_submit_date,
-                $user->bill_type,
-                $user->bill_date,
-                $user->udin,
-                $user->udin_no,
-                $user->udin_trun,
-                $user->invoice_no,
-                $user->invoice_amount,
-                $user->recovery_status,
-                $user->security_deposit,
-                $user->working,
-                $user->completion,
-                $user->status == '1' ? 'Active' : 'Inactive', // Convert status to readable text
-                $user->created_at
-            ]);
+            $audit_values = explode(',', $user->audit);
+            $fee_values = explode(',', $user->fee);
+            $submit_dates = explode(',', $user->submit_date);
+            $report_dates = explode(',', $user->report_submit_date);
+            $bill_dates = explode(',', $user->bill_date);
+            $invoice_nos = explode(',', $user->invoice_no);
+            $invoice_amounts = explode(',', $user->invoice_amount);
+            $recovery_status = explode(',', $user->recovery_status);
+            $security_deposit = explode(',', $user->security_deposit);
+            $working_values = explode(',', $user->working);
+            $completion_values = explode(',', $user->completion);
+    
+            // Determine max count to handle multi-value fields
+            $max_count = max(
+                count($audit_values), count($fee_values), count($submit_dates),
+                count($report_dates), count($bill_dates), count($invoice_nos),
+                count($invoice_amounts), count($recovery_status),
+                count($security_deposit), count($working_values), count($completion_values)
+            );
+    
+            // Loop through multi-value fields
+            for ($i = 0; $i < $max_count; $i++) {
+                fputcsv($output, [
+                    $i === 0 ? sprintf("%02d", $index++) : '', // Only first row shows index
+                    $i === 0 ? $user->name : '',
+                    $i === 0 ? $user->branch : '',
+                    $i === 0 ? $user->type : '',
+                    $i === 0 ? $user->assignment : '',
+                    $audit_values[$i] ?? '',
+                    $fee_values[$i] ?? '',
+                    $submit_dates[$i] ?? '',
+                    $report_dates[$i] ?? '',
+                    $bill_dates[$i] ?? '',
+                    $invoice_nos[$i] ?? '',
+                    $invoice_amounts[$i] ?? '',
+                    $recovery_status[$i] ?? '',
+                    $security_deposit[$i] ?? '',
+                    $working_values[$i] ?? '',
+                    $completion_values[$i] ?? '',
+                    $i === 0 ? $user->udin : '',
+                    $i === 0 ? $user->udin_no : '',
+                    $i === 0 ? $user->udin_trun : '',
+                    $i === 0 ? ($user->status == '1' ? 'Active' : 'Inactive') : '',
+                    $i === 0 ? $user->created_at : ''
+                ]);
+            }
         }
+    
     
         fclose($output);
         exit;
@@ -319,10 +342,6 @@ class Category extends BaseController
     }
 
 
-
-
-
-
     public function createSheet($data)
     {
         try {
@@ -364,179 +383,10 @@ class Category extends BaseController
             ]);
         }
     }
-    public function sheet_permission($token)
-    {
-        try {
-            // Get the Google Sheet URL from the POST request
-            $sheetUrl = $this->request->getPost('sheet_url');
-
-            // Validate the URL
-            if (filter_var($sheetUrl, FILTER_VALIDATE_URL) === false) {
-                throw new \Exception('Invalid URL');
-            }
-
-            // Extract the file ID from the Google Sheet URL
-            preg_match('/\/d\/(.*?)\//', $sheetUrl, $matches);
-            if (!isset($matches[1])) {
-                throw new \Exception('Invalid Google Sheet URL');
-            }
-            $fileId = $matches[1];
-            // Fetch permissions using your service or API logic
-            $permissions = $this->getSheetPermission($fileId);
-
-            // Return JSON response
-            return $this->response->setJSON([
-                'success' => true,
-                'permissions' => $permissions,
-            ]);
-        } catch (\Exception $e) {
-            // Handle errors gracefully
-            return $this->response->setJSON([
-                'success' => false,
-                'message' => $e->getMessage(),
-            ]);
-        }
-    }
-    public function getSheetPermission($fileId)
-    {
-        try {
-            // Initialize the Google API Client
-            $client = \App\Services\GoogleService::getClient();
-            $service = new \Google\Service\Drive($client);
-
-            // Fetch permissions from the API
-            $response = $service->permissions->listPermissions($fileId, [
-                'fields' => 'permissions(id,emailAddress,role,type)',
-            ]);
-
-            // Log the response for debugging
-            log_message('debug', 'Google API Response: ' . json_encode($response));
-
-            // Check if permissions exist
-            if (empty($response->getPermissions())) {
-                log_message('debug', 'No permissions found for file ID: ' . $fileId);
-                return [];
-            }
-
-            return $response->getPermissions(); // Return the permissions
-        } catch (\Exception $e) {
-            // Log the error message
-            log_message('error', 'Error fetching permissions: ' . $e->getMessage());
-            return [];
-        }
-    }
+   
 
 
-    //     public function createSheet($data)
-    // {
-    //     try {
-
-    //         $selectedUsers = $data['selected_users'] ?? [];
-
-    // //         echo "<pre>"; print_r($selectedUsers);
-    // //         echo "</pre>";
-    // // die();
-    //         // Get Google API Client
-    //         $client = \App\Services\GoogleService::getClient();
-    //         $service = new \Google\Service\Sheets($client);
-
-    //         // Create the Google Sheet
-    //         $spreadsheet = new \Google\Service\Sheets\Spreadsheet([
-    //             'properties' => [
-    //                 'title' => 'Form Data Sheet',
-    //             ],
-    //         ]);
-    //         $spreadsheet = $service->spreadsheets->create($spreadsheet);
-
-    //         // Retrieve the Spreadsheet ID and URL
-    //         $spreadsheetId = $spreadsheet->spreadsheetId;
-    //         $spreadsheetUrl = $spreadsheet->spreadsheetUrl;
-
-    //         // Grant ownership to admin
-    //         $driveService = new \Google\Service\Drive($client);
-
-    //         $permission = new \Google\Service\Drive\Permission([
-    //             'type' => 'user',
-    //             'role' => 'owner',
-    //             'emailAddress' => session()->get('admin_email'),
-    //         ]);
-
-    //         $driveService->permissions->create(
-    //             $spreadsheetId,
-    //             $permission,
-    //             ['transferOwnership' => true, 'sendNotificationEmail' => true]
-    //         );
-
-    //         // 📌 Add Delay to Prevent Rate Limit Exceeded Error
-    //         sleep(1);  // Delay after admin permission
-
-    //         // Handle permissions for selected users
-
-    //         if (!empty($selectedUsers)) {
-    //             foreach ($selectedUsers as $userId => $value) {
-    //                 $userEmail = $data['permissions'][$userId]['user_email'] ?? null;
-    //                 $permissions = $data['permissions'][$userId] ?? [];
-
-    //                 if ($userEmail && !empty($permissions)) {
-    //                     $role = in_array('sheets_edit', $permissions) ? 'writer' : 'reader';
-
-    //                     $permission = new \Google\Service\Drive\Permission([
-    //                         'type' => 'user',
-    //                         'role' => $role,
-    //                         'emailAddress' => $userEmail,
-    //                     ]);
-
-    //                     try {
-    //                         $driveService->permissions->create(
-    //                             $spreadsheetId,
-    //                             $permission,
-    //                             ['sendNotificationEmail' => true]
-    //                         );
-
-    //                         sleep(1);  // ⏳ Delay between each permission to avoid rate limit
-
-    //                     } catch (\Google\Service\Exception $e) {
-    //                         if (strpos($e->getMessage(), 'sharingRateLimitExceeded') !== false) {
-    //                             log_message('error', "Quota exceeded for $userEmail. Skipping...");
-    //                             sleep(5);  // Wait longer before the next request
-    //                         } else {
-    //                             log_message('error', "Error sharing with $userEmail: " . $e->getMessage());
-    //                         }
-    //                     }
-    //                 }
-    //             }
-    //         }
-
-    //         return $spreadsheetUrl;
-
-    //     } catch (\Exception $e) {
-    //         return $this->response->setJSON([
-    //             'success' => false,
-    //             'message' => $e->getMessage(),
-    //         ]);
-    //     }
-    // }
-
-
-    private function grantSheetPermission($sheetUrl, $email, $role)
-    {
-        try {
-            $client = \App\Services\GoogleService::getClient();
-            $driveService = new \Google\Service\Drive($client);
-
-            $permission = new \Google\Service\Drive\Permission([
-                'type' => 'user',
-                'role' => $role,
-                'emailAddress' => $email,
-            ]);
-
-            $sheetId = $this->extractSheetIdFromUrl($sheetUrl);
-            $driveService->permissions->create($sheetId, $permission, ['sendNotificationEmail' => true, 'transferOwnership' => true,]);
-        } catch (\Exception $e) {
-            log_message('error', 'Error assigning permission: ' . $e->getMessage());
-        }
-    }
-
+   
     private function extractSheetIdFromUrl($url)
     {
         preg_match('/\/d\/([a-zA-Z0-9-_]+)/', $url, $matches);

@@ -1,10 +1,21 @@
 <?= $this->include('admin/common/header') ?>
 
 <div class="content-body">
-<style>
-        .role-f {
-            display: none !important;
-        } </style>
+	<style>
+		.role-f {
+			display: none !important;
+		}
+
+		table.dataTable.display tbody td {
+			border: 1px solid #ddd;
+		}
+
+		table.dataTable.display tbody .td {
+			border: 1px solid #ddd;
+			padding: 8px 10px;
+			min-height: 37px;
+		}
+	</style>
 	<div class="container-fluid">
 		<div class="row page-titles mx-0">
 			<div class="col-sm-6">
@@ -160,7 +171,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<h5 class="modal-title" id="taskModalLabel">Task Details</h5>
-				
+
 			</div>
 			<div class="modal-body">
 				<div class="table-responsive">
@@ -174,30 +185,344 @@
 									<th>Name</th>
 									<th>Branch</th>
 									<th>Type</th>
-									<th>Type Of <br>Assignment</th>
-									<th>Frequency <br>Of Audit </th>
+									<th>Type Of Assignment</th>
+									<th>Frequency Of Audit </th>
 									<th>Professinal Fees</th>
 									<th>Last Date of Submission</th>
 									<th>Report Date of Submission</th>
-									<th>Bill Type</th>
 									<th>Bill Date</th>
-									<th>UDIN</th>
-									<th>UDIN No</th>
-									<th>UDIN Trunover</th>
+									
 									<th>Invoice Number</th>
+									<th>Invoice Amount</th>
 									<th>Recovery status</th>
 									<th>Security Deposit</th>
 									<th>Working Environment</th>
 									<th>Completion Certificate Received</th>
-
-
-									<th>Status</th>
+									<th>UDIN</th>
+									<th>UDIN No</th>
+									<th>UDIN Trunover</th>
 									<th> Date added</th>
+								
 
 								</tr>
 							</thead>
-							<tbody>
+							<tbody class="complttt"style="display:none;">
+							<?php if ($complete !== null && !empty($complete)): ?>
+                                        <?php foreach ($complete as $index => $user): ?>
+                                            <?php
+                             
 
+                                            $submit_dates = explode(',', $user->submit_date);
+                                            $report_dates = explode(',', $user->report_submit_date);
+                                            $bill_dates = explode(',', $user->bill_date);
+                                            $invoice_no = explode(',', $user->invoice_no);
+                                            $invoice_amount = explode(',', $user->invoice_amount);
+                                            $recovery_status = explode(',', $user->recovery_status);
+                                            $security_deposit = explode(',', $user->security_deposit);
+                                            $working = explode(',', $user->working);
+                                            $completion = explode(',', $user->completion);
+                                            $fee = explode(',', $user->fee);
+                                            // Split dates 
+                                            ?>
+
+                                            <tr>
+                                                <td><?= sprintf("%02d", $index + 1) ?></td>
+                                                <td><?= $user->name ?></td>
+                                                <td><?= $user->branch ?></td>
+                                                <td><?= $user->type ?></td>
+                                                <td><?= $user->assignment ?></td>
+                                                <td><?= $user->audit ?></td>
+                                                <?php 
+                                                $autt = $user->audit;
+                                                if ($autt == 'monthly'|| $autt =='quarterly' || $autt =='half'): ?>
+                                               
+                                                <td class="p-0">
+                                                    <?php foreach ($fee as $fees): ?>
+                                                        <div class="td"> <?= trim($fees) ?></div>
+                                                    <?php endforeach; ?>
+                                                </td>
+                                                <td class="p-0">
+                                                    <?php foreach ($submit_dates as $subdate): ?>
+                                                        <div class="td"> <?= trim($subdate) ?></div>
+                                                    <?php endforeach; ?>
+                                                </td>
+                                                <td class="p-0">
+                                                    <?php foreach ($report_dates as $subdate): ?>
+                                                        <div class="td"> <?= trim($subdate) ?></div>
+                                                    <?php endforeach; ?>
+                                                </td>
+                                                <td class="p-0">
+                                                    <?php foreach ($bill_dates as $subdate): ?>
+                                                        <div class="td"><?= trim($subdate) ?></div>
+                                                    <?php endforeach; ?>
+                                                </td>
+                                                <td class="p-0">
+                                                    <?php foreach ($invoice_no as $invoice): ?>
+                                                        <div class="td"><?= trim($invoice) ?></div>
+                                                    <?php endforeach; ?>
+                                                </td>
+                                                <td class="p-0">
+                                                    <?php foreach ($invoice_amount as $invoice_a): ?>
+                                                        <div class="td"><?= trim($invoice_a) ?></div>
+                                                    <?php endforeach; ?>
+                                                </td>
+                                                <td class="p-0">
+                                                    <?php foreach ($recovery_status as $recovery): ?>
+                                                        <div class="td"><?= trim($recovery) ?></div>
+                                                    <?php endforeach; ?>
+                                                </td>
+                                                <td class="p-0">
+                                                    <?php foreach ($security_deposit as $security): ?>
+                                                        <div class="td"><?= trim($security) ?></div>
+                                                    <?php endforeach; ?>
+                                                </td>
+                                                <td class="p-0">
+                                                    <?php foreach ($working as $working_a): ?>
+                                                        <div class="td"><?= trim($working_a) ?></div>
+                                                    <?php endforeach; ?>
+                                                </td>
+                                                <td class="p-0">
+                                                    <?php foreach ($completion as $completion_a): ?>
+                                                        <div class="td"><?= trim($completion_a) ?></div>
+                                                    <?php endforeach; ?>
+                                                </td>
+                                            
+                                               
+                                              
+                                                <?php else: ?>
+                                                <td><?= $user->fee ?></td>
+                                                <td > <?= $user->submit_date ?> </td>
+                                                <td ><?= $user->report_submit_date ?> </td>
+                                                <td > <?= $user->invoice_no ?></td>
+                                                <td><?= $user->invoice_no ?></td>
+                                                <td><?= $user->invoice_amount ?></td>
+                                                <td><?= $user->recovery_status ?></td>
+                                                <td><?= $user->security_deposit ?></td>
+                                                <td><?= $user->working ?></td>
+                                                <td><?= $user->completion ?></td>
+                                                <?php endif; ?>
+                                                <td><?= $user->udin ?></td>
+                                                <td><?= $user->udin_no ?></td>
+                                                <td><?= $user->udin_trun ?></td>
+                                               
+                                                <td><a href="javascript:void(0);"><strong><?= $user->created_at ?></strong></a></td>
+                                               
+                                            </tr>
+
+                                        <?php endforeach; ?>
+                                    <?php endif; ?>
+							</tbody>
+							<tbody class="pendinggg"style="display:none;">
+							<?php if ($pending !== null && !empty($pending)): ?>
+                                        <?php foreach ($pending as $index => $user): ?>
+                                            <?php
+                             
+
+                                            $submit_dates = explode(',', $user->submit_date);
+                                            $report_dates = explode(',', $user->report_submit_date);
+                                            $bill_dates = explode(',', $user->bill_date);
+                                            $invoice_no = explode(',', $user->invoice_no);
+                                            $invoice_amount = explode(',', $user->invoice_amount);
+                                            $recovery_status = explode(',', $user->recovery_status);
+                                            $security_deposit = explode(',', $user->security_deposit);
+                                            $working = explode(',', $user->working);
+                                            $completion = explode(',', $user->completion);
+                                            $fee = explode(',', $user->fee);
+                                            // Split dates 
+                                            ?>
+
+                                               <tr>
+                                                <td><?= sprintf("%02d", $index + 1) ?></td>
+                                                <td><?= $user->name ?></td>
+                                                <td><?= $user->branch ?></td>
+                                                <td><?= $user->type ?></td>
+                                                <td><?= $user->assignment ?></td>
+                                                <td><?= $user->audit ?></td>
+                                                <?php 
+                                                $autt = $user->audit;
+                                                if ($autt == 'monthly'|| $autt =='quarterly' || $autt =='half'): ?>
+                                               
+                                                <td class="p-0">
+                                                    <?php foreach ($fee as $fees): ?>
+                                                        <div class="td"> <?= trim($fees) ?></div>
+                                                    <?php endforeach; ?>
+                                                </td>
+                                                <td class="p-0">
+                                                    <?php foreach ($submit_dates as $subdate): ?>
+                                                        <div class="td"> <?= trim($subdate) ?></div>
+                                                    <?php endforeach; ?>
+                                                </td>
+                                                <td class="p-0">
+                                                    <?php foreach ($report_dates as $subdate): ?>
+                                                        <div class="td"> <?= trim($subdate) ?></div>
+                                                    <?php endforeach; ?>
+                                                </td>
+                                                <td class="p-0">
+                                                    <?php foreach ($bill_dates as $subdate): ?>
+                                                        <div class="td"><?= trim($subdate) ?></div>
+                                                    <?php endforeach; ?>
+                                                </td>
+                                                <td class="p-0">
+                                                    <?php foreach ($invoice_no as $invoice): ?>
+                                                        <div class="td"><?= trim($invoice) ?></div>
+                                                    <?php endforeach; ?>
+                                                </td>
+                                                <td class="p-0">
+                                                    <?php foreach ($invoice_amount as $invoice_a): ?>
+                                                        <div class="td"><?= trim($invoice_a) ?></div>
+                                                    <?php endforeach; ?>
+                                                </td>
+                                                <td class="p-0">
+                                                    <?php foreach ($recovery_status as $recovery): ?>
+                                                        <div class="td"><?= trim($recovery) ?></div>
+                                                    <?php endforeach; ?>
+                                                </td>
+                                                <td class="p-0">
+                                                    <?php foreach ($security_deposit as $security): ?>
+                                                        <div class="td"><?= trim($security) ?></div>
+                                                    <?php endforeach; ?>
+                                                </td>
+                                                <td class="p-0">
+                                                    <?php foreach ($working as $working_a): ?>
+                                                        <div class="td"><?= trim($working_a) ?></div>
+                                                    <?php endforeach; ?>
+                                                </td>
+                                                <td class="p-0">
+                                                    <?php foreach ($completion as $completion_a): ?>
+                                                        <div class="td"><?= trim($completion_a) ?></div>
+                                                    <?php endforeach; ?>
+                                                </td>
+                                            
+                                               
+                                              
+                                                <?php else: ?>
+                                                <td><?= $user->fee ?></td>
+                                                <td > <?= $user->submit_date ?> </td>
+                                                <td ><?= $user->report_submit_date ?> </td>
+                                                <td > <?= $user->invoice_no ?></td>
+                                                <td><?= $user->invoice_no ?></td>
+                                                <td><?= $user->invoice_amount ?></td>
+                                                <td><?= $user->recovery_status ?></td>
+                                                <td><?= $user->security_deposit ?></td>
+                                                <td><?= $user->working ?></td>
+                                                <td><?= $user->completion ?></td>
+                                                <?php endif; ?>
+                                                <td><?= $user->udin ?></td>
+                                                <td><?= $user->udin_no ?></td>
+                                                <td><?= $user->udin_trun ?></td>
+                                               
+                                                <td><a href="javascript:void(0);"><strong><?= $user->created_at ?></strong></a></td>
+                                               
+                                            </tr>
+
+                                        <?php endforeach; ?>
+                                    <?php endif; ?>
+							</tbody>
+							<tbody class="lett" style="display:none;">
+							<?php if ($late !== null && !empty($late)): ?>
+                                        <?php foreach ($late as $index => $user): ?>
+                                            <?php
+                             
+
+                                            $submit_dates = explode(',', $user->submit_date);
+                                            $report_dates = explode(',', $user->report_submit_date);
+                                            $bill_dates = explode(',', $user->bill_date);
+                                            $invoice_no = explode(',', $user->invoice_no);
+                                            $invoice_amount = explode(',', $user->invoice_amount);
+                                            $recovery_status = explode(',', $user->recovery_status);
+                                            $security_deposit = explode(',', $user->security_deposit);
+                                            $working = explode(',', $user->working);
+                                            $completion = explode(',', $user->completion);
+                                            $fee = explode(',', $user->fee);
+                                            // Split dates 
+                                            ?>
+
+<tr>
+                                                <td><?= sprintf("%02d", $index + 1) ?></td>
+                                                <td><?= $user->name ?></td>
+                                                <td><?= $user->branch ?></td>
+                                                <td><?= $user->type ?></td>
+                                                <td><?= $user->assignment ?></td>
+                                                <td><?= $user->audit ?></td>
+                                                <?php 
+                                                $autt = $user->audit;
+                                                if ($autt == 'monthly'|| $autt =='quarterly' || $autt =='half'): ?>
+                                               
+                                                <td class="p-0">
+                                                    <?php foreach ($fee as $fees): ?>
+                                                        <div class="td"> <?= trim($fees) ?></div>
+                                                    <?php endforeach; ?>
+                                                </td>
+                                                <td class="p-0">
+                                                    <?php foreach ($submit_dates as $subdate): ?>
+                                                        <div class="td"> <?= trim($subdate) ?></div>
+                                                    <?php endforeach; ?>
+                                                </td>
+                                                <td class="p-0">
+                                                    <?php foreach ($report_dates as $subdate): ?>
+                                                        <div class="td"> <?= trim($subdate) ?></div>
+                                                    <?php endforeach; ?>
+                                                </td>
+                                                <td class="p-0">
+                                                    <?php foreach ($bill_dates as $subdate): ?>
+                                                        <div class="td"><?= trim($subdate) ?></div>
+                                                    <?php endforeach; ?>
+                                                </td>
+                                                <td class="p-0">
+                                                    <?php foreach ($invoice_no as $invoice): ?>
+                                                        <div class="td"><?= trim($invoice) ?></div>
+                                                    <?php endforeach; ?>
+                                                </td>
+                                                <td class="p-0">
+                                                    <?php foreach ($invoice_amount as $invoice_a): ?>
+                                                        <div class="td"><?= trim($invoice_a) ?></div>
+                                                    <?php endforeach; ?>
+                                                </td>
+                                                <td class="p-0">
+                                                    <?php foreach ($recovery_status as $recovery): ?>
+                                                        <div class="td"><?= trim($recovery) ?></div>
+                                                    <?php endforeach; ?>
+                                                </td>
+                                                <td class="p-0">
+                                                    <?php foreach ($security_deposit as $security): ?>
+                                                        <div class="td"><?= trim($security) ?></div>
+                                                    <?php endforeach; ?>
+                                                </td>
+                                                <td class="p-0">
+                                                    <?php foreach ($working as $working_a): ?>
+                                                        <div class="td"><?= trim($working_a) ?></div>
+                                                    <?php endforeach; ?>
+                                                </td>
+                                                <td class="p-0">
+                                                    <?php foreach ($completion as $completion_a): ?>
+                                                        <div class="td"><?= trim($completion_a) ?></div>
+                                                    <?php endforeach; ?>
+                                                </td>
+                                            
+                                               
+                                              
+                                                <?php else: ?>
+                                                <td><?= $user->fee ?></td>
+                                                <td > <?= $user->submit_date ?> </td>
+                                                <td ><?= $user->report_submit_date ?> </td>
+                                                <td > <?= $user->invoice_no ?></td>
+                                                <td><?= $user->invoice_no ?></td>
+                                                <td><?= $user->invoice_amount ?></td>
+                                                <td><?= $user->recovery_status ?></td>
+                                                <td><?= $user->security_deposit ?></td>
+                                                <td><?= $user->working ?></td>
+                                                <td><?= $user->completion ?></td>
+                                                <?php endif; ?>
+                                                <td><?= $user->udin ?></td>
+                                                <td><?= $user->udin_no ?></td>
+                                                <td><?= $user->udin_trun ?></td>
+                                               
+                                                <td><a href="javascript:void(0);"><strong><?= $user->created_at ?></strong></a></td>
+                                               
+                                            </tr>
+
+                                        <?php endforeach; ?>
+                                    <?php endif; ?>
 							</tbody>
 						</table>
 					</div>
@@ -217,80 +542,30 @@
 </script>
 <script>
 	document.addEventListener("DOMContentLoaded", function() {
-		function openModal(taskType, taskData) {
-			let tableBody = document.querySelector("#taskTable tbody");
-			let modalTitle = document.getElementById("taskModalLabel");
-
-			// Set the title dynamically
-			if (taskType === "complete") {
-				modalTitle.innerText = "Completed Tasks";
-			} else if (taskType === "pending") {
-				modalTitle.innerText = "Pending Tasks";
-			} else if (taskType === "late") {
-				modalTitle.innerText = "Late Completed Tasks";
-			}
-
-			// Clear existing table rows
-			tableBody.innerHTML = "";
-
-			if (taskData.length > 0) {
-				let index = 1;
-				taskData.forEach(task => {
-					let row = `
-                    <tr>
-                        <td>${index}</td> 
-                        <td>${task.name}</td>
-                        <td>${task.branch}</td>
-                        <td>${task.type}</td>
-                        <td>${task.assignment || "N/A"}</td>
-                        <td>${task.audit || "N/A"}</td>
-                        <td>${task.fee || "N/A"}</td>
-                        <td>${task.submit_date || "N/A"}</td>
-                        <td>${task.report_submit_date || "N/A"}</td>
-                        <td>${task.bill_type || "N/A"}</td>
-                        <td>${task.bill_date || "N/A"}</td>
-                        <td>${task.udin || "N/A"}</td>
-                        <td>${task.udin_no || "N/A"}</td>
-                        <td>${task.udin_trun || "N/A"}</td>
-                        <td>${task.invoice_no || "N/A"}</td>
-                        <td>${task.recovery_status || "N/A"}</td>
-                        <td>${task.security_deposit || "N/A"}</td>
-                        <td>${task.working || "N/A"}</td>
-                        <td>${task.completion || "N/A"}</td>
-                        <td>${task.status == 1 ? "Active" : "Inactive"}</td>
-                        <td>${task.created_at}</td>
-                    </tr>
-                `;
-					tableBody.innerHTML += row;
-					index++;
-				});
-			} else {
-				tableBody.innerHTML = "<tr><td colspan='16' class='text-center'>No tasks available</td></tr>";
-			}
-
-			// Show the modal
-			var taskModal = new bootstrap.Modal(document.getElementById("taskModal"));
-			taskModal.show();
-		}
-
+		$('#example3').DataTable();
 		// Attach event listeners
 		document.getElementById("completedTasksCard").addEventListener("click", function() {
-			let completedData = <?php echo json_encode($complete); ?>;
-			openModal("complete", completedData);
+			
+			document.querySelector(".complttt").style.display = "table-row-group";
+			var taskModal = new bootstrap.Modal(document.getElementById("taskModal"));
+			taskModal.show();
+			// document.querySelector(".pendinggg").style.display = "none";
+			// document.querySelector(".lett").style.display = "none";
 		});
 
 		document.getElementById("pendingTasksCard").addEventListener("click", function() {
-			let pendingData = <?php echo json_encode($pending); ?>;
-			openModal("pending", pendingData);
+			document.querySelector(".pendinggg").style.display = "table-row-group";
+			var taskModal = new bootstrap.Modal(document.getElementById("taskModal"));
+			taskModal.show();
 		});
 
 		document.getElementById("lateTasksCard").addEventListener("click", function() {
-			let lateData = <?php echo json_encode($late); ?>;
-			openModal("late", lateData);
+			document.querySelector(".lett").style.display = "table-row-group";
+			var taskModal = new bootstrap.Modal(document.getElementById("taskModal"));
+			taskModal.show();
 		});
-		
-	});
-</script>
+
+	});</script>
 
 
 <?= $this->include('admin/common/footer') ?>

@@ -248,9 +248,8 @@
                                                         <a href="<?= base_url('admin/cat/category_form_value/' . $user->id); ?>" class="btn btn-primary shadow btn-xs sharp mr-1">
                                                             <i class="fa fa-pencil"></i>
                                                         </a>
-                                                        <a href="javascript:void(0);" class="btn btn-danger shadow btn-xs sharp"
-                                                            data-bs-toggle="modal" data-bs-target="#deleteModal5"
-                                                            data-url="<?= base_url('admin/cat/category_delete/' . $user->id); ?>">
+                                                        <a href="<?= base_url('admin/cat/category_delete/' . $user->id); ?>" class="btn btn-danger shadow btn-xs sharp"
+                                                           >
                                                             <i class="fa fa-trash"></i>
                                                         </a>
                                                     </div>
@@ -294,6 +293,41 @@
 <script>
 </script>
 <script>
+    //  document.addEventListener('DOMContentLoaded', function() {
+    //     // Ensure the script runs after the DOM is fully loaded
+    //     document.querySelectorAll('[data-bs-target="#deleteModal5"]').forEach(button => {
+    //         button.addEventListener('click', function() {
+    //             // Get the URL from the button's data-url attribute
+    //             const url = this.getAttribute('data-url');
+    //             console.log("test",url);
+    //             // Set the href of the confirmation button in the modal
+    //             document.getElementById('confirmDeleteBtn').setAttribute('href', url);
+    //         });
+    //     });
+    // });
+    document.addEventListener("DOMContentLoaded", function() {
+        // Remove the 'active' class from the 'des-menu' item
+        const desMenu = document.getElementById("des-menu");
+        const des = document.getElementById("dashboard");
+        if (desMenu) {
+            desMenu.classList.remove("active");
+        }
+        if (des) {
+            des.classList.remove("show");
+            des.classList.remove("active");
+        }
+
+        // Add the 'active' class to the 'cat-menu' item
+        const catMenu = document.getElementById("cat-menu");
+        const cat = document.getElementById("forms");
+        if (catMenu) {
+            catMenu.classList.add("active");
+        }
+        if (cat) {
+            cat.classList.add("show");
+            cat.classList.add("active");
+        }
+    });
     $('#exportCsv').click(function() {
         var token = $(this).data('id'); // Get token from button data-id
 
@@ -324,40 +358,7 @@
             }
         });
     });
-    document.addEventListener('DOMContentLoaded', function() {
-        // Ensure the script runs after the DOM is fully loaded
-        document.querySelectorAll('[data-bs-target="#deleteModal5"]').forEach(button => {
-            button.addEventListener('click', function() {
-                // Get the URL from the button's data-url attribute
-                const url = this.getAttribute('data-url');
-                // Set the href of the confirmation button in the modal
-                document.getElementById('confirmDeleteBtn').setAttribute('href', url);
-            });
-        });
-    });
-    document.addEventListener("DOMContentLoaded", function() {
-        // Remove the 'active' class from the 'des-menu' item
-        const desMenu = document.getElementById("des-menu");
-        const des = document.getElementById("dashboard");
-        if (desMenu) {
-            desMenu.classList.remove("active");
-        }
-        if (des) {
-            des.classList.remove("show");
-            des.classList.remove("active");
-        }
-
-        // Add the 'active' class to the 'cat-menu' item
-        const catMenu = document.getElementById("cat-menu");
-        const cat = document.getElementById("forms");
-        if (catMenu) {
-            catMenu.classList.add("active");
-        }
-        if (cat) {
-            cat.classList.add("show");
-            cat.classList.add("active");
-        }
-    });
+   
 </script>
 
 
